@@ -2,14 +2,14 @@
 //  FirstScreenFMInteractor.swift
 //  Ground
 //
-//  Created by 17790204 on 27.11.2020.
+//  Created by Vladislav Zhokhov on 27.11.2020.
 //  Copyright © 2020 Splash Fire. All rights reserved.
 //
 
-/// Интерфейс взаимодействия с интерактором экрана FirstScreenFM во флоу Ground.
-protocol FirstScreenFMInteractable {}
+/// Интерфейс взаимодействия с интерактором экрана IzolyatorMainViewController
+protocol IzolyatorMainInteractable {}
 
-final class FirstScreenFMInteractor: FirstScreenFMInteractable {
+final class IzolyatorMainInteractor: IzolyatorMainInteractable {
 
     /// Сервис
 	private let service: FirstServiceProtocol
@@ -19,5 +19,4 @@ final class FirstScreenFMInteractor: FirstScreenFMInteractable {
 	init(service: FirstServiceProtocol) {
 		self.service = service
 	}
-
 }

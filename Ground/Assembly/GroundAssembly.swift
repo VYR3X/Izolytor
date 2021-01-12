@@ -38,13 +38,13 @@ final class GroundAssembly {
 		return tabBarController
 	}
 
-	/// Метод для сборки экрана "Home" для таббара
-	func makeHomeViewController() -> UIViewController {
+	/// Метод для сборки экрана "IzolyatorMain" для таббара
+	func makeIzolyatorMainViewController() -> UIViewController {
 //		var view = SplashViewController()
 		let service = services.makeFirstService()
-		let interactor = FirstScreenFMInteractor(service: service)
-		let presenter = FirstScreenFMPresenter(interactor: interactor, coordinator: startRouter!)
-		let view = FirstScreenFMViewController(listener: presenter)
+		let interactor = IzolyatorMainInteractor(service: service)
+		let presenter = IzolyatorMainPresenter(interactor: interactor, coordinator: startRouter!)
+		let view = IzolyatorMainViewController(listener: presenter)
 		presenter.viewController = view
 		return view
 	}

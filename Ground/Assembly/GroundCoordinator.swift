@@ -2,7 +2,7 @@
 //  GroundAssembly.swift
 //  Ground
 //
-//  Created by 17790204 on 19.11.2020.
+//  Created by Vladislav Zhokhov on 19.11.2020.
 //  Copyright © 2020 Splash Fire. All rights reserved.
 //
 
@@ -47,10 +47,12 @@ class GroundCoordinator {
 	}
 }
 
+// MARK: - StartCoordinatorProtocol
+
 extension GroundCoordinator: StartCoordinatorProtocol {
 
 	func routeToHomeViewController() -> UIViewController {
-		let home = assembly.makeHomeViewController()
+		let home = assembly.makeIzolyatorMainViewController()
 		firstNavigationController = FirstNavigationController(rootViewController: home)
 		return firstNavigationController!
 	}
@@ -86,16 +88,16 @@ extension GroundCoordinator: StartCoordinatorProtocol {
 	}
 
 	func getTabBabItems() -> [UITabBarItem] {
-		let homeTabBar = UITabBarItem()
-		homeTabBar.title = "Home"
-		let searchTabBar = UITabBarItem()
-		searchTabBar.title = "Search"
-		let libraryTabBar = UITabBarItem()
-		libraryTabBar.title = "Library"
+		let catalogTabBarItem = UITabBarItem()
+		catalogTabBarItem.title = "Каталог"
+		let searchTabBarItem = UITabBarItem()
+		searchTabBarItem.title = "Поиск"
+		let profileTabBarItem = UITabBarItem()
+		profileTabBarItem.title = "Профиль"
 		var items: [UITabBarItem] = []
-		items.append(homeTabBar)
-		items.append(searchTabBar)
-		items.append(libraryTabBar)
+		items.append(catalogTabBarItem)
+		items.append(searchTabBarItem)
+		items.append(profileTabBarItem)
 		return items
 	}
 }

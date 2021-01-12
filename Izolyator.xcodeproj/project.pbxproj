@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		01141DF025669E6500E8CDE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01141DEF25669E6500E8CDE2 /* AppDelegate.swift */; };
 		01141DF225669E6500E8CDE2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01141DF125669E6500E8CDE2 /* SceneDelegate.swift */; };
-		01141DF425669E6500E8CDE2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01141DF325669E6500E8CDE2 /* ViewController.swift */; };
 		01141DFA25669E6500E8CDE2 /* Ground.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 01141DF825669E6500E8CDE2 /* Ground.xcdatamodeld */; };
 		01141DFC25669E6600E8CDE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01141DFB25669E6600E8CDE2 /* Assets.xcassets */; };
 		01141DFF25669E6600E8CDE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01141DFD25669E6600E8CDE2 /* LaunchScreen.storyboard */; };
@@ -40,9 +39,9 @@
 		01595F162571906D00934F9C /* SecondScreenTMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595F142571906D00934F9C /* SecondScreenTMViewController.swift */; };
 		01595F1B2571907B00934F9C /* SecondScreenTMPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595F182571907B00934F9C /* SecondScreenTMPresenter.swift */; };
 		01595F1C2571907B00934F9C /* SecondScreenTMInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595F192571907B00934F9C /* SecondScreenTMInteractor.swift */; };
-		01595F20257190AD00934F9C /* FirstScreenFMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595F1E257190AD00934F9C /* FirstScreenFMViewController.swift */; };
-		01595F25257190BB00934F9C /* FirstScreenFMPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595F22257190BB00934F9C /* FirstScreenFMPresenter.swift */; };
-		01595F26257190BB00934F9C /* FirstScreenFMInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595F23257190BB00934F9C /* FirstScreenFMInteractor.swift */; };
+		01595F20257190AD00934F9C /* IzolyatorMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595F1E257190AD00934F9C /* IzolyatorMainViewController.swift */; };
+		01595F25257190BB00934F9C /* IzolyatorMainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595F22257190BB00934F9C /* IzolyatorMainPresenter.swift */; };
+		01595F26257190BB00934F9C /* IzolyatorMainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595F23257190BB00934F9C /* IzolyatorMainInteractor.swift */; };
 		018774F825A2571900C171E5 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018774F725A2571900C171E5 /* SplashViewController.swift */; };
 		018774FC25A2574100C171E5 /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018774FB25A2574100C171E5 /* SplashPresenter.swift */; };
 		018774FF25A2574E00C171E5 /* SplashAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018774FE25A2574E00C171E5 /* SplashAnimator.swift */; };
@@ -60,13 +59,13 @@
 		01AF2FCD2592ABE40065699A /* converse.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AF2FC82592ABE40065699A /* converse.jpg */; };
 		01AF2FCE2592ABE40065699A /* converse_bump.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AF2FC92592ABE40065699A /* converse_bump.jpg */; };
 		01AF2FCF2592ABE40065699A /* converse_obj.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 01AF2FCA2592ABE40065699A /* converse_obj.mtl */; };
+		01D55F5425AB98DF004FB02F /* PagingCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D55F5325AB98DF004FB02F /* PagingCollectionViewLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		01141DEC25669E6500E8CDE2 /* Izolyator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Izolyator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01141DEF25669E6500E8CDE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01141DF125669E6500E8CDE2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		01141DF325669E6500E8CDE2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		01141DF925669E6500E8CDE2 /* Ground.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ground.xcdatamodel; sourceTree = "<group>"; };
 		01141DFB25669E6600E8CDE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01141DFE25669E6600E8CDE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -98,9 +97,9 @@
 		01595F142571906D00934F9C /* SecondScreenTMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondScreenTMViewController.swift; sourceTree = "<group>"; };
 		01595F182571907B00934F9C /* SecondScreenTMPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondScreenTMPresenter.swift; sourceTree = "<group>"; };
 		01595F192571907B00934F9C /* SecondScreenTMInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondScreenTMInteractor.swift; sourceTree = "<group>"; };
-		01595F1E257190AD00934F9C /* FirstScreenFMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenFMViewController.swift; sourceTree = "<group>"; };
-		01595F22257190BB00934F9C /* FirstScreenFMPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenFMPresenter.swift; sourceTree = "<group>"; };
-		01595F23257190BB00934F9C /* FirstScreenFMInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenFMInteractor.swift; sourceTree = "<group>"; };
+		01595F1E257190AD00934F9C /* IzolyatorMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IzolyatorMainViewController.swift; sourceTree = "<group>"; };
+		01595F22257190BB00934F9C /* IzolyatorMainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IzolyatorMainPresenter.swift; sourceTree = "<group>"; };
+		01595F23257190BB00934F9C /* IzolyatorMainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IzolyatorMainInteractor.swift; sourceTree = "<group>"; };
 		018774F725A2571900C171E5 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		018774FB25A2574100C171E5 /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
 		018774FE25A2574E00C171E5 /* SplashAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAnimator.swift; sourceTree = "<group>"; };
@@ -118,6 +117,7 @@
 		01AF2FC82592ABE40065699A /* converse.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = converse.jpg; sourceTree = "<group>"; };
 		01AF2FC92592ABE40065699A /* converse_bump.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = converse_bump.jpg; sourceTree = "<group>"; };
 		01AF2FCA2592ABE40065699A /* converse_obj.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = converse_obj.mtl; sourceTree = "<group>"; };
+		01D55F5325AB98DF004FB02F /* PagingCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingCollectionViewLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,21 +250,20 @@
 		01141E122566A1A500E8CDE2 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				01141E132566A1B200E8CDE2 /* FirstScreen */,
+				01141E132566A1B200E8CDE2 /* MainScreen */,
 				01141E142566A1C100E8CDE2 /* SecondScreen */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
 		};
-		01141E132566A1B200E8CDE2 /* FirstScreen */ = {
+		01141E132566A1B200E8CDE2 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
-				01141DF325669E6500E8CDE2 /* ViewController.swift */,
-				01595F1E257190AD00934F9C /* FirstScreenFMViewController.swift */,
-				01595F22257190BB00934F9C /* FirstScreenFMPresenter.swift */,
-				01595F23257190BB00934F9C /* FirstScreenFMInteractor.swift */,
+				01595F1E257190AD00934F9C /* IzolyatorMainViewController.swift */,
+				01595F22257190BB00934F9C /* IzolyatorMainPresenter.swift */,
+				01595F23257190BB00934F9C /* IzolyatorMainInteractor.swift */,
 			);
-			path = FirstScreen;
+			path = MainScreen;
 			sourceTree = "<group>";
 		};
 		01141E142566A1C100E8CDE2 /* SecondScreen */ = {
@@ -413,6 +412,7 @@
 				0187755E25A260A000C171E5 /* Gap.swift */,
 				0187756125A260DF00C171E5 /* Padding.swift */,
 				0187756425A2612600C171E5 /* Margin.swift */,
+				01D55F5325AB98DF004FB02F /* PagingCollectionViewLayout.swift */,
 			);
 			path = Layout;
 			sourceTree = "<group>";
@@ -520,24 +520,24 @@
 				01595F022571901E00934F9C /* FirstScreenSMViewController.swift in Sources */,
 				01595F122571905900934F9C /* FirstScreenTMInteractor.swift in Sources */,
 				01595EF425718EA100934F9C /* SecondScreenSMViewController.swift in Sources */,
-				01595F20257190AD00934F9C /* FirstScreenFMViewController.swift in Sources */,
-				01595F26257190BB00934F9C /* FirstScreenFMInteractor.swift in Sources */,
+				01595F20257190AD00934F9C /* IzolyatorMainViewController.swift in Sources */,
+				01595F26257190BB00934F9C /* IzolyatorMainInteractor.swift in Sources */,
 				01595EFA25718EBD00934F9C /* SecondScreenSMInteractor.swift in Sources */,
 				01595F112571905900934F9C /* FirstScreenTMPresenter.swift in Sources */,
 				01595F072571902C00934F9C /* FirstScreenSMPresenter.swift in Sources */,
 				018774FF25A2574E00C171E5 /* SplashAnimator.swift in Sources */,
 				0187755F25A260A000C171E5 /* Gap.swift in Sources */,
 				0187756C25A2645200C171E5 /* ScreenSizeMapper.swift in Sources */,
-				01141DF425669E6500E8CDE2 /* ViewController.swift in Sources */,
 				01595F082571902C00934F9C /* FirstScreenSMInteractor.swift in Sources */,
 				0187750825A25E4400C171E5 /* UIColor+hex.swift in Sources */,
 				01595EE125718B5F00934F9C /* ServiceAssembly.swift in Sources */,
 				01595EE325718B7500934F9C /* FirstService.swift in Sources */,
-				01595F25257190BB00934F9C /* FirstScreenFMPresenter.swift in Sources */,
+				01595F25257190BB00934F9C /* IzolyatorMainPresenter.swift in Sources */,
 				01595F1B2571907B00934F9C /* SecondScreenTMPresenter.swift in Sources */,
 				01595F0C2571904E00934F9C /* FirstScreenTMViewController.swift in Sources */,
 				01595EEA25718E3900934F9C /* SecondScreenFMViewController.swift in Sources */,
 				01595EDF257189B100934F9C /* ThirdNavigationController.swift in Sources */,
+				01D55F5425AB98DF004FB02F /* PagingCollectionViewLayout.swift in Sources */,
 				01595EE725718C6E00934F9C /* FirstModel.swift in Sources */,
 				0187756225A260DF00C171E5 /* Padding.swift in Sources */,
 				018774F825A2571900C171E5 /* SplashViewController.swift in Sources */,
