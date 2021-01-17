@@ -2,7 +2,7 @@
 //  UIView+extensions.swift
 //  Izolyator
 //
-//  Created by 17790204 on 03.01.2021.
+//  Created by Vladislav Zhokhov on 03.01.2021.
 //  Copyright © 2021 Splash Fire. All rights reserved.
 //
 
@@ -40,6 +40,23 @@ public extension UIView {
 		}
 	}
 }
+
+// MARK: - Rotate view ( Example ">" in Collapsing Header View)
+extension UIView {
+
+	func rotate(_ toValue: CGFloat, duration: CFTimeInterval = 0.2) {
+		let animation = CABasicAnimation(keyPath: "transform.rotation")
+
+		animation.toValue = toValue
+		animation.duration = duration
+		animation.isRemovedOnCompletion = false
+		animation.fillMode = CAMediaTimingFillMode.forwards
+
+		self.layer.add(animation, forKey: nil)
+	}
+
+}
+
 
 // MARK: - UIStackView метод, для добавления нескольких вью сразу
 public extension UIStackView {
@@ -127,3 +144,35 @@ public extension UIView {
 //	heightAnchor.constraint(equalToConstant: Constants.viewHeight).isActive = true
 //}
 
+
+// MARK: - UIView метод, для определения safeArea
+extension UIView {
+
+  var safeTopAnchor: NSLayoutYAxisAnchor {
+	if #available(iOS 11.0, *) {
+	  return self.safeAreaLayoutGuide.topAnchor
+	}
+	return self.topAnchor
+  }
+
+  var safeLeftAnchor: NSLayoutXAxisAnchor {
+	if #available(iOS 11.0, *){
+	  return self.safeAreaLayoutGuide.leftAnchor
+	}
+	return self.leftAnchor
+  }
+
+  var safeRightAnchor: NSLayoutXAxisAnchor {
+	if #available(iOS 11.0, *){
+	  return self.safeAreaLayoutGuide.rightAnchor
+	}
+	return self.rightAnchor
+  }
+
+  var safeBottomAnchor: NSLayoutYAxisAnchor {
+	if #available(iOS 11.0, *) {
+	  return self.safeAreaLayoutGuide.bottomAnchor
+	}
+	return self.bottomAnchor
+  }
+}

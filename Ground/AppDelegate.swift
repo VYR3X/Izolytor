@@ -12,9 +12,11 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-	private var splashPresenter: SplashPresenterDescription? = SplashPresenter()
-	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+		// Override point for customization after application launch.
+//		Thread.sleep(forTimeInterval: 10.0)
+
 //		splashPresenter?.present()
 //
 //		let delay: TimeInterval = 2

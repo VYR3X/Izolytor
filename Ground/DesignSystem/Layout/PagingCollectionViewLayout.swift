@@ -8,7 +8,7 @@
 import UIKit
 
 /// Лайаут для центрирования ячеек при скроллинге коллектион вью
-class PagingCollectionViewLayout: UICollectionViewFlowLayout {
+final class PagingCollectionViewLayout: UICollectionViewFlowLayout {
 
 	var theVelocityThresholdPerPage: CGFloat = 2
 	var numOfItemsPerPage: CGFloat = 1

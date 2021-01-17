@@ -14,6 +14,11 @@
 		01141DFF25669E6600E8CDE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01141DFD25669E6600E8CDE2 /* LaunchScreen.storyboard */; };
 		01141E0F2566A14A00E8CDE2 /* GroundAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01141E0E2566A14A00E8CDE2 /* GroundAssembly.swift */; };
 		01141E112566A15A00E8CDE2 /* GroundCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01141E102566A15A00E8CDE2 /* GroundCoordinator.swift */; };
+		011CF3C025AE2C1E00C27121 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011CF3BF25AE2C1E00C27121 /* ProductTableViewCell.swift */; };
+		011CF3C325AE2C3200C27121 /* ProductInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011CF3C225AE2C3200C27121 /* ProductInfoTableViewCell.swift */; };
+		011CF3CD25AE429500C27121 /* PaginationCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011CF3CC25AE429500C27121 /* PaginationCollectionView.swift */; };
+		011CF3D025AE5EB700C27121 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011CF3CF25AE5EB700C27121 /* Array.swift */; };
+		011CF3DC25AFA8CB00C27121 /* MultipleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011CF3DB25AFA8CB00C27121 /* MultipleView.swift */; };
 		01595ED52571876200934F9C /* GroundTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595ED42571876200934F9C /* GroundTabBarController.swift */; };
 		01595ED72571877600934F9C /* GroundTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595ED62571877600934F9C /* GroundTabBarPresenter.swift */; };
 		01595ED92571879400934F9C /* GroundTabBarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595ED82571879400934F9C /* GroundTabBarInteractor.swift */; };
@@ -42,9 +47,6 @@
 		01595F20257190AD00934F9C /* IzolyatorMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595F1E257190AD00934F9C /* IzolyatorMainViewController.swift */; };
 		01595F25257190BB00934F9C /* IzolyatorMainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595F22257190BB00934F9C /* IzolyatorMainPresenter.swift */; };
 		01595F26257190BB00934F9C /* IzolyatorMainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595F23257190BB00934F9C /* IzolyatorMainInteractor.swift */; };
-		018774F825A2571900C171E5 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018774F725A2571900C171E5 /* SplashViewController.swift */; };
-		018774FC25A2574100C171E5 /* SplashPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018774FB25A2574100C171E5 /* SplashPresenter.swift */; };
-		018774FF25A2574E00C171E5 /* SplashAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018774FE25A2574E00C171E5 /* SplashAnimator.swift */; };
 		0187750425A25DEA00C171E5 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0187750325A25DEA00C171E5 /* UIView.swift */; };
 		0187750825A25E4400C171E5 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0187750725A25E4400C171E5 /* UIColor+hex.swift */; };
 		0187755725A25F5800C171E5 /* DefaultLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0187755625A25F5800C171E5 /* DefaultLayout.swift */; };
@@ -54,11 +56,20 @@
 		0187756825A2619400C171E5 /* NSLayoutAnchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0187756725A2619400C171E5 /* NSLayoutAnchor.swift */; };
 		0187756C25A2645200C171E5 /* ScreenSizeMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0187756B25A2645200C171E5 /* ScreenSizeMapper.swift */; };
 		0187757425A265D000C171E5 /* NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0187757325A265D000C171E5 /* NSLayoutConstraint.swift */; };
+		0189148E25B0E742004204A4 /* LightPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0189148D25B0E742004204A4 /* LightPalette.swift */; };
+		0189149225B0E7AC004204A4 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0189149125B0E7AC004204A4 /* Color.swift */; };
+		0189149625B0E7CF004204A4 /* DarkPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0189149525B0E7CF004204A4 /* DarkPalette.swift */; };
+		01A24D0B25B393AC00D876BE /* ProductModelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A24D0A25B393AC00D876BE /* ProductModelTableViewCell.swift */; };
+		01A24D1425B3B43900D876BE /* ExamleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A24D1325B3B43900D876BE /* ExamleData.swift */; };
+		01A24D1725B3B4D800D876BE /* CollapsibleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A24D1625B3B4D800D876BE /* CollapsibleTableViewCell.swift */; };
+		01A24D1C25B3B4F600D876BE /* CollapsibleTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A24D1B25B3B4F600D876BE /* CollapsibleTableViewHeader.swift */; };
+		01A24D1F25B3B52200D876BE /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A24D1E25B3B52200D876BE /* Extension.swift */; };
 		01AF2FCB2592ABE40065699A /* converse_obj.obj in Resources */ = {isa = PBXBuildFile; fileRef = 01AF2FC62592ABE40065699A /* converse_obj.obj */; };
 		01AF2FCC2592ABE40065699A /* laces.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AF2FC72592ABE40065699A /* laces.jpg */; };
 		01AF2FCD2592ABE40065699A /* converse.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AF2FC82592ABE40065699A /* converse.jpg */; };
 		01AF2FCE2592ABE40065699A /* converse_bump.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AF2FC92592ABE40065699A /* converse_bump.jpg */; };
 		01AF2FCF2592ABE40065699A /* converse_obj.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 01AF2FCA2592ABE40065699A /* converse_obj.mtl */; };
+		01B1E84125B0F57700648E5C /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E84025B0F57700648E5C /* LaunchScreen.swift */; };
 		01D55F5425AB98DF004FB02F /* PagingCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D55F5325AB98DF004FB02F /* PagingCollectionViewLayout.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +83,11 @@
 		01141E0025669E6600E8CDE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01141E0E2566A14A00E8CDE2 /* GroundAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundAssembly.swift; sourceTree = "<group>"; };
 		01141E102566A15A00E8CDE2 /* GroundCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundCoordinator.swift; sourceTree = "<group>"; };
+		011CF3BF25AE2C1E00C27121 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
+		011CF3C225AE2C3200C27121 /* ProductInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoTableViewCell.swift; sourceTree = "<group>"; };
+		011CF3CC25AE429500C27121 /* PaginationCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationCollectionView.swift; sourceTree = "<group>"; };
+		011CF3CF25AE5EB700C27121 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		011CF3DB25AFA8CB00C27121 /* MultipleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleView.swift; sourceTree = "<group>"; };
 		01595ED42571876200934F9C /* GroundTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundTabBarController.swift; sourceTree = "<group>"; };
 		01595ED62571877600934F9C /* GroundTabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundTabBarPresenter.swift; sourceTree = "<group>"; };
 		01595ED82571879400934F9C /* GroundTabBarInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundTabBarInteractor.swift; sourceTree = "<group>"; };
@@ -100,9 +116,6 @@
 		01595F1E257190AD00934F9C /* IzolyatorMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IzolyatorMainViewController.swift; sourceTree = "<group>"; };
 		01595F22257190BB00934F9C /* IzolyatorMainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IzolyatorMainPresenter.swift; sourceTree = "<group>"; };
 		01595F23257190BB00934F9C /* IzolyatorMainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IzolyatorMainInteractor.swift; sourceTree = "<group>"; };
-		018774F725A2571900C171E5 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
-		018774FB25A2574100C171E5 /* SplashPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashPresenter.swift; sourceTree = "<group>"; };
-		018774FE25A2574E00C171E5 /* SplashAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAnimator.swift; sourceTree = "<group>"; };
 		0187750325A25DEA00C171E5 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		0187750725A25E4400C171E5 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
 		0187755625A25F5800C171E5 /* DefaultLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLayout.swift; sourceTree = "<group>"; };
@@ -112,11 +125,20 @@
 		0187756725A2619400C171E5 /* NSLayoutAnchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutAnchor.swift; sourceTree = "<group>"; };
 		0187756B25A2645200C171E5 /* ScreenSizeMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSizeMapper.swift; sourceTree = "<group>"; };
 		0187757325A265D000C171E5 /* NSLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraint.swift; sourceTree = "<group>"; };
+		0189148D25B0E742004204A4 /* LightPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightPalette.swift; sourceTree = "<group>"; };
+		0189149125B0E7AC004204A4 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		0189149525B0E7CF004204A4 /* DarkPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkPalette.swift; sourceTree = "<group>"; };
+		01A24D0A25B393AC00D876BE /* ProductModelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModelTableViewCell.swift; sourceTree = "<group>"; };
+		01A24D1325B3B43900D876BE /* ExamleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamleData.swift; sourceTree = "<group>"; };
+		01A24D1625B3B4D800D876BE /* CollapsibleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleTableViewCell.swift; sourceTree = "<group>"; };
+		01A24D1B25B3B4F600D876BE /* CollapsibleTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleTableViewHeader.swift; sourceTree = "<group>"; };
+		01A24D1E25B3B52200D876BE /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		01AF2FC62592ABE40065699A /* converse_obj.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = converse_obj.obj; sourceTree = "<group>"; };
 		01AF2FC72592ABE40065699A /* laces.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = laces.jpg; sourceTree = "<group>"; };
 		01AF2FC82592ABE40065699A /* converse.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = converse.jpg; sourceTree = "<group>"; };
 		01AF2FC92592ABE40065699A /* converse_bump.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = converse_bump.jpg; sourceTree = "<group>"; };
 		01AF2FCA2592ABE40065699A /* converse_obj.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = converse_obj.mtl; sourceTree = "<group>"; };
+		01B1E84025B0F57700648E5C /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		01D55F5325AB98DF004FB02F /* PagingCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingCollectionViewLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,6 +192,8 @@
 			children = (
 				0187756B25A2645200C171E5 /* ScreenSizeMapper.swift */,
 				0187755925A2600400C171E5 /* Layout */,
+				011CF3CB25AE425E00C27121 /* Views */,
+				0189148C25B0E71D004204A4 /* Palette */,
 				0187757625A265E400C171E5 /* Extensions */,
 			);
 			path = DesignSystem;
@@ -190,7 +214,6 @@
 			children = (
 				01141E0E2566A14A00E8CDE2 /* GroundAssembly.swift */,
 				01141E102566A15A00E8CDE2 /* GroundCoordinator.swift */,
-				018774F625A256F200C171E5 /* SplashViewController */,
 				01141E0C2566A11400E8CDE2 /* TabBarController */,
 				01141E0D2566A11F00E8CDE2 /* NavigationControllers */,
 			);
@@ -201,7 +224,6 @@
 			isa = PBXGroup;
 			children = (
 				01141E122566A1A500E8CDE2 /* Screens */,
-				01141E152566A1D500E8CDE2 /* Models */,
 				01141E162566A1E100E8CDE2 /* Cells */,
 			);
 			path = FirstModule;
@@ -250,8 +272,10 @@
 		01141E122566A1A500E8CDE2 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				01B1E84025B0F57700648E5C /* LaunchScreen.swift */,
 				01141E132566A1B200E8CDE2 /* MainScreen */,
 				01141E142566A1C100E8CDE2 /* SecondScreen */,
+				01141E152566A1D500E8CDE2 /* Models */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -259,9 +283,8 @@
 		01141E132566A1B200E8CDE2 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
-				01595F1E257190AD00934F9C /* IzolyatorMainViewController.swift */,
-				01595F22257190BB00934F9C /* IzolyatorMainPresenter.swift */,
-				01595F23257190BB00934F9C /* IzolyatorMainInteractor.swift */,
+				01A24D2825B45E0A00D876BE /* Flow */,
+				01A24D2625B45D6500D876BE /* Views */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -355,6 +378,14 @@
 			path = CoreDataService;
 			sourceTree = "<group>";
 		};
+		011CF3CB25AE425E00C27121 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				011CF3CC25AE429500C27121 /* PaginationCollectionView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		01595EFC25718ECA00934F9C /* FirstScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -395,16 +426,6 @@
 			path = FirstScreen;
 			sourceTree = "<group>";
 		};
-		018774F625A256F200C171E5 /* SplashViewController */ = {
-			isa = PBXGroup;
-			children = (
-				018774F725A2571900C171E5 /* SplashViewController.swift */,
-				018774FB25A2574100C171E5 /* SplashPresenter.swift */,
-				018774FE25A2574E00C171E5 /* SplashAnimator.swift */,
-			);
-			path = SplashViewController;
-			sourceTree = "<group>";
-		};
 		0187755925A2600400C171E5 /* Layout */ = {
 			isa = PBXGroup;
 			children = (
@@ -424,8 +445,44 @@
 				0187750725A25E4400C171E5 /* UIColor+hex.swift */,
 				0187757325A265D000C171E5 /* NSLayoutConstraint.swift */,
 				0187756725A2619400C171E5 /* NSLayoutAnchor.swift */,
+				011CF3CF25AE5EB700C27121 /* Array.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0189148C25B0E71D004204A4 /* Palette */ = {
+			isa = PBXGroup;
+			children = (
+				0189149125B0E7AC004204A4 /* Color.swift */,
+				0189148D25B0E742004204A4 /* LightPalette.swift */,
+				0189149525B0E7CF004204A4 /* DarkPalette.swift */,
+			);
+			path = Palette;
+			sourceTree = "<group>";
+		};
+		01A24D2625B45D6500D876BE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				011CF3BF25AE2C1E00C27121 /* ProductTableViewCell.swift */,
+				01A24D0A25B393AC00D876BE /* ProductModelTableViewCell.swift */,
+				01A24D1625B3B4D800D876BE /* CollapsibleTableViewCell.swift */,
+				011CF3C225AE2C3200C27121 /* ProductInfoTableViewCell.swift */,
+				01A24D1B25B3B4F600D876BE /* CollapsibleTableViewHeader.swift */,
+				011CF3DB25AFA8CB00C27121 /* MultipleView.swift */,
+				01A24D1325B3B43900D876BE /* ExamleData.swift */,
+				01A24D1E25B3B52200D876BE /* Extension.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		01A24D2825B45E0A00D876BE /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				01595F1E257190AD00934F9C /* IzolyatorMainViewController.swift */,
+				01595F22257190BB00934F9C /* IzolyatorMainPresenter.swift */,
+				01595F23257190BB00934F9C /* IzolyatorMainInteractor.swift */,
+			);
+			path = Flow;
 			sourceTree = "<group>";
 		};
 		01AF2FB52592AB180065699A /* 3DModels */ = {
@@ -515,34 +572,45 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01B1E84125B0F57700648E5C /* LaunchScreen.swift in Sources */,
+				01A24D0B25B393AC00D876BE /* ProductModelTableViewCell.swift in Sources */,
 				01595F162571906D00934F9C /* SecondScreenTMViewController.swift in Sources */,
 				0187755725A25F5800C171E5 /* DefaultLayout.swift in Sources */,
+				01A24D1725B3B4D800D876BE /* CollapsibleTableViewCell.swift in Sources */,
+				011CF3D025AE5EB700C27121 /* Array.swift in Sources */,
 				01595F022571901E00934F9C /* FirstScreenSMViewController.swift in Sources */,
 				01595F122571905900934F9C /* FirstScreenTMInteractor.swift in Sources */,
 				01595EF425718EA100934F9C /* SecondScreenSMViewController.swift in Sources */,
+				01A24D1425B3B43900D876BE /* ExamleData.swift in Sources */,
 				01595F20257190AD00934F9C /* IzolyatorMainViewController.swift in Sources */,
 				01595F26257190BB00934F9C /* IzolyatorMainInteractor.swift in Sources */,
 				01595EFA25718EBD00934F9C /* SecondScreenSMInteractor.swift in Sources */,
 				01595F112571905900934F9C /* FirstScreenTMPresenter.swift in Sources */,
+				011CF3C325AE2C3200C27121 /* ProductInfoTableViewCell.swift in Sources */,
 				01595F072571902C00934F9C /* FirstScreenSMPresenter.swift in Sources */,
-				018774FF25A2574E00C171E5 /* SplashAnimator.swift in Sources */,
 				0187755F25A260A000C171E5 /* Gap.swift in Sources */,
 				0187756C25A2645200C171E5 /* ScreenSizeMapper.swift in Sources */,
 				01595F082571902C00934F9C /* FirstScreenSMInteractor.swift in Sources */,
+				0189149225B0E7AC004204A4 /* Color.swift in Sources */,
 				0187750825A25E4400C171E5 /* UIColor+hex.swift in Sources */,
 				01595EE125718B5F00934F9C /* ServiceAssembly.swift in Sources */,
+				0189148E25B0E742004204A4 /* LightPalette.swift in Sources */,
 				01595EE325718B7500934F9C /* FirstService.swift in Sources */,
+				011CF3DC25AFA8CB00C27121 /* MultipleView.swift in Sources */,
 				01595F25257190BB00934F9C /* IzolyatorMainPresenter.swift in Sources */,
 				01595F1B2571907B00934F9C /* SecondScreenTMPresenter.swift in Sources */,
 				01595F0C2571904E00934F9C /* FirstScreenTMViewController.swift in Sources */,
 				01595EEA25718E3900934F9C /* SecondScreenFMViewController.swift in Sources */,
+				01A24D1C25B3B4F600D876BE /* CollapsibleTableViewHeader.swift in Sources */,
 				01595EDF257189B100934F9C /* ThirdNavigationController.swift in Sources */,
 				01D55F5425AB98DF004FB02F /* PagingCollectionViewLayout.swift in Sources */,
 				01595EE725718C6E00934F9C /* FirstModel.swift in Sources */,
+				01A24D1F25B3B52200D876BE /* Extension.swift in Sources */,
 				0187756225A260DF00C171E5 /* Padding.swift in Sources */,
-				018774F825A2571900C171E5 /* SplashViewController.swift in Sources */,
 				01595ED92571879400934F9C /* GroundTabBarInteractor.swift in Sources */,
+				0189149625B0E7CF004204A4 /* DarkPalette.swift in Sources */,
 				01595EDB2571892C00934F9C /* FirstNavigationController.swift in Sources */,
+				011CF3CD25AE429500C27121 /* PaginationCollectionView.swift in Sources */,
 				0187756825A2619400C171E5 /* NSLayoutAnchor.swift in Sources */,
 				01595ED72571877600934F9C /* GroundTabBarPresenter.swift in Sources */,
 				01595F1C2571907B00934F9C /* SecondScreenTMInteractor.swift in Sources */,
@@ -554,13 +622,13 @@
 				01141E0F2566A14A00E8CDE2 /* GroundAssembly.swift in Sources */,
 				0187757425A265D000C171E5 /* NSLayoutConstraint.swift in Sources */,
 				0187756525A2612600C171E5 /* Margin.swift in Sources */,
+				011CF3C025AE2C1E00C27121 /* ProductTableViewCell.swift in Sources */,
 				01595EE525718BB800934F9C /* SecondService.swift in Sources */,
 				0187750425A25DEA00C171E5 /* UIView.swift in Sources */,
 				01141E112566A15A00E8CDE2 /* GroundCoordinator.swift in Sources */,
 				01595ED52571876200934F9C /* GroundTabBarController.swift in Sources */,
 				01595EDD2571897100934F9C /* SecondNavigationController.swift in Sources */,
 				01595EF025718E7900934F9C /* SecondScreenFMInteractor.swift in Sources */,
-				018774FC25A2574100C171E5 /* SplashPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

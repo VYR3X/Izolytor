@@ -29,9 +29,19 @@ final class IzolyatorMainPresenter: IzolyatorMainPresentable {
 
 extension IzolyatorMainPresenter: IzolyatorMainPresentableListener {
 
+	func didTapOnARButton() {
+		coordinator.routeToARSceneViewController()
+	}
+
+	func didTapOnFullInfoButton() {
+		coordinator.routnToProductDetailViewController()
+	}
+
 	func didTapOnButton() {
 		coordinator.routeToSecondViewControllerInFM()
 	}
 
 	func didLoad(_ viewController: IzolyatorMainViewControllable) {}
+
+	
 }

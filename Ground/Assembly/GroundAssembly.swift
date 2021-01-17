@@ -17,6 +17,7 @@ final class GroundAssembly {
 	init() {}
 
 	func makeTabBatController() -> UIViewController {
+
 		let tabBarController = GroundTabBarController()
 		let interactor = GroundTabBarInteractor()
 		let presenter = GroundTabBarPresenter()

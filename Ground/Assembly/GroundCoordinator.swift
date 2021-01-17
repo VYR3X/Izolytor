@@ -30,6 +30,12 @@ protocol StartCoordinatorProtocol {
 
 	/// Переход на второй экрна для модуля TM
 	func routeToSecondViewControllerInTM()
+
+	/// Переход на экран с AR сценой
+	func routeToARSceneViewController()
+
+	/// Переход на экран с дательной информацией о продукте
+	func routnToProductDetailViewController()
 }
 
 class GroundCoordinator {
@@ -74,6 +80,16 @@ extension GroundCoordinator: StartCoordinatorProtocol {
 
 	func routeToSecondViewControllerInFM() {
 		let viewController = assembly.makeSecondViewControllerFM()
+		firstNavigationController?.pushViewController(viewController, animated: true)
+	}
+
+	func routeToARSceneViewController() {
+		let viewController = assembly.makeSearchViewController()
+		firstNavigationController?.pushViewController(viewController, animated: true)
+	}
+
+	func routnToProductDetailViewController() {
+		let viewController = assembly.makeSearchViewController()
 		firstNavigationController?.pushViewController(viewController, animated: true)
 	}
 
