@@ -70,15 +70,26 @@ final class GroundAssembly {
 		return view
 	}
 
-	/// второй экран для перехода в модуле FM
-	func makeSecondViewControllerFM() -> UIViewController {
+	/// Метод для сборки экрана c подробном описанием модели ввода ( чертеж в PDF )
+	func makeProductDetailViewController() -> UIViewController {
 		let service = services.makeSecondService()
-		let interactor = SecondScreenFMInteractor(service: service)
-		let presenter = SecondScreenFMPresenter(interactor: interactor, coordinator: startRouter!)
-		let view = SecondScreenFMViewController(listener: presenter)
+		let interactor = ProductDetailInteractor(service: service)
+		let presenter = ProductDetailPresenter(interactor: interactor, coordinator: startRouter!)
+		let view = ProductDetailViewController(listener: presenter)
 		presenter.viewController = view
 		return view
 	}
+
+	/// Метод для сборки экрана c отображением YouTube видео
+	func makeYouTubeViewController() -> UIViewController {
+		let service = services.makeFirstService()
+		let interactor = YouTubeInteractor(service: service)
+		let presenter = YouTubePresenter(interactor: interactor, coordinator: startRouter!)
+		let view = YouTubeViewController(listener: presenter)
+		presenter.viewController = view
+		return view
+	}
+
 
 	/// второй экран для перехода в модуле SM
 	func makeSecondViewControllerSM() -> UIViewController {

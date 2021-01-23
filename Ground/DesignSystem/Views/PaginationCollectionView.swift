@@ -19,7 +19,9 @@ final class PaginationCollectionView: UIView {
 	//	private let cellSpacing = ( 1 / 16 ) * UIScreen.main.bounds.width // отступ между ячейками
 
 	private let cellWight = UIScreen.main.bounds.width
-	private var datasource: [Int] = [1, 2, 3, 4, 5] // в эту переменную надо пробрасывать из вне данные
+
+	private var dataSource: [ProductServiceModel.MainScreenProductType] = []
+//	private var datasource: [Int] = [1, 2, 3, 4, 5] // в эту переменную надо пробрасывать из вне данные
 
 	private lazy var mainCollectionView: UICollectionView = {
 		let layout = PagingCollectionViewLayout()
@@ -49,7 +51,7 @@ final class PaginationCollectionView: UIView {
 		let controll = UIPageControl()
 		controll.translatesAutoresizingMaskIntoConstraints = false
 		controll.backgroundColor = LightPalette().color(.aqua)
-		controll.numberOfPages = datasource.count
+//		controll.numberOfPages = dataSource.count
 		controll.currentPage = 0
 		return controll
 	}()
@@ -71,6 +73,11 @@ final class PaginationCollectionView: UIView {
 	}
 
 	required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+
+	func updateCollectionView(source: [ProductServiceModel.MainScreenProductType]) {
+		dataSource = source
+		mainCollectionView.reloadData()
+	}
 
 	private func setupConstraints() {
 //		stackView.addArrangedSubviews(mainCollectionView, bottomPageControl)
@@ -98,7 +105,8 @@ final class PaginationCollectionView: UIView {
 extension PaginationCollectionView: UICollectionViewDataSource {
 
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		let count = datasource.count
+		bottomPageControl.numberOfPages = dataSource.count
+		let count = dataSource.count
 		bottomPageControl.isHidden = !(count > 1)
 		return count
 	}
@@ -138,7 +146,9 @@ extension PaginationCollectionView: UICollectionViewDataSource {
 extension PaginationCollectionView: UICollectionViewDelegate {
 
 	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-		bottomPageControl.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+		let index = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+		bottomPageControl.currentPage = index
+		delegate?.detectCurrentCellIndex(index)
 	}
 
 	func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {

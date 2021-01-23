@@ -30,7 +30,8 @@ final class MultipleView: UIView {
 		return button
 	}()
 
-	private let productFullInfoLabel: UILabel = {
+	/// Лейбл левой кнопки
+	let productFullInfoLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.sizeToFit()
@@ -52,7 +53,8 @@ final class MultipleView: UIView {
 		return button
 	}()
 
-	private let titleARLabel: UILabel = {
+	/// Лейбл правой кнопки
+	let titleARLabel: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.sizeToFit()

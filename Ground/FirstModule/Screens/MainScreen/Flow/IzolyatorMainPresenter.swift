@@ -6,6 +6,8 @@
 //  Copyright © 2020 Splash Fire. All rights reserved.
 //
 
+import Foundation
+
 /// Интерфейс взаимодействия с презентером экрана IzolyatorMainViewController
 protocol IzolyatorMainPresentable {}
 
@@ -13,7 +15,7 @@ protocol IzolyatorMainPresentable {}
 /// Презентер главного экрана приложения
 final class IzolyatorMainPresenter: IzolyatorMainPresentable {
 
-    weak var viewController: IzolyatorMainViewControllable?
+	weak var viewController: IzolyatorMainViewControllable?
 
     private let interactor: IzolyatorMainInteractable
     private let coordinator: StartCoordinatorProtocol
@@ -23,6 +25,30 @@ final class IzolyatorMainPresenter: IzolyatorMainPresentable {
         self.interactor = interactor
         self.coordinator = coordinator
     }
+
+	private func loadProduct() {
+//		viewController?.displayInitialLoading()
+		interactor.getDataSource { product in
+			switch product {
+			case let .success(productsModel):
+				print("success")
+				self.present(favChange: productsModel, on: self.viewController!)
+			case let .failure(error):
+				print("error log:  \(error)")
+				self.presentErrorAlert()
+			}
+		}
+	}
+
+	private func present(favChange: [ProductServiceModel.MainScreenProductType], on viewController: IzolyatorMainViewControllable) {
+		DispatchQueue.main.async {
+			viewController.updateScreenWith(products: favChange)
+		}
+	}
+
+	private func presentErrorAlert() {
+		print("error")
+	}
 }
 
 // MARK: - IzolyatorMainPresentableListener
@@ -33,15 +59,16 @@ extension IzolyatorMainPresenter: IzolyatorMainPresentableListener {
 		coordinator.routeToARSceneViewController()
 	}
 
+	/// надо переименовать
 	func didTapOnFullInfoButton() {
-		coordinator.routnToProductDetailViewController()
+		coordinator.routeToYouTubeViewController()
 	}
 
 	func didTapOnButton() {
 		coordinator.routeToSecondViewControllerInFM()
 	}
 
-	func didLoad(_ viewController: IzolyatorMainViewControllable) {}
-
-	
+	func didLoad(_ viewController: IzolyatorMainViewControllable) {
+		loadProduct()
+	}
 }

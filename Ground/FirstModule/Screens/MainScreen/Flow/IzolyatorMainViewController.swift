@@ -9,7 +9,37 @@
 import UIKit
 
 /// Интерфейс взаимодействия с вью-контроллером экрана IzolyatorMainViewController.
-protocol IzolyatorMainViewControllable: UIViewController {}
+protocol IzolyatorMainViewControllable: UIViewController {
+
+//	var dataSource: ProductType { get set }
+
+//	func updateScreenWith(viewModel: Result<ProductsViewModel, Error>)
+
+	/// Отображает текущий город.
+	/// - Parameter city: Название города.
+	func updateScreenWith(products: [ProductServiceModel.MainScreenProductType])
+
+	/// Отображает премьеры.
+	/// - Parameter premieres: Премьеры.
+//	func show(premieres: MainViewModel.Movies)
+
+	/// Отображает кинотеатры.
+	/// - Parameter cinemas: Кинотеатры.
+//	func show(cinemas: MainViewModel.Cinemas)
+
+	/// Отображает добавление кинотеатра в «Избранное».
+	/// - Parameter change: Вью-модель с идентификатором кинотеатра и признаком наличия в «Избранном».
+//	func show(_ change: MainViewModel.FavoriteCinemasChange)
+
+	/// Отображает заглушку.
+	///
+	/// - Parameter emptySate: Вью-модель заглушки.
+//	func show(_ emptyState: EmptyStateTableItem)
+
+	/// Отображает предложение города.
+	/// - Parameter suggestion: Предложение города.
+//	func show(_ suggestion: LangIdentifier)
+}
 
 
 /// Листенер главного экрана приложения
@@ -26,9 +56,13 @@ protocol IzolyatorMainPresentableListener {
 
 
 /// Главный экран приложения с каруселью продуктов
-final class IzolyatorMainViewController: UIViewController, IzolyatorMainViewControllable {
+final class IzolyatorMainViewController: UIViewController {
 
-	var sections = sectionsData
+	/// Продукты 
+	var productsMain: [ProductServiceModel.MainScreenProductType] = []
+
+	/// Индекс текущей ячейки
+	var currentIndex: Int = 0
 
 	private struct Constants {
 		static let productTableViewCellHeight: CGFloat = 400
@@ -68,7 +102,12 @@ final class IzolyatorMainViewController: UIViewController, IzolyatorMainViewCont
 		return tableView
 	}()
 
-	private let multipleView = MultipleView()
+	private lazy var multipleView: MultipleView = {
+		let view = MultipleView()
+		view.productFullInfoLabel.text = "Монтаж"
+		view.delegate = self
+		return view
+	}()
 
 	required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
@@ -91,8 +130,9 @@ final class IzolyatorMainViewController: UIViewController, IzolyatorMainViewCont
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		multipleView.delegate = self
 		listener.didLoad(self)
+		multipleView.delegate = self
+//		listener.didLoad(self)
 		setupConstraints()
     }
 
@@ -146,14 +186,18 @@ extension IzolyatorMainViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as? CollapsibleTableViewHeader ?? CollapsibleTableViewHeader(reuseIdentifier: "header")
 
-		header.titleLabel.text = "Models" //sections[section].name
-		header.arrowLabel.text = ">"
-		header.setCollapsed(sections[section].collapsed)
+		if productsMain.isEmpty {
+			return header
+		} else {
+			header.typeLabel.text = productsMain[currentIndex].typeName //"ВВ Трансформаторный тип" //sections[section].name
+//			header.arrowLabel.text = ">"
+			header.setCollapsed(productsMain[currentIndex].modelSectionCollapsed)
 
-		header.section = section
-		header.delegate = self
+			header.section = section
+			header.delegate = self
 
-		return header
+			return header
+		}
 	}
 }
 
@@ -170,7 +214,12 @@ extension IzolyatorMainViewController: UITableViewDataSource {
 		case Section.products.rawValue:
 			return 1
 		case Section.models.rawValue:
-			return sections[section].collapsed ? 0 : sections[section].items.count
+			//return sections[section].collapsed ? 0 : sections[section].items.count
+			if productsMain.isEmpty {
+				return 0
+			} else {
+				return  productsMain[currentIndex].modelSectionCollapsed ? 0 : productsMain[currentIndex].models.count
+			}
 		case Section.info.rawValue:
 			return 1
 		default:
@@ -187,22 +236,32 @@ extension IzolyatorMainViewController: UITableViewDataSource {
 				return UITableViewCell()
 			}
 			cell.backgroundColor = LightPalette().color(.aqua)
+			cell.updateCollectionViewWith(source: productsMain,
+										  delegate: self)
 			return cell
 		case Section.models.rawValue:
 			guard let cell = containerTableView.dequeueReusableCell(withIdentifier:
 																		String(describing: CollapsibleTableViewCell.self), for: indexPath) as? CollapsibleTableViewCell else {
 				return UITableViewCell()
 			}
-			let item: Item = sections[indexPath.section].items[indexPath.row]
+//			let item: Item = sections[indexPath.section].items[indexPath.row]
 
-			cell.nameLabel.text = item.name
-			cell.detailLabel.text = item.detail
+			let model: VModel = productsMain[currentIndex].models[indexPath.row]
+
+			cell.typeLabel.text = model.name //item.name
+			cell.detailLabel.text = model.object //item.detail
 
 			return cell
 		case Section.info.rawValue:
 			guard let cell = containerTableView.dequeueReusableCell(withIdentifier:
 																		String(describing: ProductInfoTableViewCell.self), for: indexPath) as? ProductInfoTableViewCell else {
 				return UITableViewCell()
+			}
+
+			if productsMain.isEmpty {
+			 return cell
+			} else {
+				cell.bind(text: productsMain[currentIndex].typeInfo)
 			}
 			return cell
 		default:
@@ -212,9 +271,25 @@ extension IzolyatorMainViewController: UITableViewDataSource {
 }
 
 
+// MARK: - IzolyatorMainViewControllable
+
+extension IzolyatorMainViewController: IzolyatorMainViewControllable {
+
+	func updateScreenWith(products: [ProductServiceModel.MainScreenProductType]) {
+		productsMain = products
+		containerTableView.reloadData()
+	}
+}
+
+
 // MARK: - ProductTableViewCellDelegate
 
 extension IzolyatorMainViewController: ProductTableViewCellDelegate {
+	func detectCurrentCellIndex(_ index: Int) {
+		currentIndex = index
+		containerTableView.reloadData()
+	}
+
 	func didSelectAlbum(position: Int) {
 //		listener.didTapOnAlbumCard(position: position, vc: self, songs: albumsSongs[position])
 	}
@@ -232,9 +307,11 @@ extension IzolyatorMainViewController: ProductModelTableViewCellDelegate {
 extension IzolyatorMainViewController: CollapsibleTableViewHeaderDelegate {
 
 	func toggleSection(_ header: CollapsibleTableViewHeader, section: Int) {
-		let collapsed = !sections[section].collapsed
-		// Toggle collapse
-		sections[section].collapsed = collapsed
+//		let collapsed = !sections[section].collapsed
+//		sections[section].collapsed = collapsed
+
+		let collapsed = !productsMain[currentIndex].modelSectionCollapsed
+		productsMain[currentIndex].modelSectionCollapsed = collapsed
 		header.setCollapsed(collapsed)
 
 		containerTableView.reloadSections(NSIndexSet(index: section) as IndexSet, with: .automatic)

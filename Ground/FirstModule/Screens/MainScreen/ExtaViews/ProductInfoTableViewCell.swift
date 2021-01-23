@@ -21,16 +21,18 @@ final class ProductInfoTableViewCell: UITableViewCell {
 	/// при нажатии на кнопку попробую вывести  список моделей в стек вью
 	var modelsIsHidden: Bool = false
 
-	private let descriptionLabel: UILabel = {
+	/// Краткое описание типа ввода
+	private let descriptionTextView: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
-		label.sizeToFit()
-		label.text = "Описание ввода \nбла бла бла бла бла бла бла \nбла бла бла бла бла бла \nбла бла бла бал "
-		label.font = UIFont.boldSystemFont(ofSize: 20)
-		label.textColor = LightPalette().color(.onSurfacePrimary)
+//		label.sizeToFit()
+//		label.text = "Описание ввода \nбла бла бла бла бла бла бла \nбла бла бла бла бла бла \nбла бла бла бал "
+		label.textColor = LightPalette().color(.lentaSecondaryDark)
+//		label.contentInset = UIEdgeInsets(top: 10, left: 25, bottom: 10, right: 25)
+		label.font = UIFont.boldSystemFont(ofSize: 18)
 //		label.backgroundColor = .orange
 		label.numberOfLines = 0
-		label.textAlignment = .justified
+//		label.textAlignment = .justified
 		return label
 	}()
 
@@ -65,7 +67,7 @@ final class ProductInfoTableViewCell: UITableViewCell {
 	required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
 	private func setupView() {
-		descriptionStackView.addArrangedSubviews(descriptionSecondLabel, descriptionLabel)
+		descriptionStackView.addArrangedSubviews(descriptionSecondLabel, descriptionTextView)
 		/// Опциональный лейбл если возникнет ошибка то можем вывести как предупреждение
 		descriptionSecondLabel.isHidden = !modelsIsHidden
 
@@ -73,9 +75,14 @@ final class ProductInfoTableViewCell: UITableViewCell {
 
 		NSLayoutConstraint.activate([
 			descriptionStackView.topAnchor.constraint(equalTo: topAnchor, constant: 15),
-			descriptionStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
-			descriptionStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25)
+			descriptionStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+			descriptionStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
 		])
+	}
+
+	/// устанавливаем значения в тайтл
+	func bind(text: String) {
+		descriptionTextView.text = text
 	}
 
 	@objc private func openModelList(sender: UIButton) {

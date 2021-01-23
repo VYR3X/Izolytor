@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,11 @@
 		011CF3CD25AE429500C27121 /* PaginationCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011CF3CC25AE429500C27121 /* PaginationCollectionView.swift */; };
 		011CF3D025AE5EB700C27121 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011CF3CF25AE5EB700C27121 /* Array.swift */; };
 		011CF3DC25AFA8CB00C27121 /* MultipleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011CF3DB25AFA8CB00C27121 /* MultipleView.swift */; };
+		013456CF25B8DA9A00CB42C4 /* YouTubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013456CE25B8DA9A00CB42C4 /* YouTubeViewController.swift */; };
+		013456D625B8DF4000CB42C4 /* YouTubeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013456D525B8DF4000CB42C4 /* YouTubeTableViewCell.swift */; };
+		013456D925B8E21300CB42C4 /* YouTubePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013456D825B8E21300CB42C4 /* YouTubePresenter.swift */; };
+		013456DC25B8E22100CB42C4 /* YouTubeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013456DB25B8E22100CB42C4 /* YouTubeInteractor.swift */; };
+		0134572F25BA0E4500CB42C4 /* ButtonWithArrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0134572E25BA0E4500CB42C4 /* ButtonWithArrow.swift */; };
 		01595ED52571876200934F9C /* GroundTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595ED42571876200934F9C /* GroundTabBarController.swift */; };
 		01595ED72571877600934F9C /* GroundTabBarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595ED62571877600934F9C /* GroundTabBarPresenter.swift */; };
 		01595ED92571879400934F9C /* GroundTabBarInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595ED82571879400934F9C /* GroundTabBarInteractor.swift */; };
@@ -29,9 +34,9 @@
 		01595EE325718B7500934F9C /* FirstService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595EE225718B7500934F9C /* FirstService.swift */; };
 		01595EE525718BB800934F9C /* SecondService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595EE425718BB800934F9C /* SecondService.swift */; };
 		01595EE725718C6E00934F9C /* FirstModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595EE625718C6E00934F9C /* FirstModel.swift */; };
-		01595EEA25718E3900934F9C /* SecondScreenFMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595EE825718E3900934F9C /* SecondScreenFMViewController.swift */; };
-		01595EEF25718E7900934F9C /* SecondScreenFMPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595EEC25718E7900934F9C /* SecondScreenFMPresenter.swift */; };
-		01595EF025718E7900934F9C /* SecondScreenFMInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595EED25718E7900934F9C /* SecondScreenFMInteractor.swift */; };
+		01595EEA25718E3900934F9C /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595EE825718E3900934F9C /* ProductDetailViewController.swift */; };
+		01595EEF25718E7900934F9C /* ProductDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595EEC25718E7900934F9C /* ProductDetailPresenter.swift */; };
+		01595EF025718E7900934F9C /* ProductDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595EED25718E7900934F9C /* ProductDetailInteractor.swift */; };
 		01595EF425718EA100934F9C /* SecondScreenSMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595EF225718EA100934F9C /* SecondScreenSMViewController.swift */; };
 		01595EF925718EBD00934F9C /* SecondScreenSMPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595EF625718EBD00934F9C /* SecondScreenSMPresenter.swift */; };
 		01595EFA25718EBD00934F9C /* SecondScreenSMInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595EF725718EBD00934F9C /* SecondScreenSMInteractor.swift */; };
@@ -70,7 +75,9 @@
 		01AF2FCE2592ABE40065699A /* converse_bump.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AF2FC92592ABE40065699A /* converse_bump.jpg */; };
 		01AF2FCF2592ABE40065699A /* converse_obj.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 01AF2FCA2592ABE40065699A /* converse_obj.mtl */; };
 		01B1E84125B0F57700648E5C /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B1E84025B0F57700648E5C /* LaunchScreen.swift */; };
+		01D173B925B4947D00E51FBB /* product.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 01D173B825B4947D00E51FBB /* product.pdf */; };
 		01D55F5425AB98DF004FB02F /* PagingCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D55F5325AB98DF004FB02F /* PagingCollectionViewLayout.swift */; };
+		5CB6FBEB65F5AB2F768AA8EB /* Pods_Izolyator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E67E97E56C12960D5027939 /* Pods_Izolyator.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +95,11 @@
 		011CF3CC25AE429500C27121 /* PaginationCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationCollectionView.swift; sourceTree = "<group>"; };
 		011CF3CF25AE5EB700C27121 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		011CF3DB25AFA8CB00C27121 /* MultipleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleView.swift; sourceTree = "<group>"; };
+		013456CE25B8DA9A00CB42C4 /* YouTubeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeViewController.swift; sourceTree = "<group>"; };
+		013456D525B8DF4000CB42C4 /* YouTubeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeTableViewCell.swift; sourceTree = "<group>"; };
+		013456D825B8E21300CB42C4 /* YouTubePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubePresenter.swift; sourceTree = "<group>"; };
+		013456DB25B8E22100CB42C4 /* YouTubeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeInteractor.swift; sourceTree = "<group>"; };
+		0134572E25BA0E4500CB42C4 /* ButtonWithArrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithArrow.swift; sourceTree = "<group>"; };
 		01595ED42571876200934F9C /* GroundTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundTabBarController.swift; sourceTree = "<group>"; };
 		01595ED62571877600934F9C /* GroundTabBarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundTabBarPresenter.swift; sourceTree = "<group>"; };
 		01595ED82571879400934F9C /* GroundTabBarInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroundTabBarInteractor.swift; sourceTree = "<group>"; };
@@ -98,9 +110,9 @@
 		01595EE225718B7500934F9C /* FirstService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstService.swift; sourceTree = "<group>"; };
 		01595EE425718BB800934F9C /* SecondService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondService.swift; sourceTree = "<group>"; };
 		01595EE625718C6E00934F9C /* FirstModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstModel.swift; sourceTree = "<group>"; };
-		01595EE825718E3900934F9C /* SecondScreenFMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondScreenFMViewController.swift; sourceTree = "<group>"; };
-		01595EEC25718E7900934F9C /* SecondScreenFMPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondScreenFMPresenter.swift; sourceTree = "<group>"; };
-		01595EED25718E7900934F9C /* SecondScreenFMInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondScreenFMInteractor.swift; sourceTree = "<group>"; };
+		01595EE825718E3900934F9C /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		01595EEC25718E7900934F9C /* ProductDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailPresenter.swift; sourceTree = "<group>"; };
+		01595EED25718E7900934F9C /* ProductDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailInteractor.swift; sourceTree = "<group>"; };
 		01595EF225718EA100934F9C /* SecondScreenSMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondScreenSMViewController.swift; sourceTree = "<group>"; };
 		01595EF625718EBD00934F9C /* SecondScreenSMPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondScreenSMPresenter.swift; sourceTree = "<group>"; };
 		01595EF725718EBD00934F9C /* SecondScreenSMInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondScreenSMInteractor.swift; sourceTree = "<group>"; };
@@ -139,7 +151,11 @@
 		01AF2FC92592ABE40065699A /* converse_bump.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = converse_bump.jpg; sourceTree = "<group>"; };
 		01AF2FCA2592ABE40065699A /* converse_obj.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = converse_obj.mtl; sourceTree = "<group>"; };
 		01B1E84025B0F57700648E5C /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
+		01D173B825B4947D00E51FBB /* product.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = product.pdf; sourceTree = "<group>"; };
 		01D55F5325AB98DF004FB02F /* PagingCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingCollectionViewLayout.swift; sourceTree = "<group>"; };
+		385E3DEC8A0681AC6D0FD92E /* Pods-Izolyator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Izolyator.debug.xcconfig"; path = "Target Support Files/Pods-Izolyator/Pods-Izolyator.debug.xcconfig"; sourceTree = "<group>"; };
+		4E67E97E56C12960D5027939 /* Pods_Izolyator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Izolyator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B387767A68E2AD5B4A8FDB6 /* Pods-Izolyator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Izolyator.release.xcconfig"; path = "Target Support Files/Pods-Izolyator/Pods-Izolyator.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CB6FBEB65F5AB2F768AA8EB /* Pods_Izolyator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +175,8 @@
 			children = (
 				01141DEE25669E6500E8CDE2 /* Ground */,
 				01141DED25669E6500E8CDE2 /* Products */,
+				4C961B8CB3F8658D8EDA854B /* Pods */,
+				5CE4718DF6252EE926A236C3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -205,6 +224,7 @@
 				01AF2FB52592AB180065699A /* 3DModels */,
 				01141DFD25669E6600E8CDE2 /* LaunchScreen.storyboard */,
 				01141DFB25669E6600E8CDE2 /* Assets.xcassets */,
+				01D173B825B4947D00E51FBB /* product.pdf */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -274,7 +294,8 @@
 			children = (
 				01B1E84025B0F57700648E5C /* LaunchScreen.swift */,
 				01141E132566A1B200E8CDE2 /* MainScreen */,
-				01141E142566A1C100E8CDE2 /* SecondScreen */,
+				01141E142566A1C100E8CDE2 /*  ProductDetailScreen */,
+				01D173C225B4AE4400E51FBB /* YouTubeScreen */,
 				01141E152566A1D500E8CDE2 /* Models */,
 			);
 			path = Screens;
@@ -284,19 +305,19 @@
 			isa = PBXGroup;
 			children = (
 				01A24D2825B45E0A00D876BE /* Flow */,
-				01A24D2625B45D6500D876BE /* Views */,
+				01A24D2625B45D6500D876BE /* ExtaViews */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
 		};
-		01141E142566A1C100E8CDE2 /* SecondScreen */ = {
+		01141E142566A1C100E8CDE2 /*  ProductDetailScreen */ = {
 			isa = PBXGroup;
 			children = (
-				01595EE825718E3900934F9C /* SecondScreenFMViewController.swift */,
-				01595EEC25718E7900934F9C /* SecondScreenFMPresenter.swift */,
-				01595EED25718E7900934F9C /* SecondScreenFMInteractor.swift */,
+				01595EE825718E3900934F9C /* ProductDetailViewController.swift */,
+				01595EEC25718E7900934F9C /* ProductDetailPresenter.swift */,
+				01595EED25718E7900934F9C /* ProductDetailInteractor.swift */,
 			);
-			path = SecondScreen;
+			path = " ProductDetailScreen";
 			sourceTree = "<group>";
 		};
 		01141E152566A1D500E8CDE2 /* Models */ = {
@@ -382,6 +403,7 @@
 			isa = PBXGroup;
 			children = (
 				011CF3CC25AE429500C27121 /* PaginationCollectionView.swift */,
+				0134572E25BA0E4500CB42C4 /* ButtonWithArrow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -460,7 +482,7 @@
 			path = Palette;
 			sourceTree = "<group>";
 		};
-		01A24D2625B45D6500D876BE /* Views */ = {
+		01A24D2625B45D6500D876BE /* ExtaViews */ = {
 			isa = PBXGroup;
 			children = (
 				011CF3BF25AE2C1E00C27121 /* ProductTableViewCell.swift */,
@@ -472,7 +494,7 @@
 				01A24D1325B3B43900D876BE /* ExamleData.swift */,
 				01A24D1E25B3B52200D876BE /* Extension.swift */,
 			);
-			path = Views;
+			path = ExtaViews;
 			sourceTree = "<group>";
 		};
 		01A24D2825B45E0A00D876BE /* Flow */ = {
@@ -497,6 +519,34 @@
 			path = 3DModels;
 			sourceTree = "<group>";
 		};
+		01D173C225B4AE4400E51FBB /* YouTubeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				013456CE25B8DA9A00CB42C4 /* YouTubeViewController.swift */,
+				013456D825B8E21300CB42C4 /* YouTubePresenter.swift */,
+				013456DB25B8E22100CB42C4 /* YouTubeInteractor.swift */,
+				013456D525B8DF4000CB42C4 /* YouTubeTableViewCell.swift */,
+			);
+			path = YouTubeScreen;
+			sourceTree = "<group>";
+		};
+		4C961B8CB3F8658D8EDA854B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				385E3DEC8A0681AC6D0FD92E /* Pods-Izolyator.debug.xcconfig */,
+				9B387767A68E2AD5B4A8FDB6 /* Pods-Izolyator.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		5CE4718DF6252EE926A236C3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4E67E97E56C12960D5027939 /* Pods_Izolyator.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -504,9 +554,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 01141E0325669E6600E8CDE2 /* Build configuration list for PBXNativeTarget "Izolyator" */;
 			buildPhases = (
+				4584367250EBD201678A6B76 /* [CP] Check Pods Manifest.lock */,
 				01141DE825669E6500E8CDE2 /* Sources */,
 				01141DE925669E6500E8CDE2 /* Frameworks */,
 				01141DEA25669E6500E8CDE2 /* Resources */,
+				A0CD62859F3527CB5248AB03 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -559,6 +611,7 @@
 				01AF2FCC2592ABE40065699A /* laces.jpg in Resources */,
 				01AF2FCD2592ABE40065699A /* converse.jpg in Resources */,
 				01141DFF25669E6600E8CDE2 /* LaunchScreen.storyboard in Resources */,
+				01D173B925B4947D00E51FBB /* product.pdf in Resources */,
 				01AF2FCB2592ABE40065699A /* converse_obj.obj in Resources */,
 				01141DFC25669E6600E8CDE2 /* Assets.xcassets in Resources */,
 				01AF2FCF2592ABE40065699A /* converse_obj.mtl in Resources */,
@@ -566,6 +619,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4584367250EBD201678A6B76 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Izolyator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0CD62859F3527CB5248AB03 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Izolyator/Pods-Izolyator-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Izolyator/Pods-Izolyator-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Izolyator/Pods-Izolyator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		01141DE825669E6500E8CDE2 /* Sources */ = {
@@ -587,6 +682,7 @@
 				01595EFA25718EBD00934F9C /* SecondScreenSMInteractor.swift in Sources */,
 				01595F112571905900934F9C /* FirstScreenTMPresenter.swift in Sources */,
 				011CF3C325AE2C3200C27121 /* ProductInfoTableViewCell.swift in Sources */,
+				0134572F25BA0E4500CB42C4 /* ButtonWithArrow.swift in Sources */,
 				01595F072571902C00934F9C /* FirstScreenSMPresenter.swift in Sources */,
 				0187755F25A260A000C171E5 /* Gap.swift in Sources */,
 				0187756C25A2645200C171E5 /* ScreenSizeMapper.swift in Sources */,
@@ -594,13 +690,15 @@
 				0189149225B0E7AC004204A4 /* Color.swift in Sources */,
 				0187750825A25E4400C171E5 /* UIColor+hex.swift in Sources */,
 				01595EE125718B5F00934F9C /* ServiceAssembly.swift in Sources */,
+				013456CF25B8DA9A00CB42C4 /* YouTubeViewController.swift in Sources */,
 				0189148E25B0E742004204A4 /* LightPalette.swift in Sources */,
 				01595EE325718B7500934F9C /* FirstService.swift in Sources */,
 				011CF3DC25AFA8CB00C27121 /* MultipleView.swift in Sources */,
+				013456D925B8E21300CB42C4 /* YouTubePresenter.swift in Sources */,
 				01595F25257190BB00934F9C /* IzolyatorMainPresenter.swift in Sources */,
 				01595F1B2571907B00934F9C /* SecondScreenTMPresenter.swift in Sources */,
 				01595F0C2571904E00934F9C /* FirstScreenTMViewController.swift in Sources */,
-				01595EEA25718E3900934F9C /* SecondScreenFMViewController.swift in Sources */,
+				01595EEA25718E3900934F9C /* ProductDetailViewController.swift in Sources */,
 				01A24D1C25B3B4F600D876BE /* CollapsibleTableViewHeader.swift in Sources */,
 				01595EDF257189B100934F9C /* ThirdNavigationController.swift in Sources */,
 				01D55F5425AB98DF004FB02F /* PagingCollectionViewLayout.swift in Sources */,
@@ -617,8 +715,10 @@
 				01595EF925718EBD00934F9C /* SecondScreenSMPresenter.swift in Sources */,
 				01141DF025669E6500E8CDE2 /* AppDelegate.swift in Sources */,
 				01141DFA25669E6500E8CDE2 /* Ground.xcdatamodeld in Sources */,
-				01595EEF25718E7900934F9C /* SecondScreenFMPresenter.swift in Sources */,
+				01595EEF25718E7900934F9C /* ProductDetailPresenter.swift in Sources */,
+				013456DC25B8E22100CB42C4 /* YouTubeInteractor.swift in Sources */,
 				01141DF225669E6500E8CDE2 /* SceneDelegate.swift in Sources */,
+				013456D625B8DF4000CB42C4 /* YouTubeTableViewCell.swift in Sources */,
 				01141E0F2566A14A00E8CDE2 /* GroundAssembly.swift in Sources */,
 				0187757425A265D000C171E5 /* NSLayoutConstraint.swift in Sources */,
 				0187756525A2612600C171E5 /* Margin.swift in Sources */,
@@ -628,7 +728,7 @@
 				01141E112566A15A00E8CDE2 /* GroundCoordinator.swift in Sources */,
 				01595ED52571876200934F9C /* GroundTabBarController.swift in Sources */,
 				01595EDD2571897100934F9C /* SecondNavigationController.swift in Sources */,
-				01595EF025718E7900934F9C /* SecondScreenFMInteractor.swift in Sources */,
+				01595EF025718E7900934F9C /* ProductDetailInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -762,6 +862,7 @@
 		};
 		01141E0425669E6600E8CDE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 385E3DEC8A0681AC6D0FD92E /* Pods-Izolyator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -780,6 +881,7 @@
 		};
 		01141E0525669E6600E8CDE2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B387767A68E2AD5B4A8FDB6 /* Pods-Izolyator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

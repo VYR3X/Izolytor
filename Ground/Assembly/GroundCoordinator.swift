@@ -35,7 +35,11 @@ protocol StartCoordinatorProtocol {
 	func routeToARSceneViewController()
 
 	/// Переход на экран с дательной информацией о продукте
-	func routnToProductDetailViewController()
+	func routeToProductDetailViewController()
+
+	/// Переход на кран с отображение видео материалов 
+	func routeToYouTubeViewController()
+
 }
 
 class GroundCoordinator {
@@ -79,7 +83,7 @@ extension GroundCoordinator: StartCoordinatorProtocol {
 	// для каждого модуля есть свой управлюящий навигационный контроллер first, second, third, ...
 
 	func routeToSecondViewControllerInFM() {
-		let viewController = assembly.makeSecondViewControllerFM()
+		let viewController = assembly.makeProductDetailViewController()
 		firstNavigationController?.pushViewController(viewController, animated: true)
 	}
 
@@ -88,8 +92,13 @@ extension GroundCoordinator: StartCoordinatorProtocol {
 		firstNavigationController?.pushViewController(viewController, animated: true)
 	}
 
-	func routnToProductDetailViewController() {
-		let viewController = assembly.makeSearchViewController()
+	func routeToProductDetailViewController() {
+		let viewController = assembly.makeProductDetailViewController()
+		firstNavigationController?.pushViewController(viewController, animated: true)
+	}
+
+	func routeToYouTubeViewController() {
+		let viewController = assembly.makeYouTubeViewController()
 		firstNavigationController?.pushViewController(viewController, animated: true)
 	}
 
