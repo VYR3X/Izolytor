@@ -64,10 +64,6 @@ extension IzolyatorMainPresenter: IzolyatorMainPresentableListener {
 		coordinator.routeToYouTubeViewController()
 	}
 
-	func didTapOnButton() {
-		coordinator.routeToSecondViewControllerInFM()
-	}
-
 	func didLoad(_ viewController: IzolyatorMainViewControllable) {
 		loadProduct()
 	}

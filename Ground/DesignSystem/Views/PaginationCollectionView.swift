@@ -21,7 +21,6 @@ final class PaginationCollectionView: UIView {
 	private let cellWight = UIScreen.main.bounds.width
 
 	private var dataSource: [ProductServiceModel.MainScreenProductType] = []
-//	private var datasource: [Int] = [1, 2, 3, 4, 5] // в эту переменную надо пробрасывать из вне данные
 
 	private lazy var mainCollectionView: UICollectionView = {
 		let layout = PagingCollectionViewLayout()
@@ -50,7 +49,9 @@ final class PaginationCollectionView: UIView {
 	private lazy var bottomPageControl: UIPageControl = {
 		let controll = UIPageControl()
 		controll.translatesAutoresizingMaskIntoConstraints = false
-		controll.backgroundColor = LightPalette().color(.aqua)
+		controll.backgroundColor = .clear //LightPalette().color(.aqua)
+		controll.currentPageIndicatorTintColor = .blue//LightPalette().color(.darkBlue)
+		controll.pageIndicatorTintColor = .systemBlue//LightPalette().color(.lightBlue)
 //		controll.numberOfPages = dataSource.count
 		controll.currentPage = 0
 		return controll
@@ -68,7 +69,7 @@ final class PaginationCollectionView: UIView {
 	override init(frame: CGRect) {
 		super.init(frame: .zero)
 		self.translatesAutoresizingMaskIntoConstraints = false
-		self.backgroundColor = .clear
+		self.backgroundColor = .white //LightPalette().color(.lightBlue)
 		setupConstraints()
 	}
 
@@ -92,9 +93,9 @@ final class PaginationCollectionView: UIView {
 			mainCollectionView.topAnchor.constraint(equalTo: topAnchor),
 			mainCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
 			mainCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-			mainCollectionView.bottomAnchor.constraint(equalTo: bottomPageControl.topAnchor, constant: -15),
+			mainCollectionView.bottomAnchor.constraint(equalTo: bottomPageControl.topAnchor, constant: -5),
 
-			bottomPageControl.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
+			bottomPageControl.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
 			bottomPageControl.centerXAnchor.constraint(equalTo: centerXAnchor)
 		])
 	}

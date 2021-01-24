@@ -71,11 +71,12 @@ final class GroundAssembly {
 	}
 
 	/// Метод для сборки экрана c подробном описанием модели ввода ( чертеж в PDF )
-	func makeProductDetailViewController() -> UIViewController {
+	func makeProductDetailViewController(name: String) -> UIViewController {
 		let service = services.makeSecondService()
 		let interactor = ProductDetailInteractor(service: service)
 		let presenter = ProductDetailPresenter(interactor: interactor, coordinator: startRouter!)
 		let view = ProductDetailViewController(listener: presenter)
+		view.pdfResourceName = name
 		presenter.viewController = view
 		return view
 	}

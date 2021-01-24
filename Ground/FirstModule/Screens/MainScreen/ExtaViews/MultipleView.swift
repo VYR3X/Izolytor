@@ -10,9 +10,9 @@ import UIKit
 
 /// Протокол делегата для управления multiple view
 protocol MultipleViewDelegate: NSObject {
-	/// Открыть вью контроллер с подробной информацией
-	func openFullInfoViewController()
-	/// открыть AR сцену
+
+	func didTapLeftButton()
+
 	func openArScene()
 }
 
@@ -26,7 +26,7 @@ final class MultipleView: UIView {
 		button.translatesAutoresizingMaskIntoConstraints = false
 //		button.backgroundColor =
 		button.layer.cornerRadius = 20
-		button.addTarget(self, action: #selector(openFullInfoViewController(sender:)), for: .touchUpInside)
+		button.addTarget(self, action: #selector(tapOnLeftButton(sender:)), for: .touchUpInside)
 		return button
 	}()
 
@@ -76,14 +76,14 @@ final class MultipleView: UIView {
 		return stackView
 	}()
 
+	required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+
 	override init(frame: CGRect) {
 		super.init(frame: .zero)
 		translatesAutoresizingMaskIntoConstraints = false
 		self.backgroundColor = .white
 		setupView()
 	}
-
-	required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
 	private func setupView() {
 		productFullInfoButton.addSubview(productFullInfoLabel)
@@ -106,7 +106,7 @@ final class MultipleView: UIView {
 		delegate?.openArScene()
 	}
 
-	@objc private func openFullInfoViewController(sender: UIButton) {
-		delegate?.openFullInfoViewController()
+	@objc private func tapOnLeftButton(sender: UIButton) {
+		delegate?.didTapLeftButton()
 	}
 }

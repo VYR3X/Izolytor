@@ -47,8 +47,6 @@ protocol IzolyatorMainPresentableListener {
 
 	func didLoad(_ viewController: IzolyatorMainViewControllable)
 
-	func didTapOnButton()
-
 	func didTapOnARButton()
 
 	func didTapOnFullInfoButton()
@@ -83,8 +81,10 @@ final class IzolyatorMainViewController: UIViewController {
 
 	private let listener: IzolyatorMainPresentableListener
 
+	private let mainBackGroundView = MainBackGroundView()
+
 	private lazy var containerTableView: UITableView = {
-		let tableView = UITableView()
+		let tableView = UITableView(frame: .zero, style: .plain)
 		tableView.translatesAutoresizingMaskIntoConstraints = false
 		tableView.register(ProductTableViewCell.self,
 						   forCellReuseIdentifier: String(describing: ProductTableViewCell.self))
@@ -97,8 +97,9 @@ final class IzolyatorMainViewController: UIViewController {
 		tableView.delegate = self
 		tableView.dataSource = self
 		tableView.separatorStyle = .none
-		tableView.backgroundColor = .white
+		tableView.backgroundColor = .clear
 		tableView.showsVerticalScrollIndicator = false
+		tableView.allowsSelection = false
 		return tableView
 	}()
 
@@ -118,6 +119,7 @@ final class IzolyatorMainViewController: UIViewController {
 
 	/// hide navigation bar
 	override func viewWillAppear(_ animated: Bool) {
+		setGradientBackground()
 		super.viewWillAppear(animated)
 		navigationController?.setNavigationBarHidden(true, animated: animated)
 	}
@@ -134,10 +136,15 @@ final class IzolyatorMainViewController: UIViewController {
 		multipleView.delegate = self
 //		listener.didLoad(self)
 		setupConstraints()
+//		setGradientBackground()
     }
 
 	private func setupConstraints() {
+//		view.addSubview(mainBackGroundView)
+//		mainBackGroundView.pinToSuperView()
+//		mainBackGroundView.addSubview(containerTableView)
 		view.addSubview(containerTableView)
+		view.backgroundColor = .white
 		containerTableView.addSubview(multipleView)
 
 		NSLayoutConstraint.activate([
@@ -153,10 +160,19 @@ final class IzolyatorMainViewController: UIViewController {
 		])
 	}
 
-	/// Метод для воспроизведение следующей композиции
-//	@objc func didTapButton() {
-//		listener.didTapOnButton()
-//	}
+	private func setGradientBackground() {
+		let colorLeft = UIColor.systemBlue.cgColor //UIColor(hex: "1C4F97").cgColor
+		let colorRight = UIColor.blue.cgColor //UIColor(hex: "66BFED").cgColor
+
+		let gradientLayer = CAGradientLayer()
+		gradientLayer.colors = [colorLeft, colorRight]
+		gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+		gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+
+		gradientLayer.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height / 3) //self.view.bounds
+//		self.view.layer.addSublayer(gradientLayer)
+		self.view.layer.insertSublayer(gradientLayer, at:0)
+	}
 }
 
 
@@ -167,6 +183,12 @@ extension IzolyatorMainViewController: UITableViewDelegate {
 	/// Выставили высоту для 1 и 3 ячейки в 0
 	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 		return section == 0 || section == 2 ? 0 : 45.0
+	}
+
+	// https://stackoverflow.com/questions/30364067/space-between-sections-in-uitableview
+	// убрал ебучий отступ между секцией и ячейками
+	func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+		return .leastNormalMagnitude
 	}
 
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -182,9 +204,13 @@ extension IzolyatorMainViewController: UITableViewDelegate {
 		}
 	}
 
+
 	/// Вью для секции ячеек
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as? CollapsibleTableViewHeader ?? CollapsibleTableViewHeader(reuseIdentifier: "header")
+//		header.pinToSuperView()
+
+//		containerTableView.setTableHeaderView(headerView: header)
 
 		if productsMain.isEmpty {
 			return header
@@ -235,7 +261,7 @@ extension IzolyatorMainViewController: UITableViewDataSource {
 																	for: indexPath) as? ProductTableViewCell else {
 				return UITableViewCell()
 			}
-			cell.backgroundColor = LightPalette().color(.aqua)
+			cell.backgroundColor = .clear
 			cell.updateCollectionViewWith(source: productsMain,
 										  delegate: self)
 			return cell
@@ -295,17 +321,11 @@ extension IzolyatorMainViewController: ProductTableViewCellDelegate {
 	}
 }
 
-// MARK: - ProductModelTableViewCellDelegate
-
-extension IzolyatorMainViewController: ProductModelTableViewCellDelegate {
-	func addTableViewCell() {}
-}
-
 // MARK: - CollapsibleTableViewHeaderDelegate
-
 
 extension IzolyatorMainViewController: CollapsibleTableViewHeaderDelegate {
 
+	// https://github.com/jeantimex/ios-swift-collapsible-table-section
 	func toggleSection(_ header: CollapsibleTableViewHeader, section: Int) {
 //		let collapsed = !sections[section].collapsed
 //		sections[section].collapsed = collapsed
@@ -316,12 +336,11 @@ extension IzolyatorMainViewController: CollapsibleTableViewHeaderDelegate {
 
 		containerTableView.reloadSections(NSIndexSet(index: section) as IndexSet, with: .automatic)
 	}
-	// https://github.com/jeantimex/ios-swift-collapsible-table-section
 }
 
 extension IzolyatorMainViewController: MultipleViewDelegate {
 
-	func openFullInfoViewController() {
+	func didTapLeftButton() {
 		listener.didTapOnFullInfoButton()
 	}
 

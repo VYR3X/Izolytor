@@ -10,13 +10,13 @@ import UIKit
 
 /// Протокол делегата для сворачивающейся секции
 protocol CollapsibleTableViewHeaderDelegate {
+	
 	func toggleSection(_ header: CollapsibleTableViewHeader, section: Int)
 
-//	func buttonCollapsedCell()
 }
 
 /// Хедер вью для сворачивающейся секции
-class CollapsibleTableViewHeader: UITableViewHeaderFooterView {
+final class CollapsibleTableViewHeader: UITableViewHeaderFooterView {
 
 	/// делегат секции
 	var delegate: CollapsibleTableViewHeaderDelegate?
@@ -27,44 +27,39 @@ class CollapsibleTableViewHeader: UITableViewHeaderFooterView {
 	let typeLabel: UILabel = {
 		let label = UILabel()
 		label.sizeToFit()
+		label.font = UIFont.boldSystemFont(ofSize: 16)
 		label.translatesAutoresizingMaskIntoConstraints = false
-		label.textColor = UIColor.white
+		label.textColor = UIColor.black
 		return label
 	}()
 
-	lazy var button: ButtonWithArrow = {
+	private lazy var arrowButton: ButtonWithArrow = {
 		let button = ButtonWithArrow()
 		button.delegate = delegate
 		button.section = section
 		return button
 	}()
 
-//	let arrowLabel: UILabel = {
-//		let label = UILabel()
-//		label.translatesAutoresizingMaskIntoConstraints = false
-//		label.textColor = UIColor.white
-//		return label
-//	}()
-
 	required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
 	override init(reuseIdentifier: String?) {
 		super.init(reuseIdentifier: reuseIdentifier)
-		contentView.backgroundColor = UIColor(hex: 0x2E3944)
-
+		contentView.backgroundColor = .white
 		addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(CollapsibleTableViewHeader.tapHeader(_:))))
 		setupView()
 	}
 
 	private func setupView() {
-		button.widthAnchor.constraint(equalToConstant: 150).isActive = true
-		addSubviews(typeLabel, button)
+		addSubviews(typeLabel, arrowButton)
 
 		NSLayoutConstraint.activate([
 			typeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
 			typeLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-			button.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
-			button.topAnchor.constraint(equalTo: topAnchor, constant: 10)
+			typeLabel.trailingAnchor.constraint(equalTo: arrowButton.leadingAnchor, constant: -10),
+
+			arrowButton.heightAnchor.constraint(equalToConstant: 30),
+			arrowButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+			arrowButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15)
 		])
 	}
 
@@ -81,7 +76,7 @@ class CollapsibleTableViewHeader: UITableViewHeaderFooterView {
 
 	/// Анимируем поворот стрелки для сворачивания секции
 	func setCollapsed(_ collapsed: Bool) {
-		button.arrowLabel.rotate(collapsed ? 0.0 : .pi / 2)
+		arrowButton.arrowLabel.rotate(collapsed ? 0.0 : .pi / 2)
 //		arrowLabel.rotate(collapsed ? 0.0 : .pi / 2)
 	}
 }

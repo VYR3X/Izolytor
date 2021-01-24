@@ -29,12 +29,20 @@ final class YouTubePresenter: YouTubePresentable {
 
 extension YouTubePresenter: YouTubeViewControllerListener {
 
+	func didTapBackButton() {
+		coordinator.popViewControllerFM()
+	}
+
+	func didTapOnManualCell() {
+		coordinator.routeToPDFViewController(resourceName: "manual")
+	}
+
 	func loadView() {}
 
 	func didLoad(_ viewController: ProductDetailViewControllable) {}
 
-	func didTapOnYouTubeButton() {
-		coordinator.routeToProductDetailViewController()
+	func didTapOnTechInfoButton() {
+		coordinator.routeToPDFViewController(resourceName: "product")
 	}
 
 	func didTapOnArButton() {

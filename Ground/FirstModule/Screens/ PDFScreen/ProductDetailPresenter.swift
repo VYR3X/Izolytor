@@ -28,8 +28,8 @@ final class ProductDetailPresenter: ProductDetailPresentable {
 
 extension ProductDetailPresenter: ProductDetailViewControllerListener {
 
-	func didTapOnYouTubeButton() {
-//		coordinator.routeToYouTubeViewController()
+	func didTapOnLeftButton() {
+		coordinator.popViewControllerFM()
 	}
 
 	func didTapOnArButton() {

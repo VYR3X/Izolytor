@@ -24,7 +24,7 @@ final class ButtonWithArrow: UIView {
 		label.makeSquare(side: 20) // высота картинки влияет на -> высоту стек вью -> высоту кнопки
 		label.text = ">"
 		label.textAlignment = .center
-		label.textColor = UIColor.blue
+		label.textColor = UIColor.systemGray2
 		return label
 	}()
 
@@ -34,8 +34,11 @@ final class ButtonWithArrow: UIView {
 		button.backgroundColor = UIColor(red: 0, green: 0, blue: 0.078, alpha: 0.04)
 		button.layer.cornerRadius = 10
 		button.backgroundColor = .white
+		button.layer.borderWidth = 1.0   // толщина обводки
+		button.layer.borderColor = UIColor.systemGray2.cgColor
+		button.clipsToBounds = true
 //		button.addTarget(self, action: #selector(openModelList(sender:)), for: .touchUpInside)
-		button.widthAnchor.constraint(equalToConstant: 150).isActive = true
+//		button.widthAnchor.constraint(equalToConstant: 150).isActive = true
 		return button
 	}()
 
@@ -43,9 +46,9 @@ final class ButtonWithArrow: UIView {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.sizeToFit()
-		label.text = "Models"
+		label.text = "Модель"
 		label.font = UIFont.boldSystemFont(ofSize: 17)
-		label.textColor = .systemGray
+		label.textColor = .gray
 		label.backgroundColor = .clear
 		label.numberOfLines = 1
 		label.textAlignment = .center
@@ -55,11 +58,13 @@ final class ButtonWithArrow: UIView {
 	private let buttonContentStackView: UIStackView = {
 		let stackView = UIStackView()
 		stackView.translatesAutoresizingMaskIntoConstraints = false
-		stackView.spacing = 10
+		stackView.spacing = 4
 		stackView.axis = .horizontal
 		stackView.distribution = .fill
 		return stackView
 	}()
+
+	required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
 	override init(frame: CGRect) {
 		super.init(frame: .zero)
@@ -67,12 +72,14 @@ final class ButtonWithArrow: UIView {
 		setupView()
 	}
 
-	required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-
 	private func setupView() {
+		addSubview(productModelButton)
+		productModelButton.pinToSuperView()
 		buttonContentStackView.addArrangedSubviews(productModelLabel, arrowLabel)
 		productModelButton.addSubview(buttonContentStackView)
-		buttonContentStackView.pinToSuperView(insets: UIEdgeInsets(top: 2, left: 10, bottom: 2, right: 10))
-		self.addSubview(productModelButton)
+		buttonContentStackView.pinToSuperView(insets: UIEdgeInsets(top: 2,
+																   left: 10,
+																   bottom: 2,
+																   right: 10))
 	}
 }

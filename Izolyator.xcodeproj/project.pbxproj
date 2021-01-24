@@ -69,6 +69,12 @@
 		01A24D1725B3B4D800D876BE /* CollapsibleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A24D1625B3B4D800D876BE /* CollapsibleTableViewCell.swift */; };
 		01A24D1C25B3B4F600D876BE /* CollapsibleTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A24D1B25B3B4F600D876BE /* CollapsibleTableViewHeader.swift */; };
 		01A24D1F25B3B52200D876BE /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A24D1E25B3B52200D876BE /* Extension.swift */; };
+		01AC5D0A25BC6FB700D21B9A /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AC5D0925BC6FB700D21B9A /* UITableView.swift */; };
+		01AC5D0D25BC782D00D21B9A /* ManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AC5D0C25BC782D00D21B9A /* ManualViewController.swift */; };
+		01AC5D1025BC78C100D21B9A /* manual.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 01AC5D0F25BC78C100D21B9A /* manual.pdf */; };
+		01AC5D1325BC7BCA00D21B9A /* ManualTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AC5D1225BC7BCA00D21B9A /* ManualTableViewCell.swift */; };
+		01AC5D1925BCD42C00D21B9A /* MainBackGroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AC5D1825BCD42C00D21B9A /* MainBackGroundView.swift */; };
+		01AC5D1E25BE1D1700D21B9A /* ManualHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AC5D1D25BE1D1700D21B9A /* ManualHeaderView.swift */; };
 		01AF2FCB2592ABE40065699A /* converse_obj.obj in Resources */ = {isa = PBXBuildFile; fileRef = 01AF2FC62592ABE40065699A /* converse_obj.obj */; };
 		01AF2FCC2592ABE40065699A /* laces.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AF2FC72592ABE40065699A /* laces.jpg */; };
 		01AF2FCD2592ABE40065699A /* converse.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01AF2FC82592ABE40065699A /* converse.jpg */; };
@@ -145,6 +151,12 @@
 		01A24D1625B3B4D800D876BE /* CollapsibleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleTableViewCell.swift; sourceTree = "<group>"; };
 		01A24D1B25B3B4F600D876BE /* CollapsibleTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleTableViewHeader.swift; sourceTree = "<group>"; };
 		01A24D1E25B3B52200D876BE /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		01AC5D0925BC6FB700D21B9A /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		01AC5D0C25BC782D00D21B9A /* ManualViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualViewController.swift; sourceTree = "<group>"; };
+		01AC5D0F25BC78C100D21B9A /* manual.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = manual.pdf; sourceTree = "<group>"; };
+		01AC5D1225BC7BCA00D21B9A /* ManualTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualTableViewCell.swift; sourceTree = "<group>"; };
+		01AC5D1825BCD42C00D21B9A /* MainBackGroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBackGroundView.swift; sourceTree = "<group>"; };
+		01AC5D1D25BE1D1700D21B9A /* ManualHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualHeaderView.swift; sourceTree = "<group>"; };
 		01AF2FC62592ABE40065699A /* converse_obj.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = converse_obj.obj; sourceTree = "<group>"; };
 		01AF2FC72592ABE40065699A /* laces.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = laces.jpg; sourceTree = "<group>"; };
 		01AF2FC82592ABE40065699A /* converse.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = converse.jpg; sourceTree = "<group>"; };
@@ -224,6 +236,7 @@
 				01AF2FB52592AB180065699A /* 3DModels */,
 				01141DFD25669E6600E8CDE2 /* LaunchScreen.storyboard */,
 				01141DFB25669E6600E8CDE2 /* Assets.xcassets */,
+				01AC5D0F25BC78C100D21B9A /* manual.pdf */,
 				01D173B825B4947D00E51FBB /* product.pdf */,
 			);
 			path = Resources;
@@ -294,8 +307,8 @@
 			children = (
 				01B1E84025B0F57700648E5C /* LaunchScreen.swift */,
 				01141E132566A1B200E8CDE2 /* MainScreen */,
-				01141E142566A1C100E8CDE2 /*  ProductDetailScreen */,
-				01D173C225B4AE4400E51FBB /* YouTubeScreen */,
+				01141E142566A1C100E8CDE2 /*  PDFScreen */,
+				01D173C225B4AE4400E51FBB /* ManualDiagrammScreen */,
 				01141E152566A1D500E8CDE2 /* Models */,
 			);
 			path = Screens;
@@ -310,14 +323,15 @@
 			path = MainScreen;
 			sourceTree = "<group>";
 		};
-		01141E142566A1C100E8CDE2 /*  ProductDetailScreen */ = {
+		01141E142566A1C100E8CDE2 /*  PDFScreen */ = {
 			isa = PBXGroup;
 			children = (
 				01595EE825718E3900934F9C /* ProductDetailViewController.swift */,
 				01595EEC25718E7900934F9C /* ProductDetailPresenter.swift */,
 				01595EED25718E7900934F9C /* ProductDetailInteractor.swift */,
+				01AC5D0C25BC782D00D21B9A /* ManualViewController.swift */,
 			);
-			path = " ProductDetailScreen";
+			path = " PDFScreen";
 			sourceTree = "<group>";
 		};
 		01141E152566A1D500E8CDE2 /* Models */ = {
@@ -468,6 +482,7 @@
 				0187757325A265D000C171E5 /* NSLayoutConstraint.swift */,
 				0187756725A2619400C171E5 /* NSLayoutAnchor.swift */,
 				011CF3CF25AE5EB700C27121 /* Array.swift */,
+				01AC5D0925BC6FB700D21B9A /* UITableView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -493,6 +508,7 @@
 				011CF3DB25AFA8CB00C27121 /* MultipleView.swift */,
 				01A24D1325B3B43900D876BE /* ExamleData.swift */,
 				01A24D1E25B3B52200D876BE /* Extension.swift */,
+				01AC5D1825BCD42C00D21B9A /* MainBackGroundView.swift */,
 			);
 			path = ExtaViews;
 			sourceTree = "<group>";
@@ -519,15 +535,17 @@
 			path = 3DModels;
 			sourceTree = "<group>";
 		};
-		01D173C225B4AE4400E51FBB /* YouTubeScreen */ = {
+		01D173C225B4AE4400E51FBB /* ManualDiagrammScreen */ = {
 			isa = PBXGroup;
 			children = (
 				013456CE25B8DA9A00CB42C4 /* YouTubeViewController.swift */,
 				013456D825B8E21300CB42C4 /* YouTubePresenter.swift */,
 				013456DB25B8E22100CB42C4 /* YouTubeInteractor.swift */,
 				013456D525B8DF4000CB42C4 /* YouTubeTableViewCell.swift */,
+				01AC5D1225BC7BCA00D21B9A /* ManualTableViewCell.swift */,
+				01AC5D1D25BE1D1700D21B9A /* ManualHeaderView.swift */,
 			);
-			path = YouTubeScreen;
+			path = ManualDiagrammScreen;
 			sourceTree = "<group>";
 		};
 		4C961B8CB3F8658D8EDA854B /* Pods */ = {
@@ -608,6 +626,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01AF2FCE2592ABE40065699A /* converse_bump.jpg in Resources */,
+				01AC5D1025BC78C100D21B9A /* manual.pdf in Resources */,
 				01AF2FCC2592ABE40065699A /* laces.jpg in Resources */,
 				01AF2FCD2592ABE40065699A /* converse.jpg in Resources */,
 				01141DFF25669E6600E8CDE2 /* LaunchScreen.storyboard in Resources */,
@@ -682,13 +701,16 @@
 				01595EFA25718EBD00934F9C /* SecondScreenSMInteractor.swift in Sources */,
 				01595F112571905900934F9C /* FirstScreenTMPresenter.swift in Sources */,
 				011CF3C325AE2C3200C27121 /* ProductInfoTableViewCell.swift in Sources */,
+				01AC5D1E25BE1D1700D21B9A /* ManualHeaderView.swift in Sources */,
 				0134572F25BA0E4500CB42C4 /* ButtonWithArrow.swift in Sources */,
 				01595F072571902C00934F9C /* FirstScreenSMPresenter.swift in Sources */,
 				0187755F25A260A000C171E5 /* Gap.swift in Sources */,
+				01AC5D0D25BC782D00D21B9A /* ManualViewController.swift in Sources */,
 				0187756C25A2645200C171E5 /* ScreenSizeMapper.swift in Sources */,
 				01595F082571902C00934F9C /* FirstScreenSMInteractor.swift in Sources */,
 				0189149225B0E7AC004204A4 /* Color.swift in Sources */,
 				0187750825A25E4400C171E5 /* UIColor+hex.swift in Sources */,
+				01AC5D1325BC7BCA00D21B9A /* ManualTableViewCell.swift in Sources */,
 				01595EE125718B5F00934F9C /* ServiceAssembly.swift in Sources */,
 				013456CF25B8DA9A00CB42C4 /* YouTubeViewController.swift in Sources */,
 				0189148E25B0E742004204A4 /* LightPalette.swift in Sources */,
@@ -708,6 +730,7 @@
 				01595ED92571879400934F9C /* GroundTabBarInteractor.swift in Sources */,
 				0189149625B0E7CF004204A4 /* DarkPalette.swift in Sources */,
 				01595EDB2571892C00934F9C /* FirstNavigationController.swift in Sources */,
+				01AC5D0A25BC6FB700D21B9A /* UITableView.swift in Sources */,
 				011CF3CD25AE429500C27121 /* PaginationCollectionView.swift in Sources */,
 				0187756825A2619400C171E5 /* NSLayoutAnchor.swift in Sources */,
 				01595ED72571877600934F9C /* GroundTabBarPresenter.swift in Sources */,
@@ -721,6 +744,7 @@
 				013456D625B8DF4000CB42C4 /* YouTubeTableViewCell.swift in Sources */,
 				01141E0F2566A14A00E8CDE2 /* GroundAssembly.swift in Sources */,
 				0187757425A265D000C171E5 /* NSLayoutConstraint.swift in Sources */,
+				01AC5D1925BCD42C00D21B9A /* MainBackGroundView.swift in Sources */,
 				0187756525A2612600C171E5 /* Margin.swift in Sources */,
 				011CF3C025AE2C1E00C27121 /* ProductTableViewCell.swift in Sources */,
 				01595EE525718BB800934F9C /* SecondService.swift in Sources */,

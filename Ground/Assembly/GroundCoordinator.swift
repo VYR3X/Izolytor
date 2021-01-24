@@ -22,9 +22,6 @@ protocol StartCoordinatorProtocol {
 
 	func routeToLibraryViewController() -> UIViewController
 
-	/// Переход на второй экрна для модуля FM
-	func routeToSecondViewControllerInFM()
-
 	/// Переход на второй экрна для модуля SM
 	func routeToSecondViewControllerInSM()
 
@@ -34,11 +31,14 @@ protocol StartCoordinatorProtocol {
 	/// Переход на экран с AR сценой
 	func routeToARSceneViewController()
 
-	/// Переход на экран с дательной информацией о продукте
-	func routeToProductDetailViewController()
+	/// Переход на экран с pdf вью
+	func routeToPDFViewController(resourceName: String)
 
 	/// Переход на кран с отображение видео материалов 
 	func routeToYouTubeViewController()
+
+	///  Обработчик нажатия назад в FM
+	func popViewControllerFM()
 
 }
 
@@ -82,24 +82,24 @@ extension GroundCoordinator: StartCoordinatorProtocol {
 	// три метода для перехода на вторый экраны в модулях FM, SM, TM, ...
 	// для каждого модуля есть свой управлюящий навигационный контроллер first, second, third, ...
 
-	func routeToSecondViewControllerInFM() {
-		let viewController = assembly.makeProductDetailViewController()
-		firstNavigationController?.pushViewController(viewController, animated: true)
-	}
-
 	func routeToARSceneViewController() {
 		let viewController = assembly.makeSearchViewController()
 		firstNavigationController?.pushViewController(viewController, animated: true)
 	}
 
-	func routeToProductDetailViewController() {
-		let viewController = assembly.makeProductDetailViewController()
+	func routeToPDFViewController(resourceName: String) {
+		let viewController = assembly.makeProductDetailViewController(name: resourceName)
 		firstNavigationController?.pushViewController(viewController, animated: true)
 	}
 
 	func routeToYouTubeViewController() {
 		let viewController = assembly.makeYouTubeViewController()
 		firstNavigationController?.pushViewController(viewController, animated: true)
+	}
+
+	func popViewControllerFM() {
+//		firstNavigationController?.popToRootViewController(animated: true)
+		firstNavigationController?.popViewController(animated: true)
 	}
 
 	func routeToSecondViewControllerInSM() {

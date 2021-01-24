@@ -16,12 +16,15 @@ protocol ProductDetailViewControllerListener {
 
 	func didLoad(_ viewController: ProductDetailViewControllable)
 
-	func didTapOnYouTubeButton()
+	func didTapOnLeftButton()
 
 	func didTapOnArButton()
 }
 
 final class ProductDetailViewController: UIViewController, ProductDetailViewControllable {
+
+	/// Название pdf документа для отображения
+	var pdfResourceName: String = ""
 
     private let listener: ProductDetailViewControllerListener
 
@@ -33,29 +36,29 @@ final class ProductDetailViewController: UIViewController, ProductDetailViewCont
 		return view
 	}()
 
-	private lazy var multipleView: MultipleView = {
-		let view = MultipleView()
-		view.productFullInfoLabel.text = "Youtube Source"
-		view.delegate = self
-		return view
-	}()
+//	private lazy var multipleView: MultipleView = {
+//		let view = MultipleView()
+//		view.productFullInfoLabel.text = "Youtube Source"
+//		view.delegate = self
+//		return view
+//	}()
+
+	required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
     init(listener: ProductDetailViewControllerListener) {
         self.listener = listener
         super.init(nibName: nil, bundle: nil)
     }
 
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-
 	override func viewDidLoad() {
         super.viewDidLoad()
 		setupView()
-		loadPDF()
+		loadPDF(resource: pdfResourceName)
     }
 
 	private func setupView() {
 		view.addSubview(pdfView)
-		pdfView.addSubview(multipleView)
+//		pdfView.addSubview(multipleView)
 
 		NSLayoutConstraint.activate([
 			pdfView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
@@ -63,17 +66,16 @@ final class ProductDetailViewController: UIViewController, ProductDetailViewCont
 			pdfView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
 			pdfView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
 
-			multipleView.heightAnchor.constraint(equalToConstant: 45),
-			multipleView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-			multipleView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-			multipleView.bottomAnchor.constraint(equalTo: view.safeBottomAnchor)
+//			multipleView.heightAnchor.constraint(equalToConstant: 45),
+//			multipleView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+//			multipleView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+//			multipleView.bottomAnchor.constraint(equalTo: view.safeBottomAnchor)
 		])
 	}
 
-	private func loadPDF() {
-		guard let path = Bundle.main.url(forResource: "product", withExtension: "pdf") else {
-			return
-		}
+	private func loadPDF(resource: String) {
+		guard let path = Bundle.main.url(forResource: resource,
+										 withExtension: "pdf") else { return }
 		if let document = PDFDocument(url: path) {
 			pdfView.document = document
 		}
@@ -82,13 +84,13 @@ final class ProductDetailViewController: UIViewController, ProductDetailViewCont
 
 // MARK: - MultipleViewDelegate
 
-extension ProductDetailViewController: MultipleViewDelegate {
-
-	func openFullInfoViewController() {
-		listener.didTapOnYouTubeButton()
-	}
-
-	func openArScene() {
-		listener.didTapOnArButton()
-	}
-}
+//extension ProductDetailViewController: MultipleViewDelegate {
+//
+//	func didTapLeftButton() {
+//		listener.didTapOnLeftButton()
+//	}
+//
+//	func openArScene() {
+//		listener.didTapOnArButton()
+//	}
+//}
