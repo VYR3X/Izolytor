@@ -82,7 +82,8 @@ final class YouTubeViewController: UIViewController, YouTubeViewControllable {
 		super.viewDidLoad()
 //		multipleView.delegate = self
 		setupConstraints()
-		setNavigationBar() // хз что за рофл но устанавливать бар нужно в последнюю очередь, а то будет странный оттенок
+//		setNavigationBar() // хз что за рофл но устанавливать бар нужно в последнюю очередь, а то будет странный оттенок
+//		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
 	}
 
 	private func setupConstraints() {
@@ -107,14 +108,14 @@ final class YouTubeViewController: UIViewController, YouTubeViewControllable {
 		let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: 50))
 //		navBar.backgroundColor = .blue
 		let navItem = UINavigationItem(title: "")
-		let doneItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: nil, action: #selector(done))
-		navItem.rightBarButtonItem = doneItem
+		let rightButton = UIBarButtonItem(title: "test", style: .done, target: self, action: #selector(addTapped))
+		//let doneItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.camera, target: self, action: #selector(addTapped))
+		navItem.rightBarButtonItem = rightButton
 		navBar.setItems([navItem], animated: false)
 		self.view.addSubview(navBar)
 	}
 
-	@objc func done() {
-		// remove @objc for Swift 3
+	@objc func addTapped() {
 	}
 }
 

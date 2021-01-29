@@ -52,6 +52,9 @@
 		01595F20257190AD00934F9C /* IzolyatorMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595F1E257190AD00934F9C /* IzolyatorMainViewController.swift */; };
 		01595F25257190BB00934F9C /* IzolyatorMainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595F22257190BB00934F9C /* IzolyatorMainPresenter.swift */; };
 		01595F26257190BB00934F9C /* IzolyatorMainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01595F23257190BB00934F9C /* IzolyatorMainInteractor.swift */; };
+		015F794E25C358660032BE7B /* ProductListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015F794D25C358660032BE7B /* ProductListTableViewCell.swift */; };
+		015F795225C477C90032BE7B /* CatalogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015F795125C477C80032BE7B /* CatalogModel.swift */; };
+		015F796B25C491990032BE7B /* ArViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015F796A25C491990032BE7B /* ArViewController.swift */; };
 		0187750425A25DEA00C171E5 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0187750325A25DEA00C171E5 /* UIView.swift */; };
 		0187750825A25E4400C171E5 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0187750725A25E4400C171E5 /* UIColor+hex.swift */; };
 		0187755725A25F5800C171E5 /* DefaultLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0187755625A25F5800C171E5 /* DefaultLayout.swift */; };
@@ -134,6 +137,9 @@
 		01595F1E257190AD00934F9C /* IzolyatorMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IzolyatorMainViewController.swift; sourceTree = "<group>"; };
 		01595F22257190BB00934F9C /* IzolyatorMainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IzolyatorMainPresenter.swift; sourceTree = "<group>"; };
 		01595F23257190BB00934F9C /* IzolyatorMainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IzolyatorMainInteractor.swift; sourceTree = "<group>"; };
+		015F794D25C358660032BE7B /* ProductListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListTableViewCell.swift; sourceTree = "<group>"; };
+		015F795125C477C80032BE7B /* CatalogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CatalogModel.swift; path = Ground/SecondModule/Screens/FirstScreen/CatalogModel.swift; sourceTree = SOURCE_ROOT; };
+		015F796A25C491990032BE7B /* ArViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArViewController.swift; sourceTree = "<group>"; };
 		0187750325A25DEA00C171E5 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		0187750725A25E4400C171E5 /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
 		0187755625A25F5800C171E5 /* DefaultLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultLayout.swift; sourceTree = "<group>"; };
@@ -368,6 +374,7 @@
 		01141E192566A1FC00E8CDE2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				015F795125C477C80032BE7B /* CatalogModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -428,6 +435,8 @@
 				01595F002571901E00934F9C /* FirstScreenSMViewController.swift */,
 				01595F042571902C00934F9C /* FirstScreenSMPresenter.swift */,
 				01595F052571902C00934F9C /* FirstScreenSMInteractor.swift */,
+				015F794D25C358660032BE7B /* ProductListTableViewCell.swift */,
+				015F796A25C491990032BE7B /* ArViewController.swift */,
 			);
 			path = FirstScreen;
 			sourceTree = "<group>";
@@ -719,6 +728,7 @@
 				013456D925B8E21300CB42C4 /* YouTubePresenter.swift in Sources */,
 				01595F25257190BB00934F9C /* IzolyatorMainPresenter.swift in Sources */,
 				01595F1B2571907B00934F9C /* SecondScreenTMPresenter.swift in Sources */,
+				015F795225C477C90032BE7B /* CatalogModel.swift in Sources */,
 				01595F0C2571904E00934F9C /* FirstScreenTMViewController.swift in Sources */,
 				01595EEA25718E3900934F9C /* ProductDetailViewController.swift in Sources */,
 				01A24D1C25B3B4F600D876BE /* CollapsibleTableViewHeader.swift in Sources */,
@@ -744,9 +754,11 @@
 				013456D625B8DF4000CB42C4 /* YouTubeTableViewCell.swift in Sources */,
 				01141E0F2566A14A00E8CDE2 /* GroundAssembly.swift in Sources */,
 				0187757425A265D000C171E5 /* NSLayoutConstraint.swift in Sources */,
+				015F796B25C491990032BE7B /* ArViewController.swift in Sources */,
 				01AC5D1925BCD42C00D21B9A /* MainBackGroundView.swift in Sources */,
 				0187756525A2612600C171E5 /* Margin.swift in Sources */,
 				011CF3C025AE2C1E00C27121 /* ProductTableViewCell.swift in Sources */,
+				015F794E25C358660032BE7B /* ProductListTableViewCell.swift in Sources */,
 				01595EE525718BB800934F9C /* SecondService.swift in Sources */,
 				0187750425A25DEA00C171E5 /* UIView.swift in Sources */,
 				01141E112566A15A00E8CDE2 /* GroundCoordinator.swift in Sources */,

@@ -19,91 +19,216 @@ protocol FirstScreenSMPresentableListener {
 	func didTapOnButton()
 }
 
+// https://www.youtube.com/watch?v=4RyhnwIRjpA // пример с фильтрацией простого массива с эивотными
+// https://stackoverflow.com/questions/57756260/how-can-i-use-a-searchbar-in-a-tableview-with-multiple-sections // фильтрация секций + код с github )
+
 final class FirstScreenSMViewController: UIViewController, FirstScreenSMViewControllable {
 
-    private let listener: FirstScreenSMPresentableListener
+	private lazy var myTableView: UITableView = {
+		let tableView = UITableView(frame: .zero, style: .plain)
+		tableView.translatesAutoresizingMaskIntoConstraints = false
+		tableView.delegate = self
+		tableView.dataSource = self
+		tableView.separatorStyle = .singleLine
+		tableView.backgroundColor = .clear
+		tableView.showsVerticalScrollIndicator = false
+		tableView.register(ProductListTableViewCell.self,
+						   forCellReuseIdentifier: String(describing: ProductListTableViewCell.self))
+		return tableView
+	}()
 
-	// MARK: - UI
-	private let sceneView = SCNView()
+	private lazy var searchBar: UISearchBar = {
+		let searchBar = UISearchBar(frame: .zero)
+		searchBar.delegate = self
+		searchBar.sizeToFit()
+		searchBar.searchBarStyle = .minimal
+		searchBar.placeholder = "Search by model name"
+		searchBar.tintColor = UIColor.lightGray
+		searchBar.barTintColor = .white
+		searchBar.isTranslucent = true
+		return searchBar
+	}()
 
-//	lazy var titleLabel: UILabel = {
-//		let label = UILabel()
-//		label.translatesAutoresizingMaskIntoConstraints = false
-//		return label
-//	}
+	private let listener: FirstScreenSMPresentableListener
 
-    init(listener: FirstScreenSMPresentableListener) {
-        self.listener = listener
-        super.init(nibName: nil, bundle: nil)
-    }
+	private var bushingArray = [CatalogModel.HighVoltageBushingModel]()
+	private var currentBushingArray = [CatalogModel.HighVoltageBushingModel]()
 
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+	required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-		listener.didLoad(self)
-		sceneView.translatesAutoresizingMaskIntoConstraints = false
-		initSceneWithContent()
-		setupConstraints()
-    }
-
-	private func setupConstraints() {
-		view.addSubview(sceneView)
-		view.backgroundColor = .white
-		NSLayoutConstraint.activate([
-			sceneView.topAnchor.constraint(equalTo: view.topAnchor),
-			sceneView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-			sceneView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-			sceneView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -300)
-		])
+	init(listener: FirstScreenSMPresentableListener) {
+		self.listener = listener
+		super.init(nibName: nil, bundle: nil)
 	}
 
-	/// Метод для воспроизведение следующей композиции
-	@objc func didTapButton() {
-		listener.didTapOnButton()
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		setUpAnimals()
+		setupView()
+		self.navigationController?.view.backgroundColor = .white
 	}
 
-	private func initSceneWithContent() {
-		// 1: Load .obj file
-		let scene = SCNScene(named: "converse_obj.obj")
+	private func setUpAnimals() {
+		bushingArray.append(
+			CatalogModel.HighVoltageBushingModel(
+				type: .transformer,
+				voltageClassModels: [
+					VoltageСlassModel(
+						voltageName: "12kV",
+						bushingModels: [
+							FullBushingInfoModel(bushingName: "TCNSIV-90-12/1000 (0)",
+												 drawing: "686381.279"),
+							FullBushingInfoModel(bushingName: "TCNSIV-90-12/1000 (100)",
+												 drawing: "686381.279-01"),
+							FullBushingInfoModel(bushingName: "TCNSIV-90-12/1000 (200)",
+												 drawing: "686381.279-02"),
+							FullBushingInfoModel(bushingName: "TCNSIV-90-12/1000 (300)",
+												 drawing: "686381.279-03"),
+							FullBushingInfoModel(bushingName: "TCNSIV-90-12/1000 (400)",
+												 drawing: "686381.279-04"),
+							FullBushingInfoModel(bushingName: "TCNSIV-90-12/1000 (500)",
+												 drawing: "686381.279-05"),
+							FullBushingInfoModel(bushingName: "TCNSIV-90-12/1000 (600)",
+												 drawing: "686381.279-06")
+						]
+					),
+					VoltageСlassModel(
+						voltageName: "24kV",
+						bushingModels: [
+							FullBushingInfoModel(bushingName: "TCNSIII-90-24/5000 (0)",
+												 drawing: "686381.274"),
+							FullBushingInfoModel(bushingName: "TCNSIII-90-24/5000 (100)",
+												 drawing: "686381.274-01"),
+							FullBushingInfoModel(bushingName: "TCNSIII-90-24/5000 (200)",
+												 drawing: "686381.274-02"),
+							FullBushingInfoModel(bushingName: "TCNSIII-90-24/5000 (300)",
+												 drawing: "686381.274-03"),
+							FullBushingInfoModel(bushingName: "TCNSIII-90-24/5000 (400)",
+												 drawing: "686381.274-04")
+						]
+					),
+					VoltageСlassModel(
+						voltageName: "40,5kV",
+						bushingModels: [
+							FullBushingInfoModel(bushingName: "TCNPIII-60-40,5/3500",
+												 drawing: "686381.154"),
+							FullBushingInfoModel(bushingName: "TCNPIII-90-40,5/1000 (0)",
+												 drawing: "686381.275"),
+							FullBushingInfoModel(bushingName: "TCNPIII-90-40,5/1000 (200)",
+												 drawing: "686381.275-01"),
+							FullBushingInfoModel(bushingName: "TCNPIII-90-40,5/1000 (300)",
+												 drawing: "686381.275-02"),
+							FullBushingInfoModel(bushingName: "TCNPIII-90-40,5/1000 (400)",
+												 drawing: "686381.275-03"),
+							FullBushingInfoModel(bushingName: "TCNPIII-90-40,5/1000 (500)",
+												 drawing: "686381.275-04"),
+							FullBushingInfoModel(bushingName: "TCNPIII-90-40,5/1000 (600)",
+												 drawing: "686381.275-05")
+						]
+					)
+				]
+			)
+		)
+		currentBushingArray = bushingArray
+		}
 
-		// 2: Add camera node
-		let cameraNode = SCNNode()
-		cameraNode.camera = SCNCamera()
-		// 3: Place camera
-		cameraNode.position = SCNVector3(x: 0, y: 10, z: 35)
-		// 4: Set camera on scene
-		scene?.rootNode.addChildNode(cameraNode)
-
-		// 5: Adding light to scene
-		let lightNode = SCNNode()
-		lightNode.light = SCNLight()
-		lightNode.light?.type = .omni
-		lightNode.position = SCNVector3(x: 0, y: 10, z: 35)
-		scene?.rootNode.addChildNode(lightNode)
-
-		// 6: Creating and adding ambien light to scene
-		let ambientLightNode = SCNNode()
-		ambientLightNode.light = SCNLight()
-		ambientLightNode.light?.type = .ambient
-		ambientLightNode.light?.color = UIColor.darkGray
-		scene?.rootNode.addChildNode(ambientLightNode)
-
-		// Allow user to manipulate camera
-		sceneView.allowsCameraControl = true
-
-		// Show FPS logs and timming
-		// sceneView.showsStatistics = true
-
-		// Set background color
-		sceneView.backgroundColor = UIColor.white
-
-		// Allow user translate image
-		sceneView.cameraControlConfiguration.allowsTranslation = false
-
-		// Set scene settings
-		sceneView.scene = scene
+	private func setupView() {
+		view.addSubview(myTableView)
+		myTableView.pinToSuperView()
+		navigationItem.titleView = searchBar
 	}
-
-    // MARK: FirstScreenSMViewControllable
 }
+
+//MARK: - UITableViewDataSource, UITableViewDelegate
+
+extension FirstScreenSMViewController: UITableViewDataSource, UITableViewDelegate {
+
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return 65
+	}
+
+	func numberOfSections(in tableView: UITableView) -> Int {
+		return currentBushingArray[0].voltageClassModels.count
+	}
+
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return currentBushingArray[0].voltageClassModels[section].bushingModels.count
+	}
+
+	// Create a standard header that includes the returned text.
+	func tableView(_ tableView: UITableView, titleForHeaderInSection
+								section: Int) -> String? {
+		if currentBushingArray[0].voltageClassModels[section].voltageName == "" {
+			return "Найденные модели"
+		} else {
+			return "Класс напряжения \(currentBushingArray[0].voltageClassModels[section].voltageName)"
+		}
+	}
+
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		guard let cell = myTableView.dequeueReusableCell(withIdentifier:
+																	String(describing: ProductListTableViewCell.self), for: indexPath) as? ProductListTableViewCell else {
+			return UITableViewCell()
+		}
+		cell.detailLabel.text = currentBushingArray[0].voltageClassModels[indexPath.section].bushingModels[indexPath.row].drawing
+		cell.typeLabel.text = currentBushingArray[0].voltageClassModels[indexPath.section].bushingModels[indexPath.row].bushingName
+		return cell
+	}
+
+}
+
+// MARK: - UISearchBarDelegate
+
+// переделал этот поиск под свои структуры )
+// https://stackoverflow.com/questions/57756260/how-can-i-use-a-searchbar-in-a-tableview-with-multiple-sections // фильтрация секций + код с github )
+extension FirstScreenSMViewController: UISearchBarDelegate {
+
+	// Search Bar
+	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+
+		if searchText == "" {
+			currentBushingArray = bushingArray
+			self.myTableView.reloadData()
+			return
+		}
+
+		// новый массив для отображения
+		var filteredDataSource: [CatalogModel.HighVoltageBushingModel] = []
+		// отфильтрованные поля с информацией о вводе
+		var fullInfo: [FullBushingInfoModel] = []
+
+		// фильтруем по наименование ввода: TCNSIV-90-12/1000 (0)
+		for voltage in bushingArray[0].voltageClassModels {
+			let bushingModel = voltage.bushingModels.filter { (item) -> Bool in
+				// условие выбора по введенному названию
+				item.bushingName.contains(searchText) ? true : false
+			}
+			fullInfo.append(contentsOf: bushingModel)
+		}
+
+		// собираю новый массив уже отфильтрованный
+		// по сути теперь у нас одна секция VoltageСlassModel и отфильтрованный массив найденных моделей fullInfo
+		filteredDataSource.append(
+			CatalogModel.HighVoltageBushingModel(
+				type: .transformer,
+				voltageClassModels: [
+					VoltageСlassModel(
+						voltageName: "",
+						bushingModels: fullInfo
+					)
+				]
+			)
+		)
+
+		// обновляю контент
+		self.currentBushingArray = filteredDataSource
+		myTableView.reloadData()
+	}
+
+	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+		bushingArray = currentBushingArray
+		myTableView.reloadData()
+	}
+}
+
+

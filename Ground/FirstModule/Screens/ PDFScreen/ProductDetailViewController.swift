@@ -54,7 +54,26 @@ final class ProductDetailViewController: UIViewController, ProductDetailViewCont
         super.viewDidLoad()
 		setupView()
 		loadPDF(resource: pdfResourceName)
+		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+		// https://stackoverflow.com/questions/22413193/dark-shadow-on-navigation-bar-during-segue-transition-after-upgrading-to-xcode-5
+		// фикс бага
+		self.navigationController?.view.backgroundColor = .white
+		// или вот так ( хотя таб бар тоже темный сука )
+//		navigationController?.navigationBar.isTranslucent = false
     }
+
+	private func setNavigationBar() {
+		let screenSize: CGRect = UIScreen.main.bounds
+		let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: 50))
+//		navBar.backgroundColor = .blue
+		let navItem = UINavigationItem(title: "")
+		let rightButton = UIBarButtonItem(title: "test", style: .done, target: self, action: #selector(addTapped))
+		//let doneItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.camera, target: self, action: #selector(addTapped))
+		navItem.rightBarButtonItem = rightButton
+		navBar.setItems([navItem], animated: false)
+//		navBar.isTranslucent = true
+		self.view.addSubview(navBar)
+	}
 
 	private func setupView() {
 		view.addSubview(pdfView)
@@ -73,11 +92,70 @@ final class ProductDetailViewController: UIViewController, ProductDetailViewCont
 		])
 	}
 
+	@objc func addTapped() {
+		let alert = UIAlertController(title: "Меню", message: "Выберите опцию", preferredStyle: .actionSheet)
+
+		alert.addAction(UIAlertAction(title: "Открыть AR сцену", style: .default , handler:{ (UIAlertAction) in
+			print("User click Edit button")
+		}))
+
+		alert.addAction(UIAlertAction(title: "Поделиться", style: .default , handler:{ (UIAlertAction) in
+			self.btnTapped()
+			print("User click Delete button")
+		}))
+
+		alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:{ (UIAlertAction) in
+			print("User click Dismiss button")
+		}))
+
+
+		//uncomment for iPad Support
+		//alert.popoverPresentationController?.sourceView = self.view
+
+		self.present(alert, animated: true, completion: {
+			print("completion block")
+		})
+	}
+
 	private func loadPDF(resource: String) {
 		guard let path = Bundle.main.url(forResource: resource,
 										 withExtension: "pdf") else { return }
 		if let document = PDFDocument(url: path) {
 			pdfView.document = document
+		}
+	}
+
+	// https://stackoverflow.com/questions/37990711/use-of-uiactivityviewcontroller-and-uiactivityitemprovider-to-share-pdf
+	// sharing screen
+	private func btnTapped() {
+		if let pdf = Bundle.main.url(forResource: pdfResourceName,
+									 withExtension: "pdf",
+									 subdirectory: nil,
+									 localization: nil)  {
+			self.sharePdf(path: pdf)
+		}
+	}
+
+	private func sharePdf(path: URL) {
+
+		let fileManager = FileManager.default
+
+		if fileManager.fileExists(atPath: path.path) {
+			let activityViewController: UIActivityViewController = UIActivityViewController(activityItems: [path],
+																							applicationActivities: nil)
+			activityViewController.popoverPresentationController?.sourceView = self.view
+			self.present(activityViewController, animated: true, completion: nil)
+		} else {
+
+			let alertController = UIAlertController(title: "Error",
+													message: "Document was not found!",
+													preferredStyle: .alert)
+			print("document was not found")
+			let defaultAction = UIAlertAction.init(title: "ok",
+												   style: UIAlertAction.Style.default,
+												   handler: nil)
+			alertController.addAction(defaultAction)
+			self.present(alertController, animated: true, completion: nil)
 		}
 	}
 }

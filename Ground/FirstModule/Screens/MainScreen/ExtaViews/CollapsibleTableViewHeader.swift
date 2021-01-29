@@ -33,12 +33,12 @@ final class CollapsibleTableViewHeader: UITableViewHeaderFooterView {
 		return label
 	}()
 
-	private lazy var arrowButton: ButtonWithArrow = {
-		let button = ButtonWithArrow()
-		button.delegate = delegate
-		button.section = section
-		return button
-	}()
+//	private lazy var arrowButton: ButtonWithArrow = {
+//		let button = ButtonWithArrow()
+//		button.delegate = delegate
+//		button.section = section
+//		return button
+//	}()
 
 	required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
@@ -50,23 +50,24 @@ final class CollapsibleTableViewHeader: UITableViewHeaderFooterView {
 	}
 
 	private func setupView() {
-		addSubviews(typeLabel, arrowButton)
+//		addSubviews(typeLabel, arrowButton)
+		addSubview(typeLabel)
 
 		NSLayoutConstraint.activate([
 			typeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-			typeLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-			typeLabel.trailingAnchor.constraint(equalTo: arrowButton.leadingAnchor, constant: -10),
-
-			arrowButton.heightAnchor.constraint(equalToConstant: 30),
-			arrowButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-			arrowButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15)
+			typeLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+//			typeLabel.trailingAnchor.constraint(equalTo: arrowButton.leadingAnchor, constant: -10),
+//
+//			arrowButton.heightAnchor.constraint(equalToConstant: 30),
+//			arrowButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+//			arrowButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15)
 		])
 	}
 
 	/// Обработчик нажатия на секцию
 	@objc func tapHeader(_ gestureRecognizer: UITapGestureRecognizer) {
 		guard let cell = gestureRecognizer.view as? CollapsibleTableViewHeader else { return }
-		delegate?.toggleSection(self, section: cell.section)
+//		delegate?.toggleSection(self, section: cell.section)
 	}
 
 	/// Обработчик нажатия на кнопку
@@ -76,7 +77,7 @@ final class CollapsibleTableViewHeader: UITableViewHeaderFooterView {
 
 	/// Анимируем поворот стрелки для сворачивания секции
 	func setCollapsed(_ collapsed: Bool) {
-		arrowButton.arrowLabel.rotate(collapsed ? 0.0 : .pi / 2)
+//		arrowButton.arrowLabel.rotate(collapsed ? 0.0 : .pi / 2)
 //		arrowLabel.rotate(collapsed ? 0.0 : .pi / 2)
 	}
 }
