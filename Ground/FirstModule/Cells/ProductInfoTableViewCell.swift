@@ -21,18 +21,38 @@ final class ProductInfoTableViewCell: UITableViewCell {
 	/// при нажатии на кнопку попробую вывести  список моделей в стек вью
 	var modelsIsHidden: Bool = false
 
+	private let titleLabel: UILabel = {
+		let label = UILabel()
+		label.sizeToFit()
+		label.translatesAutoresizingMaskIntoConstraints = false
+		label.font = UIFont.boldSystemFont(ofSize: 20)
+		label.textColor = .black
+		label.textAlignment = .left
+		label.numberOfLines = 1
+		return label
+	}()
+
+	private let backgroundRoundView: UIView = {
+		let view = UIView()
+		view.translatesAutoresizingMaskIntoConstraints = false
+		view.backgroundColor = .white
+		view.layer.cornerRadius = 15
+		view.layer.shadowColor = UIColor.black.cgColor
+		view.layer.shadowOpacity = 0.5
+		view.layer.shadowOffset = .zero
+		view.layer.shadowRadius = 5
+		return view
+	}()
+
 	/// Краткое описание типа ввода
 	private let descriptionTextView: UILabel = {
 		let label = UILabel()
 		label.translatesAutoresizingMaskIntoConstraints = false
-//		label.sizeToFit()
-//		label.text = "Описание ввода \nбла бла бла бла бла бла бла \nбла бла бла бла бла бла \nбла бла бла бал "
 		label.textColor = LightPalette().color(.lentaSecondaryDark)
-//		label.contentInset = UIEdgeInsets(top: 10, left: 25, bottom: 10, right: 25)
-		label.font = UIFont.boldSystemFont(ofSize: 18)
-//		label.backgroundColor = .orange
+		label.font = UIFont.boldSystemFont(ofSize: 17)
+		label.backgroundColor = .white
 		label.numberOfLines = 0
-//		label.textAlignment = .justified
+		label.textAlignment = .left
 		return label
 	}()
 
@@ -67,21 +87,32 @@ final class ProductInfoTableViewCell: UITableViewCell {
 	required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
 	private func setupView() {
+		contentView.addSubviews(titleLabel, backgroundRoundView)
 		descriptionStackView.addArrangedSubviews(descriptionSecondLabel, descriptionTextView)
 		/// Опциональный лейбл если возникнет ошибка то можем вывести как предупреждение
 		descriptionSecondLabel.isHidden = !modelsIsHidden
 
-		contentView.addSubview(descriptionStackView)
+//		contentView.addSubview(descriptionStackView)
+		backgroundRoundView.addSubview(descriptionStackView)
 
 		NSLayoutConstraint.activate([
-			descriptionStackView.topAnchor.constraint(equalTo: topAnchor, constant: 15),
-			descriptionStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-			descriptionStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+			titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+			titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+
+			backgroundRoundView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+			backgroundRoundView.bottomAnchor.constraint(equalTo: descriptionStackView.bottomAnchor, constant: 10),
+			backgroundRoundView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+			backgroundRoundView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+
+			descriptionStackView.topAnchor.constraint(equalTo: backgroundRoundView.topAnchor, constant: 10),
+			descriptionStackView.leadingAnchor.constraint(equalTo: backgroundRoundView.leadingAnchor, constant: 10),
+			descriptionStackView.trailingAnchor.constraint(equalTo: backgroundRoundView.trailingAnchor, constant: -10)
 		])
 	}
 
 	/// устанавливаем значения в тайтл
-	func bind(text: String) {
+	func bind(title: String, text: String) {
+		titleLabel.text = title
 		descriptionTextView.text = text
 	}
 

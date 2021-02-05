@@ -33,20 +33,13 @@ final class ManualHeaderView: UITableViewHeaderFooterView {
 		return label
 	}()
 
-	let arrowLabel: UILabel = {
-		let label = UILabel()
-		label.translatesAutoresizingMaskIntoConstraints = false
-		label.sizeToFit()
-//		label.font = UIFont.boldSystemFont(ofSize: 30)
-		label.makeSquare(side: 20)
-		label.textColor = .black
-		label.backgroundColor = .clear
-		label.numberOfLines = 1
-		label.textAlignment = .center
-		return label
+	private lazy var arrowImageView: UIImageView = {
+		let imageView = UIImageView(frame: .zero)
+		imageView.translatesAutoresizingMaskIntoConstraints = false
+		imageView.image = UIImage(named: "chevron_right")
+		imageView.makeSquare(side: 20.0)
+		return imageView
 	}()
-
-	required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
 	override init(reuseIdentifier: String?) {
 		super.init(reuseIdentifier: reuseIdentifier)
@@ -55,14 +48,16 @@ final class ManualHeaderView: UITableViewHeaderFooterView {
 		setupView()
 	}
 
+	required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+
 	private func setupView() {
-		addSubviews(secionName, arrowLabel)
+		addSubviews(secionName, arrowImageView)
 		NSLayoutConstraint.activate([
 			secionName.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
 			secionName.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
 
-			arrowLabel.leadingAnchor.constraint(equalTo: secionName.trailingAnchor, constant: 15),
-			arrowLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+			arrowImageView.leadingAnchor.constraint(equalTo: secionName.trailingAnchor, constant: 5),
+			arrowImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
 		])
 	}
 
@@ -73,7 +68,7 @@ final class ManualHeaderView: UITableViewHeaderFooterView {
 	}
 
 	func setCollapsed(_ collapsed: Bool) {
-		arrowLabel.rotate(collapsed ? 0.0 : .pi / 2)
+		arrowImageView.rotate(collapsed ? 0.0 : .pi / 2)
 	}
 }
 

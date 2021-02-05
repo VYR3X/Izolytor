@@ -20,7 +20,7 @@ class FirstService: FirstServiceProtocol {
 	/// тут весь массив данных сформируем и вернем
 	func getProductType(completion: @escaping (Result<[ProductServiceModel.MainScreenProductType], Error>) -> Void) {
 		let product = [ProductServiceModel.MainScreenProductType(git: "asd",
-																 typeName: "Силовые трансформаторы",
+																 typeName: "Трансформаторные вводы",
 																 models: [VModel(name: "ГКТIII-171",
 																				 object: "3d model 171",
 																				 chertezh: "модель 1"),

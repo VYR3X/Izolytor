@@ -10,9 +10,9 @@ import UIKit
 
 /// Протокол делегата для управления multiple view
 protocol MultipleViewDelegate: NSObject {
-
+	/// Обработчик левой кнопки
 	func didTapLeftButton()
-
+	/// Обработчик правой кнопки
 	func openArScene()
 }
 
@@ -24,8 +24,12 @@ final class MultipleView: UIView {
 	private lazy var productFullInfoButton: UIButton = {
 		let button = UIButton()
 		button.translatesAutoresizingMaskIntoConstraints = false
-//		button.backgroundColor =
+		button.backgroundColor = .white
 		button.layer.cornerRadius = 20
+		button.layer.shadowColor = UIColor.black.cgColor
+		button.layer.shadowOpacity = 0.5
+		button.layer.shadowOffset = .zero
+		button.layer.shadowRadius = 5
 		button.addTarget(self, action: #selector(tapOnLeftButton(sender:)), for: .touchUpInside)
 		return button
 	}()
@@ -36,7 +40,7 @@ final class MultipleView: UIView {
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.sizeToFit()
 		label.text = "Full Info"
-		label.font = UIFont.boldSystemFont(ofSize: 15)
+		label.font = UIFont.boldSystemFont(ofSize: 17)
 		label.textColor = .blue //LightPalette().color(.darkBlue)
 		label.backgroundColor = .clear
 		label.numberOfLines = 1
@@ -49,6 +53,10 @@ final class MultipleView: UIView {
 		button.translatesAutoresizingMaskIntoConstraints = false
 		button.backgroundColor = .blue //LightPalette().color(.darkBlue)
 		button.layer.cornerRadius = 20
+		button.layer.shadowColor = UIColor.black.cgColor
+		button.layer.shadowOpacity = 0.5
+		button.layer.shadowOffset = .zero
+		button.layer.shadowRadius = 5
 		button.addTarget(self, action: #selector(openArScene(sender:)), for: .touchUpInside)
 		return button
 	}()
@@ -59,7 +67,7 @@ final class MultipleView: UIView {
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.sizeToFit()
 		label.text = "AR object"
-		label.font = UIFont.boldSystemFont(ofSize: 15)
+		label.font = UIFont.boldSystemFont(ofSize: 17)
 		label.textColor = .white//LightPalette().color(.lightBackground)
 		label.backgroundColor = .clear
 		label.numberOfLines = 1
@@ -81,7 +89,6 @@ final class MultipleView: UIView {
 	override init(frame: CGRect) {
 		super.init(frame: .zero)
 		translatesAutoresizingMaskIntoConstraints = false
-		self.backgroundColor = .white
 		setupView()
 	}
 
@@ -93,12 +100,13 @@ final class MultipleView: UIView {
 
 		modelInfoStaskView.addArrangedSubviews(productFullInfoButton, productModelButton)
 		addSubview(modelInfoStaskView)
+		self.backgroundColor = .clear
 
 		NSLayoutConstraint.activate([
 			modelInfoStaskView.topAnchor.constraint(equalTo: topAnchor),
 			modelInfoStaskView.bottomAnchor.constraint(equalTo: bottomAnchor),
-			modelInfoStaskView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-			modelInfoStaskView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+			modelInfoStaskView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+			modelInfoStaskView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
 		])
 	}
 

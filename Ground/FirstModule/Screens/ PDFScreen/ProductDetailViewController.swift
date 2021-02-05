@@ -50,6 +50,10 @@ final class ProductDetailViewController: UIViewController, ProductDetailViewCont
         super.init(nibName: nil, bundle: nil)
     }
 
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(true)
+		
+	}
 	override func viewDidLoad() {
         super.viewDidLoad()
 		setupView()
@@ -97,6 +101,7 @@ final class ProductDetailViewController: UIViewController, ProductDetailViewCont
 
 		alert.addAction(UIAlertAction(title: "Открыть AR сцену", style: .default , handler:{ (UIAlertAction) in
 			print("User click Edit button")
+			self.listener.didTapOnArButton()
 		}))
 
 		alert.addAction(UIAlertAction(title: "Поделиться", style: .default , handler:{ (UIAlertAction) in

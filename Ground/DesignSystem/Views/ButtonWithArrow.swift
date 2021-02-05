@@ -8,7 +8,7 @@
 
 import UIKit
 
-
+// Кнопка с вращающейся стрелкой
 final class ButtonWithArrow: UIView {
 
 	var collapsed: Bool = true

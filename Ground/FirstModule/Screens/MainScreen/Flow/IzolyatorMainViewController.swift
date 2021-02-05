@@ -63,7 +63,7 @@ final class IzolyatorMainViewController: UIViewController {
 	var currentIndex: Int = 0
 
 	private struct Constants {
-		static let productTableViewCellHeight: CGFloat = 400
+		static let productTableViewCellHeight: CGFloat = 350
 		static let modelTableViewCellHeight: CGFloat = 45
 		static let collapse: CGFloat = 100
 		static let sectionsCount = 3
@@ -73,8 +73,6 @@ final class IzolyatorMainViewController: UIViewController {
 	private enum Section: Int, CaseIterable {
 		/// Карусель с продуктами
 		case products = 0
-		/// секиция выбора модели и типа высоковольтного ввода
-		case models
 		/// Информация о вводе
 		case info
 	}
@@ -83,15 +81,22 @@ final class IzolyatorMainViewController: UIViewController {
 
 	private let mainBackGroundView = MainBackGroundView()
 
+	private var gradientLayer: CAGradientLayer = {
+		let gradientLayer = CAGradientLayer()
+		let colorLeft = UIColor.systemBlue.cgColor
+		let colorRight = UIColor.blue.cgColor
+
+		gradientLayer.colors = [colorLeft, colorRight]
+		gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+		gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+		return gradientLayer
+	}()
+
 	private lazy var containerTableView: UITableView = {
 		let tableView = UITableView(frame: .zero, style: .plain)
 		tableView.translatesAutoresizingMaskIntoConstraints = false
 		tableView.register(ProductTableViewCell.self,
 						   forCellReuseIdentifier: String(describing: ProductTableViewCell.self))
-		tableView.register(CollapsibleTableViewCell.self,
-						   forCellReuseIdentifier: String(describing: CollapsibleTableViewCell.self))
-//		tableView.register(ProductModelTableViewCell.self,
-//						   forCellReuseIdentifier: String(describing: ProductModelTableViewCell.self))
 		tableView.register(ProductInfoTableViewCell.self,
 						   forCellReuseIdentifier: String(describing: ProductInfoTableViewCell.self))
 		tableView.delegate = self
@@ -119,30 +124,26 @@ final class IzolyatorMainViewController: UIViewController {
 
 	/// hide navigation bar
 	override func viewWillAppear(_ animated: Bool) {
-		setGradientBackground()
 		super.viewWillAppear(animated)
-		navigationController?.setNavigationBarHidden(true, animated: animated)
-	}
+		self.navigationController?.navigationBar.prefersLargeTitles = true
+//		setupNavigationBar()
+		setGradientBackground()
 
-	/// hide navigation bar
-	override func viewWillDisappear(_ animated: Bool) {
-		super.viewWillDisappear(animated)
-		navigationController?.setNavigationBarHidden(false, animated: animated)
+		// пример изменения полей у навигациооного бара
+//		var navController = self.navigationController as! NavigationControllerProtocol
+//		navController.customNavigationBarTintColot = .orange
+//		navController.customNavigationBarTitleColor = .black
 	}
 
     override func viewDidLoad() {
         super.viewDidLoad()
 		listener.didLoad(self)
 		multipleView.delegate = self
-//		listener.didLoad(self)
 		setupConstraints()
-//		setGradientBackground()
+		self.navigationItem.title = "Изолятор"
     }
 
 	private func setupConstraints() {
-//		view.addSubview(mainBackGroundView)
-//		mainBackGroundView.pinToSuperView()
-//		mainBackGroundView.addSubview(containerTableView)
 		view.addSubview(containerTableView)
 		view.backgroundColor = .white
 		containerTableView.addSubview(multipleView)
@@ -153,24 +154,15 @@ final class IzolyatorMainViewController: UIViewController {
 			containerTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
 			containerTableView.topAnchor.constraint(equalTo: view.topAnchor),
 
-			multipleView.heightAnchor.constraint(equalToConstant: 45),
+			multipleView.heightAnchor.constraint(equalToConstant: 60),
 			multipleView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
 			multipleView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-			multipleView.bottomAnchor.constraint(equalTo: view.safeBottomAnchor)
+			multipleView.bottomAnchor.constraint(equalTo: view.safeBottomAnchor, constant: -20)
 		])
 	}
 
 	private func setGradientBackground() {
-		let colorLeft = UIColor.systemBlue.cgColor //UIColor(hex: "1C4F97").cgColor
-		let colorRight = UIColor.blue.cgColor //UIColor(hex: "66BFED").cgColor
-
-		let gradientLayer = CAGradientLayer()
-		gradientLayer.colors = [colorLeft, colorRight]
-		gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
-		gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
-
-		gradientLayer.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height / 3) //self.view.bounds
-//		self.view.layer.addSublayer(gradientLayer)
+		self.gradientLayer.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height / 2)
 		self.view.layer.insertSublayer(gradientLayer, at:0)
 	}
 }
@@ -182,7 +174,7 @@ extension IzolyatorMainViewController: UITableViewDelegate {
 
 	/// Выставили высоту для 1 и 3 ячейки в 0
 	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-		return section == 0 || section == 2 ? 0 : 45.0
+		return section == 0 || section == 2 ? .leastNormalMagnitude : 45.0
 	}
 
 	// https://stackoverflow.com/questions/30364067/space-between-sections-in-uitableview
@@ -194,11 +186,9 @@ extension IzolyatorMainViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		switch indexPath.section {
 		case Section.products.rawValue:
-			return Constants.productTableViewCellHeight // 400
-		case Section.models.rawValue:
-			return UITableView.automaticDimension
+			return Constants.productTableViewCellHeight // 350
 		case Section.info.rawValue:
-			return Constants.productTableViewCellHeight // 400
+			return 360 //Constants.productTableViewCellHeight
 		default:
 			return 0
 		}
@@ -206,25 +196,20 @@ extension IzolyatorMainViewController: UITableViewDelegate {
 
 
 	/// Вью для секции ячеек
-	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-		let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as? CollapsibleTableViewHeader ?? CollapsibleTableViewHeader(reuseIdentifier: "header")
-//		header.pinToSuperView()
-
-//		containerTableView.setTableHeaderView(headerView: header)
-
-		if productsMain.isEmpty {
-			return header
-		} else {
-			header.typeLabel.text = productsMain[currentIndex].typeName //"ВВ Трансформаторный тип" //sections[section].name
-//			header.arrowLabel.text = ">"
-			header.setCollapsed(productsMain[currentIndex].modelSectionCollapsed)
-
-			header.section = section
-			header.delegate = self
-
-			return header
-		}
-	}
+//	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//		let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as? CollapsibleTableViewHeader ?? CollapsibleTableViewHeader(reuseIdentifier: "header")
+//		if productsMain.isEmpty {
+//			return header
+//		} else {
+//			header.typeLabel.text = productsMain[currentIndex].typeName //"ВВ Трансформаторный тип" //sections[section].name
+//			header.setCollapsed(productsMain[currentIndex].modelSectionCollapsed)
+//
+//			header.section = section
+//			header.delegate = self
+//
+//			return header
+//		}
+//	}
 }
 
 // MARK: - UITableViewDataSource
@@ -239,13 +224,13 @@ extension IzolyatorMainViewController: UITableViewDataSource {
 		switch section {
 		case Section.products.rawValue:
 			return 1
-		case Section.models.rawValue:
+//		case Section.models.rawValue:
 			//return sections[section].collapsed ? 0 : sections[section].items.count
-			if productsMain.isEmpty {
-				return 0
-			} else {
-				return  productsMain[currentIndex].modelSectionCollapsed ? 0 : productsMain[currentIndex].models.count
-			}
+//			if productsMain.isEmpty {
+//				return 0
+//			} else {
+//				return  productsMain[currentIndex].modelSectionCollapsed ? 0 : productsMain[currentIndex].models.count
+//			}
 		case Section.info.rawValue:
 			return 1
 		default:
@@ -265,29 +250,18 @@ extension IzolyatorMainViewController: UITableViewDataSource {
 			cell.updateCollectionViewWith(source: productsMain,
 										  delegate: self)
 			return cell
-		case Section.models.rawValue:
-			guard let cell = containerTableView.dequeueReusableCell(withIdentifier:
-																		String(describing: CollapsibleTableViewCell.self), for: indexPath) as? CollapsibleTableViewCell else {
-				return UITableViewCell()
-			}
-//			let item: Item = sections[indexPath.section].items[indexPath.row]
-
-			let model: VModel = productsMain[currentIndex].models[indexPath.row]
-
-			cell.typeLabel.text = model.name //item.name
-			cell.detailLabel.text = model.object //item.detail
-
-			return cell
 		case Section.info.rawValue:
 			guard let cell = containerTableView.dequeueReusableCell(withIdentifier:
 																		String(describing: ProductInfoTableViewCell.self), for: indexPath) as? ProductInfoTableViewCell else {
 				return UITableViewCell()
 			}
 
+			cell.backgroundColor = .white
 			if productsMain.isEmpty {
 			 return cell
 			} else {
-				cell.bind(text: productsMain[currentIndex].typeInfo)
+				cell.bind(title: productsMain[currentIndex].typeName,
+						  text: productsMain[currentIndex].typeInfo)
 			}
 			return cell
 		default:

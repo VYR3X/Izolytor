@@ -2,19 +2,18 @@
 //  FirstScreenSMViewController.swift
 //  Ground
 //
-//  Created by 17790204 on 27.11.2020.
+//  Created by Vlad Zhokhov on 27.11.2020.
 //  Copyright © 2020 Splash Fire. All rights reserved.
 //
 
 import UIKit
-import SceneKit
 
 /// Интерфейс взаимодействия с вью-контроллером экрана FirstScreenSM.
-protocol FirstScreenSMViewControllable: UIViewController {}
+protocol SearchViewControllable: UIViewController {}
 
-protocol FirstScreenSMPresentableListener {
+protocol SearchPresentableListener {
 
-	func didLoad(_ viewController: FirstScreenSMViewControllable)
+	func didLoad(_ viewController: SearchViewControllable)
 
 	func didTapOnButton()
 }
@@ -22,7 +21,8 @@ protocol FirstScreenSMPresentableListener {
 // https://www.youtube.com/watch?v=4RyhnwIRjpA // пример с фильтрацией простого массива с эивотными
 // https://stackoverflow.com/questions/57756260/how-can-i-use-a-searchbar-in-a-tableview-with-multiple-sections // фильтрация секций + код с github )
 
-final class FirstScreenSMViewController: UIViewController, FirstScreenSMViewControllable {
+/// Экран поиска
+final class SearchViewController: UIViewController, SearchViewControllable {
 
 	private lazy var myTableView: UITableView = {
 		let tableView = UITableView(frame: .zero, style: .plain)
@@ -30,10 +30,11 @@ final class FirstScreenSMViewController: UIViewController, FirstScreenSMViewCont
 		tableView.delegate = self
 		tableView.dataSource = self
 		tableView.separatorStyle = .singleLine
-		tableView.backgroundColor = .clear
+		tableView.backgroundColor = UIColor.Pallete.lightBackground //.white
 		tableView.showsVerticalScrollIndicator = false
 		tableView.register(ProductListTableViewCell.self,
 						   forCellReuseIdentifier: String(describing: ProductListTableViewCell.self))
+		tableView.allowsSelection = false //  убрал выделение
 		return tableView
 	}()
 
@@ -49,14 +50,14 @@ final class FirstScreenSMViewController: UIViewController, FirstScreenSMViewCont
 		return searchBar
 	}()
 
-	private let listener: FirstScreenSMPresentableListener
+	private let listener: SearchPresentableListener
 
 	private var bushingArray = [CatalogModel.HighVoltageBushingModel]()
 	private var currentBushingArray = [CatalogModel.HighVoltageBushingModel]()
 
 	required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
-	init(listener: FirstScreenSMPresentableListener) {
+	init(listener: SearchPresentableListener) {
 		self.listener = listener
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -66,6 +67,7 @@ final class FirstScreenSMViewController: UIViewController, FirstScreenSMViewCont
 		setUpAnimals()
 		setupView()
 		self.navigationController?.view.backgroundColor = .white
+		hideKeyboardWhenTappedAround()
 	}
 
 	private func setUpAnimals() {
@@ -133,15 +135,23 @@ final class FirstScreenSMViewController: UIViewController, FirstScreenSMViewCont
 		}
 
 	private func setupView() {
+		self.view.backgroundColor = UIColor.white
+//		title = "Каталог"
+//		self.navigationController?.navigationBar.prefersLargeTitles = true
+
+		let search = UISearchController(searchResultsController: nil)
+//		self.navigationItem.searchController = search
+		search.searchResultsUpdater = self
+
 		view.addSubview(myTableView)
 		myTableView.pinToSuperView()
-		navigationItem.titleView = searchBar
+		navigationItem.titleView = searchBar // search.searchBar//searchBar
 	}
 }
 
 //MARK: - UITableViewDataSource, UITableViewDelegate
 
-extension FirstScreenSMViewController: UITableViewDataSource, UITableViewDelegate {
+extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
 
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return 65
@@ -170,6 +180,7 @@ extension FirstScreenSMViewController: UITableViewDataSource, UITableViewDelegat
 																	String(describing: ProductListTableViewCell.self), for: indexPath) as? ProductListTableViewCell else {
 			return UITableViewCell()
 		}
+		cell.backgroundColor = .clear
 		cell.detailLabel.text = currentBushingArray[0].voltageClassModels[indexPath.section].bushingModels[indexPath.row].drawing
 		cell.typeLabel.text = currentBushingArray[0].voltageClassModels[indexPath.section].bushingModels[indexPath.row].bushingName
 		return cell
@@ -181,7 +192,7 @@ extension FirstScreenSMViewController: UITableViewDataSource, UITableViewDelegat
 
 // переделал этот поиск под свои структуры )
 // https://stackoverflow.com/questions/57756260/how-can-i-use-a-searchbar-in-a-tableview-with-multiple-sections // фильтрация секций + код с github )
-extension FirstScreenSMViewController: UISearchBarDelegate {
+extension SearchViewController: UISearchBarDelegate {
 
 	// Search Bar
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -231,4 +242,61 @@ extension FirstScreenSMViewController: UISearchBarDelegate {
 	}
 }
 
+// MARK: - UISearchResultsUpdating // для search controller
+extension SearchViewController: UISearchResultsUpdating {
+	// https://pavelgnatyuk.medium.com/large-title-and-search-in-ios-11-514d5e020cee
+
+	func updateSearchResults(for searchController: UISearchController) {
+//		if let text = searchController.searchBar.text, !text.isEmpty {
+//			self.filtered = self.countries.filter({ (country) -> Bool in
+//				return country.lowercased().contains(text.lowercased())
+//			})
+//			self.filterring = true
+//		}
+//		else {
+//			self.filterring = false
+//			self.filtered = [String]()
+//		}
+//		self.table.reloadData()
+
+		// новый массив для отображения
+		var filteredDataSource: [CatalogModel.HighVoltageBushingModel] = []
+		// отфильтрованные поля с информацией о вводе
+		var fullInfo: [FullBushingInfoModel] = []
+
+		if let searchText = searchController.searchBar.text, searchText.isEmpty {
+			currentBushingArray = bushingArray
+			self.myTableView.reloadData()
+			return
+		} else {
+			// фильтруем по наименование ввода: TCNSIV-90-12/1000 (0)
+			for voltage in bushingArray[0].voltageClassModels {
+				let bushingModel = voltage.bushingModels.filter { (item) -> Bool in
+					// условие выбора по введенному названию
+					item.bushingName.contains(searchController.searchBar.text!) ? true : false
+				}
+				fullInfo.append(contentsOf: bushingModel)
+			}
+
+			// собираю новый массив уже отфильтрованный
+			// по сути теперь у нас одна секция VoltageСlassModel и отфильтрованный массив найденных моделей fullInfo
+			filteredDataSource.append(
+				CatalogModel.HighVoltageBushingModel(
+					type: .transformer,
+					voltageClassModels: [
+						VoltageСlassModel(
+							voltageName: "",
+							bushingModels: fullInfo
+						)
+					]
+				)
+			)
+		}
+
+		// обновляю контент
+		self.currentBushingArray = filteredDataSource
+		myTableView.reloadData()
+	}
+
+}
 

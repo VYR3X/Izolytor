@@ -9,10 +9,10 @@
 import UIKit
 import SceneKit
 
-// FirstScreenSMViewController
-final class Fuck: UIViewController, FirstScreenSMViewControllable {
+// экран с отображением 3D модели в сцене ( не ар )
+final class Fuck: UIViewController, SearchViewControllable {
 
-	private let listener: FirstScreenSMPresentableListener
+	private let listener: SearchPresentableListener
 
 	// MARK: - UI
 	private let sceneView = SCNView()
@@ -23,7 +23,7 @@ final class Fuck: UIViewController, FirstScreenSMViewControllable {
 //		return label
 //	}
 
-	init(listener: FirstScreenSMPresentableListener) {
+	init(listener: SearchPresentableListener) {
 		self.listener = listener
 		super.init(nibName: nil, bundle: nil)
 	}

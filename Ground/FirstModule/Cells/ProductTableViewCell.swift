@@ -30,7 +30,7 @@ final class ProductTableViewCell: UITableViewCell {
 		label.sizeToFit()
 		label.text = "Изолятор"
 		label.font = UIFont.boldSystemFont(ofSize: 30)
-		label.textColor = .white
+		label.textColor = UIColor.Pallete.darkBlue
 		label.backgroundColor = .clear
 		label.numberOfLines = 0
 		label.textAlignment = .center
@@ -39,12 +39,12 @@ final class ProductTableViewCell: UITableViewCell {
 
 	private let paginationCollectionView = PaginationCollectionView()
 
+	required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+
 	override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 		setupConstraints()
 	}
-
-	required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
 	func updateCollectionViewWith(source: [ProductServiceModel.MainScreenProductType], delegate: ProductTableViewCellDelegate) {
 		paginationCollectionView.delegate = delegate
@@ -52,14 +52,15 @@ final class ProductTableViewCell: UITableViewCell {
 	}
 
 	private func setupConstraints() {
-		contentView.addSubviews(headerLabel, paginationCollectionView)
+//		contentView.addSubviews(headerLabel, paginationCollectionView)
+		contentView.addSubviews(paginationCollectionView)
 
 		NSLayoutConstraint.activate([
-			headerLabel.topAnchor.constraint(equalTo: topAnchor, constant: 15),
-			headerLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
-//			headerLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+//			headerLabel.topAnchor.constraint(equalTo: topAnchor, constant: 15),
+//			headerLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
 
-			paginationCollectionView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 15),
+//			paginationCollectionView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 15),
+			paginationCollectionView.topAnchor.constraint(equalTo: topAnchor),
 			paginationCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
 			paginationCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
 			paginationCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)

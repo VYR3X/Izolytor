@@ -83,7 +83,7 @@ extension GroundCoordinator: StartCoordinatorProtocol {
 	// для каждого модуля есть свой управлюящий навигационный контроллер first, second, third, ...
 
 	func routeToARSceneViewController() {
-		let viewController = assembly.makeSearchViewController()
+		let viewController = ARViewController() //assembly.makeSearchViewController()
 		firstNavigationController?.pushViewController(viewController, animated: true)
 	}
 
@@ -113,12 +113,19 @@ extension GroundCoordinator: StartCoordinatorProtocol {
 	}
 
 	func getTabBabItems() -> [UITabBarItem] {
-		let catalogTabBarItem = UITabBarItem()
-		catalogTabBarItem.title = "Каталог"
+
+		let catalogTabBarItem = UITabBarItem(title: "Каталог",
+										 image: UIImage(named: "chevron_down"),
+										 selectedImage: UIImage(named: "chevron_down"))
+//		let catalogTabBarItem = UITabBarItem()
+//		catalogTabBarItem.title = "Каталог"
+//		catalogTabBarItem.image = UIImage(named: "chevron_down")
 		let searchTabBarItem = UITabBarItem()
 		searchTabBarItem.title = "Поиск"
+		searchTabBarItem.image = UIImage(named: "chevron_down")
 		let profileTabBarItem = UITabBarItem()
 		profileTabBarItem.title = "Профиль"
+		profileTabBarItem.image = UIImage(named: "chevron_down")
 		var items: [UITabBarItem] = []
 		items.append(catalogTabBarItem)
 		items.append(searchTabBarItem)

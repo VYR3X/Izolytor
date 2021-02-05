@@ -39,7 +39,7 @@ public var sectionsData: [Section] = [
 		Item(name: "171", detail: "чертеж данной модели"),
 		Item(name: "171.01", detail: "чертеж данной модели")
 	]),
-	Section(name: "Рукодвоство по эксплуатации", items: [
+	Section(name: "Руководство по эксплуатации", items: [
 		Item(name: "Трансформаторные вводы", detail: "детальное руководство по эксплуатации")
 	]),
 	Section(name: "AR объект", items: [

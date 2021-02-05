@@ -12,7 +12,6 @@ import UIKit
 protocol CollapsibleTableViewHeaderDelegate {
 	
 	func toggleSection(_ header: CollapsibleTableViewHeader, section: Int)
-
 }
 
 /// Хедер вью для сворачивающейся секции
@@ -27,18 +26,28 @@ final class CollapsibleTableViewHeader: UITableViewHeaderFooterView {
 	let typeLabel: UILabel = {
 		let label = UILabel()
 		label.sizeToFit()
-		label.font = UIFont.boldSystemFont(ofSize: 16)
+		label.font = UIFont.boldSystemFont(ofSize: 20)
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.textColor = UIColor.black
 		return label
 	}()
 
-//	private lazy var arrowButton: ButtonWithArrow = {
-//		let button = ButtonWithArrow()
-//		button.delegate = delegate
-//		button.section = section
-//		return button
-//	}()
+	private lazy var arrowImageView: UIImageView = {
+		let imageView = UIImageView(frame: .zero)
+		imageView.translatesAutoresizingMaskIntoConstraints = false
+		imageView.image = UIImage(named: "chevron_right")
+		imageView.makeSquare(side: 18.0)
+		return imageView
+	}()
+
+	private let horizontalStackView: UIStackView = {
+		let stackView = UIStackView()
+		stackView.translatesAutoresizingMaskIntoConstraints = false
+		stackView.spacing = 12
+		stackView.axis = .horizontal
+		stackView.distribution = .fill
+		return stackView
+	}()
 
 	required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
@@ -51,17 +60,15 @@ final class CollapsibleTableViewHeader: UITableViewHeaderFooterView {
 
 	private func setupView() {
 //		addSubviews(typeLabel, arrowButton)
-		addSubview(typeLabel)
+//		addSubview(typeLabel)
+		horizontalStackView.addArrangedSubviews(typeLabel, arrowImageView)
+		addSubview(horizontalStackView)
+		horizontalStackView.pinToSuperView(insets: UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24))
 
-		NSLayoutConstraint.activate([
-			typeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-			typeLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
-//			typeLabel.trailingAnchor.constraint(equalTo: arrowButton.leadingAnchor, constant: -10),
-//
-//			arrowButton.heightAnchor.constraint(equalToConstant: 30),
-//			arrowButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-//			arrowButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15)
-		])
+//		NSLayoutConstraint.activate([
+//			typeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 24),
+//			typeLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+//		])
 	}
 
 	/// Обработчик нажатия на секцию

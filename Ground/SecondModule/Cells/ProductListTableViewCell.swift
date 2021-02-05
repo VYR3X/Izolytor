@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Ячейка с информацией о вводе на экране поиска
 class ProductListTableViewCell: UITableViewCell {
 
 	/// а это пока тайтл заголовка ячейки
@@ -16,6 +17,7 @@ class ProductListTableViewCell: UITableViewCell {
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.numberOfLines = 0
 		label.font = UIFont.systemFont(ofSize: 16)
+		label.textColor = .black
 		return label
 	}()
 

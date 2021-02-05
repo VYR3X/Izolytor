@@ -19,9 +19,9 @@ struct DarkPalette: Palette {
 		case .generalPrimary:			return UIColor(hex: "#FFFFFF")
 		case .generalBrand:				return UIColor(hex: "#29B260")
 
-		case .darkBlue: return UIColor(hex: "1C4F97")
-		case .lightBackground: return UIColor(hex: "F9F9F9")
-		case .lightBlue:	return UIColor(hex: "66BFED")
+		case .darkBlue: 				return UIColor(hex: "1C4F97")
+		case .lightBackground: 			return UIColor(hex: "F9F9F9")
+		case .lightBlue:				return UIColor(hex: "66BFED")
 
 		case .backgroundDefault:		return UIColor(hex: "#121212")
 		case .backgroundOverlay:		return UIColor(hex: "#000000").withAlphaComponent(0.8)

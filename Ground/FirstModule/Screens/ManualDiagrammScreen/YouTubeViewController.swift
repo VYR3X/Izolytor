@@ -30,6 +30,7 @@ final class YouTubeViewController: UIViewController, YouTubeViewControllable {
 
 	private struct Constants {
 		static let productTableViewCellHeight: CGFloat = 350
+		static let rowHeight: CGFloat = 72
 		static let modelTableViewCellHeight: CGFloat = 45
 		static let collapse: CGFloat = 100
 	}
@@ -38,9 +39,9 @@ final class YouTubeViewController: UIViewController, YouTubeViewControllable {
 	private enum Section: Int, CaseIterable {
 		/// Вью с YouTube плеером
 		case youTubeSection
-		/// Секция с чертежами моделей ( как на главном экране список моделей ) и 3D моделью
-		case diagrammSection
-		/// Секция c руководчтвом
+		/// Секция с каталогом моделей по выбранному типу ввода
+		case productCatalogSection
+		/// Секция c руководством
 		case manualSection
 		/// Секция с 3D моделью
 		case arSection
@@ -49,7 +50,7 @@ final class YouTubeViewController: UIViewController, YouTubeViewControllable {
 	private let listener: YouTubeViewControllerListener
 
 	private lazy var containerTableView: UITableView = {
-		let tableView = UITableView(frame: .zero, style: .grouped)
+		let tableView = UITableView(frame: .zero, style: .plain)
 		tableView.translatesAutoresizingMaskIntoConstraints = false
 		tableView.register(YouTubeTableViewCell.self,
 						   forCellReuseIdentifier: String(describing: YouTubeTableViewCell.self))
@@ -60,16 +61,35 @@ final class YouTubeViewController: UIViewController, YouTubeViewControllable {
 		tableView.separatorStyle = .none
 		tableView.backgroundColor = .white
 		tableView.showsVerticalScrollIndicator = false
-//		tableView.allowsSelection = false
 		return tableView
 	}()
 
-//	private lazy var multipleView: MultipleView = {
-//		let view = MultipleView()
-//		view.productFullInfoLabel.text = "PDF чертеж"
-//		view.delegate = self
-//		return view
-//	}()
+	// Create the navigation bar
+	private lazy var navBar: UINavigationBar = {
+		// Offset by 20 pixels vertically to take the status bar into account
+		let navigationBar = UINavigationBar(frame: CGRect(x: 0,
+														  y: 0,
+														  width: self.view.frame.width,
+														  height: 100))
+		navigationBar.backgroundColor = .green
+//		navigationBar.delegate = self;
+
+		// Create a navigation item with a title
+		let navigationItem = UINavigationItem()
+		navigationItem.title = "Title"
+
+		// Create left and right button for navigation item
+		let leftButton =  UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(addTapped))
+		let rightButton = UIBarButtonItem(title: "Right", style: .plain, target: self, action: nil)
+
+		// Create two buttons for the navigation item
+		navigationItem.leftBarButtonItem = leftButton
+		navigationItem.rightBarButtonItem = rightButton
+
+		// Assign the navigation item to the navigation bar
+		navigationBar.items = [navigationItem]
+		return navigationBar
+	}()
 
 	init(listener: YouTubeViewControllerListener) {
 		self.listener = listener
@@ -78,9 +98,21 @@ final class YouTubeViewController: UIViewController, YouTubeViewControllable {
 
 	required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
+	override func viewWillAppear(_ animated: Bool) {
+//		super.viewWillAppear(animated)
+//		self.navigationController?.navigationBar.prefersLargeTitles = false
+//		navigationController?.navigationBar.barTintColor = .white
+	}
+
+	override func willMove(toParent parent: UIViewController?) {
+		self.navigationController?.navigationBar.prefersLargeTitles = false
+		self.navigationController?.navigationBar.tintColor = .white
+		self.navigationController?.navigationBar.barTintColor = .blue
+//		tabBarController?.tabBar.barTintColor = .white
+	}
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
-//		multipleView.delegate = self
 		setupConstraints()
 //		setNavigationBar() // хз что за рофл но устанавливать бар нужно в последнюю очередь, а то будет странный оттенок
 //		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
@@ -88,19 +120,7 @@ final class YouTubeViewController: UIViewController, YouTubeViewControllable {
 
 	private func setupConstraints() {
 		view.addSubview(containerTableView)
-//		containerTableView.addSubview(multipleView)
-
-		NSLayoutConstraint.activate([
-			containerTableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-			containerTableView.rightAnchor.constraint(equalTo: view.rightAnchor),
-			containerTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-			containerTableView.topAnchor.constraint(equalTo: view.topAnchor)
-
-//			multipleView.heightAnchor.constraint(equalToConstant: 45),
-//			multipleView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//			multipleView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//			multipleView.bottomAnchor.constraint(equalTo: view.safeBottomAnchor)
-		])
+		containerTableView.pinToSuperView()
 	}
 
 	private func setNavigationBar() {
@@ -116,6 +136,7 @@ final class YouTubeViewController: UIViewController, YouTubeViewControllable {
 	}
 
 	@objc func addTapped() {
+		print("action button")
 	}
 }
 
@@ -137,12 +158,12 @@ extension YouTubeViewController: UITableViewDelegate {
 		switch indexPath.section {
 		case Section.youTubeSection.rawValue:
 			return Constants.productTableViewCellHeight // 350
-		case Section.diagrammSection.rawValue:
-			return UITableView.automaticDimension
+		case Section.productCatalogSection.rawValue:
+			return Constants.rowHeight //UITableView.automaticDimension
 		case Section.manualSection.rawValue:
-			return UITableView.automaticDimension
+			return Constants.rowHeight
 		case Section.arSection.rawValue:
-			return UITableView.automaticDimension
+			return Constants.rowHeight
 		default:
 			return 0
 		}
@@ -158,7 +179,7 @@ extension YouTubeViewController: UITableViewDelegate {
 		case Section.arSection.rawValue:
 			print("нажали на ячейку секции AR")
 			listener.didTapOnArButton()
-		case Section.diagrammSection.rawValue:
+		case Section.productCatalogSection.rawValue:
 			print("нажали на одну из ячеек секции чертеж модели")
 			listener.didTapOnTechInfoButton()
 		default:
@@ -179,8 +200,8 @@ extension YouTubeViewController: UITableViewDataSource {
 		switch section {
 		case Section.youTubeSection.rawValue:
 			return 1
-		case Section.diagrammSection.rawValue:
-			return sections[section].collapsed ? 0 : sections[section].items.count
+		case Section.productCatalogSection.rawValue:
+			return sections[section].collapsed ? 0 : 1 //sections[section].items.count
 		case Section.arSection.rawValue:
 			return sections[section].collapsed ? 0 : sections[section].items.count
 		case Section.manualSection.rawValue:
@@ -194,16 +215,13 @@ extension YouTubeViewController: UITableViewDataSource {
 		let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as? ManualHeaderView ?? ManualHeaderView(reuseIdentifier: "header")
 		switch section {
 		case Section.youTubeSection.rawValue:
-			header.secionName.text = "Видео материал"
-		case Section.diagrammSection.rawValue:
-			header.secionName.text = "Модели и чертежи"
-			header.arrowLabel.text = ">"
+			header.secionName.text = "Видео"
+		case Section.productCatalogSection.rawValue:
+			header.secionName.text = "Каталог моделей"
 		case Section.manualSection.rawValue:
-			header.secionName.text = "Рукодвоство по эксплуатации"
-			header.arrowLabel.text = ">"
+			header.secionName.text = "Руководство по эксплуатации"
 		case Section.arSection.rawValue:
 			header.secionName.text = "AR рендеринг"
-			header.arrowLabel.text = ">"
 		default:
 			return header
 		}
@@ -224,16 +242,14 @@ extension YouTubeViewController: UITableViewDataSource {
 			cell.delegate = self
 			cell.backgroundColor = LightPalette().color(.aqua)
 			return cell
-		case Section.diagrammSection.rawValue:
+		case Section.productCatalogSection.rawValue:
 			guard let cell = containerTableView.dequeueReusableCell(withIdentifier:
 																		String(describing: CollapsibleTableViewCell.self), for: indexPath) as? CollapsibleTableViewCell else {
 				return UITableViewCell()
 			}
 
-			let item: Item = sections[1].items[indexPath.row]
-
-			cell.typeLabel.text = item.name
-			cell.detailLabel.text = item.detail
+//			let item: Item = sections[1].items[indexPath.row]
+			cell.bind(title: "Открыть список вводов", subTitle: "Перейдите в каталог", iconName: "add")
 
 			return cell
 		case Section.manualSection.rawValue:
@@ -242,9 +258,7 @@ extension YouTubeViewController: UITableViewDataSource {
 				return UITableViewCell()
 			}
 			let item: Item = sections[2].items[indexPath.row]
-
-			cell.typeLabel.text = item.name
-			cell.detailLabel.text = item.detail
+			cell.bind(title: item.name, subTitle: item.detail, iconName: "add")
 
 			return cell
 		case Section.arSection.rawValue:
@@ -254,9 +268,7 @@ extension YouTubeViewController: UITableViewDataSource {
 			}
 
 			let item: Item = sections[3].items[indexPath.row]
-
-			cell.typeLabel.text = item.name
-			cell.detailLabel.text = item.detail
+			cell.bind(title: item.name, subTitle: item.detail, iconName: "add")
 
 			return cell
 		default:

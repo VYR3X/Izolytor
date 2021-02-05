@@ -9,9 +9,9 @@
 /// Интерфейс взаимодействия с презентером экрана FirstScreenSM во флоу GG.
 protocol FirstScreenSMPresentable {}
 
-final class FirstScreenSMPresenter: FirstScreenSMPresentable {
+final class SearchPresenter: FirstScreenSMPresentable {
 
-    weak var viewController: FirstScreenSMViewControllable?
+    weak var viewController: SearchViewControllable?
 
     private let interactor: FirstScreenSMInteractable
     private let coordinator: StartCoordinatorProtocol
@@ -27,9 +27,9 @@ final class FirstScreenSMPresenter: FirstScreenSMPresentable {
 
 // MARK: - FirstScreenSMPresentableListener
 
-extension FirstScreenSMPresenter: FirstScreenSMPresentableListener {
+extension SearchPresenter: SearchPresentableListener {
 
-	func didLoad(_ viewController: FirstScreenSMViewControllable) {}
+	func didLoad(_ viewController: SearchViewControllable) {}
 
 	func didTapOnButton() {
 		coordinator.routeToSecondViewControllerInSM()

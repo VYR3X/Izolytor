@@ -24,10 +24,10 @@ final class PaginationCollectionView: UIView {
 
 	private lazy var mainCollectionView: UICollectionView = {
 		let layout = PagingCollectionViewLayout()
-		// версия со сдвигом layout
-//		layout.sectionInset = .init(top: 0, left: spacing, bottom: 0, right: spacing)
-//		layout.minimumLineSpacing = cellSpacing
-		// ячейка на весь экран лайаут не двигается
+		// Версия со сдвигом layout
+		//	layout.sectionInset = .init(top: 0, left: spacing, bottom: 0, right: spacing)
+		//	layout.minimumLineSpacing = cellSpacing
+		// Ячейка на весь экран
 		layout.sectionInset = .init(top: 0, left: 0, bottom: 0, right: 0)
 		layout.minimumLineSpacing = 0
 
@@ -57,14 +57,7 @@ final class PaginationCollectionView: UIView {
 		return controll
 	}()
 
-	private let stackView: UIStackView = {
-		let stackView = UIStackView()
-		stackView.translatesAutoresizingMaskIntoConstraints = false
-		stackView.spacing = 15
-		stackView.distribution = .fill
-		stackView.axis = .vertical
-		return stackView
-	}()
+	required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
 	override init(frame: CGRect) {
 		super.init(frame: .zero)
@@ -73,23 +66,15 @@ final class PaginationCollectionView: UIView {
 		setupConstraints()
 	}
 
-	required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-
 	func updateCollectionView(source: [ProductServiceModel.MainScreenProductType]) {
 		dataSource = source
 		mainCollectionView.reloadData()
 	}
 
 	private func setupConstraints() {
-//		stackView.addArrangedSubviews(mainCollectionView, bottomPageControl)
 		addSubviews(mainCollectionView, bottomPageControl)
 
 		NSLayoutConstraint.activate([
-//			stackView.topAnchor.constraint(equalTo: topAnchor, constant: 5),
-//			stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-//			stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-//			stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5)
-
 			mainCollectionView.topAnchor.constraint(equalTo: topAnchor),
 			mainCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
 			mainCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -124,37 +109,40 @@ extension PaginationCollectionView: UICollectionViewDataSource {
 
 		return cell
 	}
-	//	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-	//
-	//		guard let cell = albumsCollectionView.dequeueReusableCell(withReuseIdentifier:
-	//			String(describing: ProductCollectionViewCell.self), for: indexPath) as? ProductCollectionViewCell else {
-	//				return UICollectionViewCell()
-	//		}
-	//
-	//		//cell.trailerImageView.image = UIImage(named: albumsSongs[indexPath.row][0].imageName)
-	//		cell.trailerImageView.image = UIImage(named: albumImageNames[indexPath.row])
-	//
-	//		cell.titleLabel.text = albumsSongs[indexPath.row][0].albumName
-	//		cell.subtitleLabel.text = albumsSongs[indexPath.row][0].artistName
-	//
-	//		cell.layer.cornerRadius = 25
-	//		return cell
-	//	}
+
+//	func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//		bottomPageControl.currentPage = indexPath.section
+//		delegate?.detectCurrentCellIndex(indexPath.section)
+//	}
+
 }
 
 // MARK: - UICollectionViewDelegate
 
 extension PaginationCollectionView: UICollectionViewDelegate {
 
-	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-		let index = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+	// https://stackoverflow.com/questions/40975302/how-to-add-pagecontrol-inside-uicollectionview-image-scrolling
+	// лучшее решение )
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
+		let offSet = scrollView.contentOffset.x
+		let width = scrollView.frame.width
+		let horizontalCenter = width / 2
+		let index = Int(offSet + horizontalCenter) / Int(width)
+
 		bottomPageControl.currentPage = index
 		delegate?.detectCurrentCellIndex(index)
 	}
 
-	func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-		bottomPageControl.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
-	}
+	// https://stackoverflow.com/questions/40975302/how-to-add-pagecontrol-inside-uicollectionview-image-scrolling
+//	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//		let index = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+//		bottomPageControl.currentPage = index
+//		delegate?.detectCurrentCellIndex(index)
+//	}
+
+//	func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+//		bottomPageControl.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+//	}
 
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		print("Выбрали Высоковольтный ввод под номером: \(indexPath.row + 1)")

@@ -6,7 +6,6 @@
 //  Copyright © 2021 Splash Fire. All rights reserved.
 //
 
-
 /// Модель для отображения на экране ( поиска / каталога )
 struct CatalogModel {
 

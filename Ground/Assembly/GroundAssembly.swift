@@ -54,8 +54,8 @@ final class GroundAssembly {
 	func makeSearchViewController() -> UIViewController {
 		let service = services.makeFirstService()
 		let interactor = FirstScreenSMInteractor(service: service)
-		let presenter = FirstScreenSMPresenter(interactor: interactor, coordinator: startRouter!)
-		let view = FirstScreenSMViewController(listener: presenter)
+		let presenter = SearchPresenter(interactor: interactor, coordinator: startRouter!)
+		let view = SearchViewController(listener: presenter)
 		presenter.viewController = view
 		return view
 	}
