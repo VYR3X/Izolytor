@@ -55,9 +55,11 @@ final class FirstNavigationController: UINavigationController {
 			NSAttributedString.Key.foregroundColor: UIColor.white,
 //			NSAttributedString.Key.font: navBarfont
 		]
+		// https://stackoverflow.com/questions/58300644/large-title-to-small-title-switch-in-navigation-bar-is-not-smooth-ios-13-sticky
 		self.navigationBar.prefersLargeTitles = navBarTitle
 		self.navigationBar.barTintColor = customNavigationBarTintColot
 		self.navigationBar.isTranslucent = true
+
 	}
 
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -82,6 +84,25 @@ final class FirstNavigationController: UINavigationController {
 // MARK: - NavigationControllerProtocol
 
 extension FirstNavigationController: NavigationControllerProtocol {}
+
+//MARK: - Переопределяю методы: push pop, чтобы менять цвет navigationBar
+//https://stackoverflow.com/questions/42618802/changing-navigation-bar-color-while-popping-view-controller
+
+extension FirstNavigationController {
+
+	override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+		super.pushViewController(viewController, animated: animated)
+//		navigationBar.barTintColor = customNavigationBarTintColot
+	}
+
+	override func popViewController(animated: Bool) -> UIViewController? {
+		let viewController = super.popViewController(animated: animated)
+//		navigationBar.barTintColor = customNavigationBarTintColot
+//		navigationController?.view.backgroundColor = customNavigationBarTintColot
+		return viewController
+	}
+}
+
 
 
 extension FirstNavigationController {

@@ -91,13 +91,6 @@ final class YouTubeViewController: UIViewController, YouTubeViewControllable {
 		return navigationBar
 	}()
 
-	init(listener: YouTubeViewControllerListener) {
-		self.listener = listener
-		super.init(nibName: nil, bundle: nil)
-	}
-
-	required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-
 	override func viewWillAppear(_ animated: Bool) {
 //		super.viewWillAppear(animated)
 //		self.navigationController?.navigationBar.prefersLargeTitles = false
@@ -105,18 +98,25 @@ final class YouTubeViewController: UIViewController, YouTubeViewControllable {
 	}
 
 	override func willMove(toParent parent: UIViewController?) {
-		self.navigationController?.navigationBar.prefersLargeTitles = false
 		self.navigationController?.navigationBar.tintColor = .white
-		self.navigationController?.navigationBar.barTintColor = .blue
+//		self.navigationController?.navigationBar.barTintColor = .blue
 //		tabBarController?.tabBar.barTintColor = .white
 	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupConstraints()
+		self.navigationItem.largeTitleDisplayMode = .never
 //		setNavigationBar() // хз что за рофл но устанавливать бар нужно в последнюю очередь, а то будет странный оттенок
 //		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
 	}
+
+	init(listener: YouTubeViewControllerListener) {
+		self.listener = listener
+		super.init(nibName: nil, bundle: nil)
+	}
+
+	required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
 	private func setupConstraints() {
 		view.addSubview(containerTableView)

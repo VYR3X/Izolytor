@@ -115,24 +115,26 @@ final class IzolyatorMainViewController: UIViewController {
 		return view
 	}()
 
-	required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+	// Навигационный бар
+	private var navBar: NavigationControllerProtocol {
+		get {
+			return self.navigationController as! NavigationControllerProtocol
+		}
+		set {}
+	}
 
-    init(listener: IzolyatorMainPresentableListener) {
-        self.listener = listener
-        super.init(nibName: nil, bundle: nil)
-    }
+	// MARK: - LIVE VIEW CONTROLER
 
 	/// hide navigation bar
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		self.navigationController?.navigationBar.prefersLargeTitles = true
+//		self.navigationController?.navigationBar.prefersLargeTitles = true
 //		setupNavigationBar()
 		setGradientBackground()
 
 		// пример изменения полей у навигациооного бара
-//		var navController = self.navigationController as! NavigationControllerProtocol
-//		navController.customNavigationBarTintColot = .orange
-//		navController.customNavigationBarTitleColor = .black
+//		navBar.customNavigationBarTintColot = .orange
+//		navBar.customNavigationBarTitleColor = .black
 	}
 
     override func viewDidLoad() {
@@ -141,7 +143,16 @@ final class IzolyatorMainViewController: UIViewController {
 		multipleView.delegate = self
 		setupConstraints()
 		self.navigationItem.title = "Изолятор"
+		self.navigationItem.largeTitleDisplayMode = .always
     }
+
+	init(listener: IzolyatorMainPresentableListener) {
+		self.listener = listener
+		super.init(nibName: nil, bundle: nil)
+	}
+
+	required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+
 
 	private func setupConstraints() {
 		view.addSubview(containerTableView)
