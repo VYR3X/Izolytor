@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Надо подумать как использовать эту херню 
 /// Маппер значений для различных размеров экрана
 public final class ScreenSizeMapper {
 
