@@ -11,6 +11,7 @@ import UIKit
 /// Маппер значений для различных размеров экрана
 public final class ScreenSizeMapper {
 
+	
 	private enum ScreenSize {
 		// 5, 5c , 5s, SE(2016)
 		case p320
