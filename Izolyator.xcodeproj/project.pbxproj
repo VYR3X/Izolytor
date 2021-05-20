@@ -19,7 +19,7 @@
 		011CF3CD25AE429500C27121 /* PaginationCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011CF3CC25AE429500C27121 /* PaginationCollectionView.swift */; };
 		011CF3D025AE5EB700C27121 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011CF3CF25AE5EB700C27121 /* Array.swift */; };
 		011CF3DC25AFA8CB00C27121 /* MultipleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011CF3DB25AFA8CB00C27121 /* MultipleView.swift */; };
-		013456CF25B8DA9A00CB42C4 /* YouTubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013456CE25B8DA9A00CB42C4 /* YouTubeViewController.swift */; };
+		013456CF25B8DA9A00CB42C4 /* InstallationProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013456CE25B8DA9A00CB42C4 /* InstallationProductViewController.swift */; };
 		013456D625B8DF4000CB42C4 /* YouTubeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013456D525B8DF4000CB42C4 /* YouTubeTableViewCell.swift */; };
 		013456D925B8E21300CB42C4 /* YouTubePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013456D825B8E21300CB42C4 /* YouTubePresenter.swift */; };
 		013456DC25B8E22100CB42C4 /* YouTubeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013456DB25B8E22100CB42C4 /* YouTubeInteractor.swift */; };
@@ -89,7 +89,7 @@
 		01B9630D25CDBB4400CEC455 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B9630C25CDBB4400CEC455 /* UIFont.swift */; };
 		01D173B925B4947D00E51FBB /* product.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 01D173B825B4947D00E51FBB /* product.pdf */; };
 		01D55F5425AB98DF004FB02F /* PagingCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D55F5325AB98DF004FB02F /* PagingCollectionViewLayout.swift */; };
-		5CB6FBEB65F5AB2F768AA8EB /* Pods_Izolyator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E67E97E56C12960D5027939 /* Pods_Izolyator.framework */; };
+		9F4E9504395533B5147B4607 /* Pods_Izolyator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9583DF7FFAA2B67A72DE8CDF /* Pods_Izolyator.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,7 +107,7 @@
 		011CF3CC25AE429500C27121 /* PaginationCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationCollectionView.swift; sourceTree = "<group>"; };
 		011CF3CF25AE5EB700C27121 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		011CF3DB25AFA8CB00C27121 /* MultipleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleView.swift; sourceTree = "<group>"; };
-		013456CE25B8DA9A00CB42C4 /* YouTubeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeViewController.swift; sourceTree = "<group>"; };
+		013456CE25B8DA9A00CB42C4 /* InstallationProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallationProductViewController.swift; sourceTree = "<group>"; };
 		013456D525B8DF4000CB42C4 /* YouTubeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeTableViewCell.swift; sourceTree = "<group>"; };
 		013456D825B8E21300CB42C4 /* YouTubePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubePresenter.swift; sourceTree = "<group>"; };
 		013456DB25B8E22100CB42C4 /* YouTubeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeInteractor.swift; sourceTree = "<group>"; };
@@ -177,9 +177,9 @@
 		01B9630C25CDBB4400CEC455 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		01D173B825B4947D00E51FBB /* product.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = product.pdf; sourceTree = "<group>"; };
 		01D55F5325AB98DF004FB02F /* PagingCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingCollectionViewLayout.swift; sourceTree = "<group>"; };
-		385E3DEC8A0681AC6D0FD92E /* Pods-Izolyator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Izolyator.debug.xcconfig"; path = "Target Support Files/Pods-Izolyator/Pods-Izolyator.debug.xcconfig"; sourceTree = "<group>"; };
-		4E67E97E56C12960D5027939 /* Pods_Izolyator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Izolyator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9B387767A68E2AD5B4A8FDB6 /* Pods-Izolyator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Izolyator.release.xcconfig"; path = "Target Support Files/Pods-Izolyator/Pods-Izolyator.release.xcconfig"; sourceTree = "<group>"; };
+		7A40D6AE49B537F5EC3EEF0C /* Pods-Izolyator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Izolyator.debug.xcconfig"; path = "Target Support Files/Pods-Izolyator/Pods-Izolyator.debug.xcconfig"; sourceTree = "<group>"; };
+		9583DF7FFAA2B67A72DE8CDF /* Pods_Izolyator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Izolyator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C99BCF8EB9E420C634FA260F /* Pods-Izolyator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Izolyator.release.xcconfig"; path = "Target Support Files/Pods-Izolyator/Pods-Izolyator.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,7 +187,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CB6FBEB65F5AB2F768AA8EB /* Pods_Izolyator.framework in Frameworks */,
+				9F4E9504395533B5147B4607 /* Pods_Izolyator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +200,7 @@
 				01141DEE25669E6500E8CDE2 /* Ground */,
 				01141DED25669E6500E8CDE2 /* Products */,
 				4C961B8CB3F8658D8EDA854B /* Pods */,
-				5CE4718DF6252EE926A236C3 /* Frameworks */,
+				0C3FA4BF6BCC2427654E41E5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -577,7 +577,7 @@
 		01D173C225B4AE4400E51FBB /* ManualDiagrammScreen */ = {
 			isa = PBXGroup;
 			children = (
-				013456CE25B8DA9A00CB42C4 /* YouTubeViewController.swift */,
+				013456CE25B8DA9A00CB42C4 /* InstallationProductViewController.swift */,
 				013456D825B8E21300CB42C4 /* YouTubePresenter.swift */,
 				013456DB25B8E22100CB42C4 /* YouTubeInteractor.swift */,
 				01AC5D1D25BE1D1700D21B9A /* ManualHeaderView.swift */,
@@ -585,21 +585,21 @@
 			path = ManualDiagrammScreen;
 			sourceTree = "<group>";
 		};
+		0C3FA4BF6BCC2427654E41E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9583DF7FFAA2B67A72DE8CDF /* Pods_Izolyator.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4C961B8CB3F8658D8EDA854B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				385E3DEC8A0681AC6D0FD92E /* Pods-Izolyator.debug.xcconfig */,
-				9B387767A68E2AD5B4A8FDB6 /* Pods-Izolyator.release.xcconfig */,
+				7A40D6AE49B537F5EC3EEF0C /* Pods-Izolyator.debug.xcconfig */,
+				C99BCF8EB9E420C634FA260F /* Pods-Izolyator.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		5CE4718DF6252EE926A236C3 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4E67E97E56C12960D5027939 /* Pods_Izolyator.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -609,11 +609,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 01141E0325669E6600E8CDE2 /* Build configuration list for PBXNativeTarget "Izolyator" */;
 			buildPhases = (
-				4584367250EBD201678A6B76 /* [CP] Check Pods Manifest.lock */,
+				E6B89E58D602B1344C5DAFA9 /* [CP] Check Pods Manifest.lock */,
 				01141DE825669E6500E8CDE2 /* Sources */,
 				01141DE925669E6500E8CDE2 /* Frameworks */,
 				01141DEA25669E6500E8CDE2 /* Resources */,
-				A0CD62859F3527CB5248AB03 /* [CP] Embed Pods Frameworks */,
+				02F0821C75312EF853303299 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -678,7 +678,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4584367250EBD201678A6B76 /* [CP] Check Pods Manifest.lock */ = {
+		02F0821C75312EF853303299 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Izolyator/Pods-Izolyator-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Izolyator/Pods-Izolyator-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Izolyator/Pods-Izolyator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6B89E58D602B1344C5DAFA9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -698,23 +715,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A0CD62859F3527CB5248AB03 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Izolyator/Pods-Izolyator-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Izolyator/Pods-Izolyator-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Izolyator/Pods-Izolyator-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -751,7 +751,7 @@
 				0189149225B0E7AC004204A4 /* Color.swift in Sources */,
 				0187750825A25E4400C171E5 /* UIColor+hex.swift in Sources */,
 				01595EE125718B5F00934F9C /* ServiceAssembly.swift in Sources */,
-				013456CF25B8DA9A00CB42C4 /* YouTubeViewController.swift in Sources */,
+				013456CF25B8DA9A00CB42C4 /* InstallationProductViewController.swift in Sources */,
 				0189148E25B0E742004204A4 /* LightPalette.swift in Sources */,
 				01595EE325718B7500934F9C /* FirstService.swift in Sources */,
 				011CF3DC25AFA8CB00C27121 /* MultipleView.swift in Sources */,
@@ -929,17 +929,23 @@
 		};
 		01141E0425669E6600E8CDE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 385E3DEC8A0681AC6D0FD92E /* Pods-Izolyator.debug.xcconfig */;
+			baseConfigurationReference = 7A40D6AE49B537F5EC3EEF0C /* Pods-Izolyator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9RNG4YX44V;
+				DEVELOPMENT_TEAM = J9HGU53449;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/youtube-ios-player-helper/youtube_ios_player_helper.framework/Headers\"",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/Skyline\"",
+				);
 				INFOPLIST_FILE = Ground/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = VYREX;
+				PRODUCT_BUNDLE_IDENTIFIER = daf000;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -948,7 +954,7 @@
 		};
 		01141E0525669E6600E8CDE2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9B387767A68E2AD5B4A8FDB6 /* Pods-Izolyator.release.xcconfig */;
+			baseConfigurationReference = C99BCF8EB9E420C634FA260F /* Pods-Izolyator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -958,7 +964,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = VYREX;
+				PRODUCT_BUNDLE_IDENTIFIER = eeeeeeboynice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

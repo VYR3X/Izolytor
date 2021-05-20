@@ -8,7 +8,7 @@
 
 /// Интерфейс взаимодействия с интерактором экрана IzolyatorMainViewController
 protocol IzolyatorMainInteractable {
-	func getDataSource(completion: @escaping (Result<[ProductServiceModel.MainScreenProductType], Error>) -> Void)
+	func getDataSource(completion: @escaping (Result<[ProductServiceModel.MainScreenProductModel], Error>) -> Void)
 }
 
 final class IzolyatorMainInteractor: IzolyatorMainInteractable {
@@ -22,7 +22,7 @@ final class IzolyatorMainInteractor: IzolyatorMainInteractable {
 		self.service = service
 	}
 
-	func getDataSource(completion: @escaping (Result<[ProductServiceModel.MainScreenProductType], Error>) -> Void) {
+	func getDataSource(completion: @escaping (Result<[ProductServiceModel.MainScreenProductModel], Error>) -> Void) {
 //		service.getRequest { productsModelResult in
 //			switch productsModelResult {
 //			case let .success(productsModel):

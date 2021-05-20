@@ -1,16 +1,20 @@
 PODS:
-  - youtube-ios-player-helper (1.0.2)
+  - Skyline (1.3.6)
+  - youtube-ios-player-helper (1.0.3)
 
 DEPENDENCIES:
+  - Skyline
   - youtube-ios-player-helper
 
 SPEC REPOS:
   trunk:
+    - Skyline
     - youtube-ios-player-helper
 
 SPEC CHECKSUMS:
-  youtube-ios-player-helper: 40b96e52c22445f0fdc43731cefa32c67075ff81
+  Skyline: 51bf3fc1ee2b5c49a5d6875ab3f1e6a654843b8e
+  youtube-ios-player-helper: 0185c57db23c80d63d6ca11251d110abb8a4ca61
 
-PODFILE CHECKSUM: fafe29d5e81a3c3f69194309d5c6cafca68f83fb
+PODFILE CHECKSUM: d3b1e6597319bf52aa41ad442e8777e57a38f48e
 
 COCOAPODS: 1.9.3

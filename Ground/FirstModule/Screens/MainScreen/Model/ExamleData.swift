@@ -49,8 +49,11 @@ public var sectionsData: [Section] = [
 
 var mainScreenDataSource: [ProductServiceModel] = []
 
+/// Перечень типо вводов
 enum ProductEnum {
+	/// Трансформаторный
 	case Transformattor
+	/// Линейный
 	case Linean
 	case Parallel
 	case Wood
@@ -59,37 +62,47 @@ enum ProductEnum {
 
 /// Модель с продуктом 
 struct ProductServiceModel {
-	//	var git: String
-	//	var type: String
-	//	var models: [Model]
-	//	var typeInfo: String
-	//
-	//	var rycovodstvo: String // название локально хранящейся pdf ( руководство по эксплуатации
-	//	var videoId: String // "v?=1234" 1234 это строка id
-	//	var collapsed: Bool
 
-	struct MainScreenProductType {
-		var git: String
+	/// Модель данных ввода на главном экране выбора продукта
+	struct MainScreenProductModel {
+		/// url где хранится картинка на бэке
+		var gifName: String
+		/// тип ввода
 		var typeName: String
-		var models: [VModel]
+		/// модели данного типа ввода
+		var models: [DescriptionProductModel]
+		/// краткая информация по выбранному типу
 		var typeInfo: String
+		/// флаг открывать секцию или нет
 		var modelSectionCollapsed: Bool // секции свернуты по умолчанию
 	}
 
-	struct YouTubeScreenProductType{
-		var videoId: String // "v?=1234" 1234 это строка id
+	/// Модель видео на экране монтажа
+	struct InstallationScreenVideoModel {
+		/// id видео  берется из адресной строки youtube
+		/// Пример:	"v?=1234" 1234 это строка id
+		var videoId: String
+		/// секция видео закрыта или нет
 		var videoSectionCollapsed: Bool
+		/// описание видео  ( опциональная вещь )
+		var videoDescription: String
 	}
 
-	struct MontaghScreenProductType {
-		var rycovodstvo: String // название локально хранящейся pdf ( руководство по эксплуатации )
+	/// Модель руководства по эксплуатации на экране монтажа
+	struct InstallationScreenManualModel {
+		/// название локально хранящейся pdf ( руководство по эксплуатации )
+		var manualPdfName: String
 	}
 }
 
-struct VModel {
-	var name: String
-	var object: String //NSObject // 3d model
-	var chertezh: String // название локально хранящейся pdf ( чертеж с размерами )
+/// Описание ввода для экрана поиска
+struct DescriptionProductModel {
+	/// название ввода
+	var productName: String
+	/// наименование 3d модели
+	var model3DName: String //NSObject
+	/// название  pdf - схема ввода ( чертеж )
+	var schemeName: String
 }
 
 

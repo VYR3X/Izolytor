@@ -17,6 +17,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		guard let windowScene = (scene as? UIWindowScene) else { return }
 		let window = UIWindow(windowScene: windowScene)
 
+		// https://medium.com/@akshay.s.somkuwar/disable-dark-mode-in-ios-13-for-your-ios-app-c025b446d87b
+		// https://stackoverflow.com/questions/56537855/is-it-possible-to-opt-out-of-dark-mode-on-ios-13
+		if #available(iOS 13.0, *) {
+			window.overrideUserInterfaceStyle = .light
+		}
+
 		// Появление контроллера с анимацией затухания
 //		let launchScreen = UIStoryboard(name: "LaunchScreen", bundle: nil)
 //		window.rootViewController = launchScreen.instantiateInitialViewController()

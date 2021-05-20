@@ -40,7 +40,7 @@ final class IzolyatorMainPresenter: IzolyatorMainPresentable {
 		}
 	}
 
-	private func present(favChange: [ProductServiceModel.MainScreenProductType], on viewController: IzolyatorMainViewControllable) {
+	private func present(favChange: [ProductServiceModel.MainScreenProductModel], on viewController: IzolyatorMainViewControllable) {
 		DispatchQueue.main.async {
 			viewController.updateScreenWith(products: favChange)
 		}

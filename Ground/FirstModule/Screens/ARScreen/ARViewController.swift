@@ -38,6 +38,15 @@ final class ARViewController: UIViewController {
 		return label
 	}()
 
+	private lazy var scaleButton: UIButton = {
+		let button = UIButton()
+		button.translatesAutoresizingMaskIntoConstraints = false
+		button.addTarget(self, action: #selector(scaleObjectFromButton(_:)), for: .touchUpInside)
+		button.tintColor = .black
+		button.backgroundColor = .white
+		return button
+	}()
+
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		let configuration = ARWorldTrackingConfiguration()
@@ -59,6 +68,7 @@ final class ARViewController: UIViewController {
 	private func setupView() {
 
 		view.addSubview(sceneView)
+//		sceneView.addSubviews(informationLabel, scaleButton)
 		sceneView.addSubview(informationLabel)
 		sceneView.pinToSuperView()
 		NSLayoutConstraint.activate([
@@ -66,6 +76,11 @@ final class ARViewController: UIViewController {
 			informationLabel.heightAnchor.constraint(equalToConstant: 25),
 			informationLabel.widthAnchor.constraint(equalTo: view.widthAnchor),
 			informationLabel.bottomAnchor.constraint(equalTo: view.safeBottomAnchor)
+
+//			scaleButton.centerYAnchor.constraint(equalTo: sceneView.centerYAnchor),
+//			scaleButton.heightAnchor.constraint(equalToConstant: 25),
+//			scaleButton.widthAnchor.constraint(equalToConstant: 25),
+//			scaleButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
 		])
 	}
 
@@ -83,9 +98,15 @@ final class ARViewController: UIViewController {
 	}
 
 	private func createShipSceneNode() {
-		guard let shipScene = SCNScene(named: "art.scnassets/ship.scn") else { return }
-		shipNode = shipScene.rootNode.childNode(withName: "shipMesh", recursively: true)
+		//"art.scnassets/ship.scn"
+		guard let shipScene = SCNScene(named: "art.scnassets/bushing3D.dae") else { return }
+//		"shipMesh"
+		shipNode = shipScene.rootNode.childNode(withName: "Cylinder475", recursively: true)
 		sceneView.scene = shipScene
+
+//		guard let shipScene = SCNScene(named: "art.scnassets/DemaModel.dae") else { return }
+//		shipNode = shipScene.rootNode.childNode(withName: "Cylinder507", recursively: true)
+//		sceneView.scene = shipScene
 	}
 
 	/// Установить жест для перемещения модели по нажатию на экран
@@ -253,6 +274,23 @@ final class ARViewController: UIViewController {
 			let pinchScaleX: CGFloat = gesture.scale * CGFloat((nodeToScale.scale.x))
 			let pinchScaleY: CGFloat = gesture.scale * CGFloat((nodeToScale.scale.y))
 			let pinchScaleZ: CGFloat = gesture.scale * CGFloat((nodeToScale.scale.z))
+			nodeToScale.scale = SCNVector3Make(Float(pinchScaleX), Float(pinchScaleY), Float(pinchScaleZ))
+			gesture.scale = 1
+		}
+		if gesture.state == .ended { }
+	}
+
+
+	@objc func scaleObjectFromButton(_ gesture: UIPinchGestureRecognizer) {
+
+		let location = gesture.location(in: sceneView)
+		let hitTestResults = sceneView.hitTest(location)
+		guard let nodeToScale = hitTestResults.first?.node else { return }
+
+		if gesture.state == .changed {
+			let pinchScaleX: CGFloat = 2 * CGFloat((nodeToScale.scale.x))
+			let pinchScaleY: CGFloat = 2 * CGFloat((nodeToScale.scale.y))
+			let pinchScaleZ: CGFloat = 2 * CGFloat((nodeToScale.scale.z))
 			nodeToScale.scale = SCNVector3Make(Float(pinchScaleX), Float(pinchScaleY), Float(pinchScaleZ))
 			gesture.scale = 1
 		}

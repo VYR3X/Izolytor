@@ -39,7 +39,7 @@ struct FullBushingInfoModel {
 	// Наименование ввода: TCNSIV-90-12/1000 (0)
 	let bushingName: String
 	// Маркировка: 686381.279
-	let drawing: String
+	let marking: String
 	// Упаковка
 //	let packaging: Packaging
 	// масса

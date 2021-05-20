@@ -51,11 +51,12 @@ final class GroundAssembly {
 	}
 
 	/// Метод для сборки экрана "Search" для таббара
-	func makeSearchViewController() -> UIViewController {
+	func makeSearchViewController(presentNextView: Bool) -> UIViewController {
 		let service = services.makeFirstService()
 		let interactor = FirstScreenSMInteractor(service: service)
 		let presenter = SearchPresenter(interactor: interactor, coordinator: startRouter!)
 		let view = SearchViewController(listener: presenter)
+		view.presentNextView = presentNextView
 		presenter.viewController = view
 		return view
 	}
@@ -86,7 +87,7 @@ final class GroundAssembly {
 		let service = services.makeFirstService()
 		let interactor = YouTubeInteractor(service: service)
 		let presenter = YouTubePresenter(interactor: interactor, coordinator: startRouter!)
-		let view = YouTubeViewController(listener: presenter)
+		let view = InstallationProductViewController(listener: presenter)
 		presenter.viewController = view
 		return view
 	}

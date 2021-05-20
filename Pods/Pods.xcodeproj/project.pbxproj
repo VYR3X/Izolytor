@@ -3,23 +3,70 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05DBC5A4A0411FC0868B1355180CD35D /* YTPlayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = D1D0B88B1CA58F120B0DD63B31D8F08D /* YTPlayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05DBC5A4A0411FC0868B1355180CD35D /* YTPlayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = E2998950C0D686C2FBDAF44FD4268B75 /* YTPlayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0D7E4EB3F3F595E9B2D74DA75F97A3DF /* SkyViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11A1C8E2FE1C4DF5F0559FA909CA886 /* SkyViewConfiguration.swift */; };
+		0E56C24634EFA7FD20A4798B3313CD7D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		13B5CC1E961A6DCB5632A76F07BBF585 /* Pods-Izolyator-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 60010781464FD0A326AB905674B1C055 /* Pods-Izolyator-dummy.m */; };
+		1BC129934140091C1710ECF10A7A15CE /* PanModalPresentationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D68C7852579717A3F7674F8948665D0 /* PanModalPresentationDelegate.swift */; };
+		1F4EECB049EDBAC14B93872E0AED046D /* Skyline-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3513D4FF466D8167A30A032AA320C30A /* Skyline-dummy.m */; };
+		2445F2522DB316FEE88FFB509FE3B968 /* SkyConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5472FAC33F8BCA524BEFB006455C3432 /* SkyConfiguration.swift */; };
+		2E9C16D06342FBD9D533455D80905FEA /* SkyButtonConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083C0F20325D2C935D96320CD3D452BC /* SkyButtonConfiguration.swift */; };
+		2F34E9C2455AED9B3771CF665725AA40 /* DimmedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C39F4104D99D7819F7393EDD2F8F586 /* DimmedView.swift */; };
+		34C3D72117605B134CA5186D59EB2D00 /* SkyImagesPackViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5462A5E95EA372E1B11935D42271AF31 /* SkyImagesPackViewConfiguration.swift */; };
+		35AD3EA1A219A9FB332FC3A9292320B9 /* PanModalPresentable+LayoutHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A7D6E6FB29E6669C8A54392D2EEC06 /* PanModalPresentable+LayoutHelpers.swift */; };
+		3A7ADA420B19B6EA72A2461BE15EEAA6 /* ButtonDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60562D7DF6C400FD9395BCBC65F59F2 /* ButtonDescriptor.swift */; };
+		3DFA6FE7FA64536E67ED41E281FC4188 /* PanModalPresentable+Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65719383141CF689504C6C59A15A426 /* PanModalPresentable+Defaults.swift */; };
+		478367DDAA07AE1BACD9C9954941D349 /* Skyline-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E7F3B6D22AF922346574EACBFA8EAB1 /* Skyline-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4B3F8A534D925BE742258ED2FE098C80 /* Skyline.h in Headers */ = {isa = PBXBuildFile; fileRef = D32A01C49BFE6D8D5558451629872DD6 /* Skyline.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		53C851E596C26B223ABF8DB629802764 /* PanModalHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7815AD17DD28165E247911943BC1458 /* PanModalHeight.swift */; };
 		559F7D2DAA6D86E23F8B2A651777E5BE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		6B9CBB03E6AE47987B6237748F71FB60 /* Pods-Izolyator-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 60010781464FD0A326AB905674B1C055 /* Pods-Izolyator-dummy.m */; };
-		7D8C05366F87C046219EDCB835447400 /* youtube-ios-player-helper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FBFE57F92A2BCA45F0B915636C2174B0 /* youtube-ios-player-helper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		95360566E941F235D6B8CE1C4C3035D1 /* youtube-ios-player-helper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 51F5144F9A0A4ADE00B187AF5D85E2BC /* youtube-ios-player-helper-dummy.m */; };
-		A8C22822FA929E89335F959F79BD29D2 /* Assets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7250721FFCCD343A0F32532251AD4810 /* Assets.bundle */; };
-		C09C6278ED960CD06BCF0A8E53D860E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		D03B6BD25AEC918C55C1A092C4ED472B /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F8A952A9049E5998128388F9E5A4CC4 /* YTPlayerView.m */; };
-		DB91E9C5CB6F398E8F1BCF55DBAE2BA7 /* Pods-Izolyator-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F877081BD1CFB1084A58CF308D60C37E /* Pods-Izolyator-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5899DD3C3ABC24DF127937443A405BB2 /* SkyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5C9B8C050FDD9B39628E4DFB8C9B08 /* SkyButton.swift */; };
+		59B703A814DCC37978A43EFAA0788069 /* PanModalPresentable+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA135E17A93E480CA8F62960AB62BEAF /* PanModalPresentable+UIViewController.swift */; };
+		60A2E74C0997BF7BFAE0638E6F44B703 /* PanModalPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A0BB185AE14C24BD4E6486AD6C1B2D /* PanModalPresentationController.swift */; };
+		6366F5DE8810102A17A39662D38F223A /* SkyControlConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1265C1551A56F7D90FE7958DBD6AC478 /* SkyControlConfiguration.swift */; };
+		67E2168E90F1BFBF9D905EA8D634C855 /* DarkPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099162F60D96E3358F5CEB5E0686EA9 /* DarkPalette.swift */; };
+		6B03C2470B78970CC4CD9C45957CE274 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		6DA6AD0D2A8B62202EE48639D901424F /* SkyButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C792A399DC255C94EFDE0E2318F42003 /* SkyButtonType.swift */; };
+		7D8C05366F87C046219EDCB835447400 /* youtube-ios-player-helper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F3E77BAAB4BDFD67EAC377550BA1BC5 /* youtube-ios-player-helper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		81BFE9ABAE81959B1506C7BC3E3E7F61 /* UIViewController+PanModalPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E0C4AD8E6CAC3AB0B3D82669269FF9 /* UIViewController+PanModalPresenterProtocol.swift */; };
+		8648E9A9950B369BEDA18AD0375691FF /* SkySwitchConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F7830C1D63DAB90A881FD7B5D612BD /* SkySwitchConfiguration.swift */; };
+		8F2DA50644161A2B82B5964EEF7D48C6 /* SkyImagesPackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96CF01B99329966DB0A17CF71806F09 /* SkyImagesPackView.swift */; };
+		95360566E941F235D6B8CE1C4C3035D1 /* youtube-ios-player-helper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E555C892FEC37D88082049B22812C4A1 /* youtube-ios-player-helper-dummy.m */; };
+		97F8E9F90C9019402EED95A0B6607C2D /* SkyPinPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D66CC072A05D1FB3BDD231B5491B89E /* SkyPinPad.swift */; };
+		9956A64A26AE195C4C3570D55BA94AD8 /* LightPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2F289C33F68FE3AF77FCAC2410C0E0 /* LightPalette.swift */; };
+		A54D603F8475FC73366613F171E915F8 /* SkyPinPadDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FD0B6AB6331E21F37893E86704BE4C /* SkyPinPadDelegate.swift */; };
+		A63FC6B70E1E27560CA91CF0C0B3E200 /* PanContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F81E367875DBDB31933A2CFF52A7471 /* PanContainerView.swift */; };
+		A8C22822FA929E89335F959F79BD29D2 /* Assets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 081DFACCFBBF2C09F4A78E93A5246F64 /* Assets.bundle */; };
+		AAF05E1A27FD49689D93BD03A9200891 /* PanModalPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EF46D7E13018FAEBA2BC634A2B8245 /* PanModalPresentable.swift */; };
+		AD1F132F4A3ABC8EE145388E1E677D17 /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CB8247289A3CEDE6D041F95482F272 /* UIColor+hex.swift */; };
+		BB2B7A13A96EA481FCE66DA4423FA264 /* PanModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403FD5589472F4FEC9A80B284CD50ACA /* PanModalPresenter.swift */; };
+		BDD26FF697B77008E9B8F5D3B19ED267 /* SkyStateDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9771D66B1BE85BAA54810C657F9AB206 /* SkyStateDecorator.swift */; };
+		BF648D2B676036C2F6DEE5FCAD6709DE /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1201D53D6DDBF8213C775CDFBD342422 /* Palette.swift */; };
+		C4C0C4FCBF476A6D8FB96D2D6EA43D94 /* SkySwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF03128A3F3574B202BDAA4941FD923 /* SkySwitch.swift */; };
+		C964376FE601F510DFB623A3A41B8FC4 /* PanModalAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5F695C42F07546A0E972728CBD2508 /* PanModalAnimator.swift */; };
+		CC21D08C7908ED9463DA5EE41DEB6355 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6DF41FA532DF74FEB7779DCFED4D51 /* Color.swift */; };
+		D03B6BD25AEC918C55C1A092C4ED472B /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 227EF1A59A12D308272BCEE4880F9C84 /* YTPlayerView.m */; };
+		D88D37F9625A3BA573226DB412917D4A /* PanModalPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF105E491890189EDAC2EB90036C65CB /* PanModalPresentationAnimator.swift */; };
+		E49D04DB1EDC7CE74592F9B3D41F1C7D /* Pods-Izolyator-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F877081BD1CFB1084A58CF308D60C37E /* Pods-Izolyator-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5F1D9485DD3DE0E331881C0EB225514 /* SkySeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFB2861562A48DB016BFE317380F52C /* SkySeparatorView.swift */; };
+		F12822A636F83EB49BF8A485A32FCC17 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3446371EC231A6FA0A554B3D3CF20114 /* UIViewExtension.swift */; };
+		F2A88FD8A4322B883EB0D7CE3FFC4C71 /* SkyBaseButtonConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2D45CA42AECD0E7FACFCB7A7BBA6B2 /* SkyBaseButtonConfiguration.swift */; };
+		FDBC48EAF4BC97FA7E167C4EA6234B1B /* SkyPinPadConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C8858F396CD1DBACA8AEEE71069FEF /* SkyPinPadConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		F1CB6FD55AFB91FF7F9B873FBD8624B9 /* PBXContainerItemProxy */ = {
+		0FFB0EFE96D7DB83E9F275412AE614EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 305A0C411BF982C09EC77C620C072FCA;
+			remoteInfo = Skyline;
+		};
+		DFE454E4090448F7805BF2E8A6D620E7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -29,40 +76,77 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		081DFACCFBBF2C09F4A78E93A5246F64 /* Assets.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = Assets.bundle; path = "youtube-ios-player-helper/Assets.bundle"; sourceTree = "<group>"; };
+		083C0F20325D2C935D96320CD3D452BC /* SkyButtonConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyButtonConfiguration.swift; path = Skyline/Source/Elements/Buttons/SkyButtonConfiguration.swift; sourceTree = "<group>"; };
+		1201D53D6DDBF8213C775CDFBD342422 /* Palette.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Palette.swift; path = Skyline/Source/Palette/Palette.swift; sourceTree = "<group>"; };
+		1265C1551A56F7D90FE7958DBD6AC478 /* SkyControlConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyControlConfiguration.swift; path = Skyline/Source/Elements/UIObjectConfigurations/SkyControlConfiguration.swift; sourceTree = "<group>"; };
+		12A0BB185AE14C24BD4E6486AD6C1B2D /* PanModalPresentationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PanModalPresentationController.swift; path = Skyline/Source/Elements/PanModel/Controller/PanModalPresentationController.swift; sourceTree = "<group>"; };
 		152C4FF5BDFFD9416E33AFCFF68F48E5 /* Pods-Izolyator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Izolyator.release.xcconfig"; sourceTree = "<group>"; };
 		15968224F897FF3464D2192A4D2E797A /* Pods-Izolyator.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Izolyator.modulemap"; sourceTree = "<group>"; };
+		16645E12AE0FABB602CA3542B707DE57 /* Skyline.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Skyline.debug.xcconfig; sourceTree = "<group>"; };
+		17869089C4FDBB6634A6DDC7D222DF03 /* Skyline-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Skyline-prefix.pch"; sourceTree = "<group>"; };
 		18B4ACEB31C4B5FBF4AFF7ABDE2C61C3 /* Pods-Izolyator-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Izolyator-acknowledgements.markdown"; sourceTree = "<group>"; };
-		19FA673E25BCD2E4336574B408D60C21 /* youtube-ios-player-helper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "youtube-ios-player-helper-prefix.pch"; sourceTree = "<group>"; };
+		1B8EC298B55EF1B832474522707E8C46 /* Skyline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Skyline.framework; path = Skyline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C39F4104D99D7819F7393EDD2F8F586 /* DimmedView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DimmedView.swift; path = Skyline/Source/Elements/PanModel/View/DimmedView.swift; sourceTree = "<group>"; };
+		1D68C7852579717A3F7674F8948665D0 /* PanModalPresentationDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PanModalPresentationDelegate.swift; path = Skyline/Source/Elements/PanModel/Delegate/PanModalPresentationDelegate.swift; sourceTree = "<group>"; };
+		227EF1A59A12D308272BCEE4880F9C84 /* YTPlayerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YTPlayerView.m; path = Classes/YTPlayerView.m; sourceTree = "<group>"; };
+		2F81E367875DBDB31933A2CFF52A7471 /* PanContainerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PanContainerView.swift; path = Skyline/Source/Elements/PanModel/View/PanContainerView.swift; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		3538ACB60FE4B3D20C7615A0F6EFC83F /* youtube-ios-player-helper-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "youtube-ios-player-helper-Info.plist"; sourceTree = "<group>"; };
+		3446371EC231A6FA0A554B3D3CF20114 /* UIViewExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = Skyline/Source/Elements/Extension/UIViewExtension.swift; sourceTree = "<group>"; };
+		3513D4FF466D8167A30A032AA320C30A /* Skyline-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Skyline-dummy.m"; sourceTree = "<group>"; };
+		3C5F695C42F07546A0E972728CBD2508 /* PanModalAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PanModalAnimator.swift; path = Skyline/Source/Elements/PanModel/Animator/PanModalAnimator.swift; sourceTree = "<group>"; };
 		3EA92C8D0944D476C0C6A5C31E82A97A /* Pods-Izolyator-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Izolyator-frameworks.sh"; sourceTree = "<group>"; };
-		3F8A952A9049E5998128388F9E5A4CC4 /* YTPlayerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YTPlayerView.m; path = Classes/YTPlayerView.m; sourceTree = "<group>"; };
-		51F5144F9A0A4ADE00B187AF5D85E2BC /* youtube-ios-player-helper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "youtube-ios-player-helper-dummy.m"; sourceTree = "<group>"; };
+		403FD5589472F4FEC9A80B284CD50ACA /* PanModalPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PanModalPresenter.swift; path = Skyline/Source/Elements/PanModel/Presenter/PanModalPresenter.swift; sourceTree = "<group>"; };
+		5462A5E95EA372E1B11935D42271AF31 /* SkyImagesPackViewConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyImagesPackViewConfiguration.swift; path = Skyline/Source/Elements/ImagesPac/SkyImagesPackViewConfiguration.swift; sourceTree = "<group>"; };
+		5472FAC33F8BCA524BEFB006455C3432 /* SkyConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyConfiguration.swift; path = Skyline/Source/Elements/SkyConfiguration.swift; sourceTree = "<group>"; };
+		57E0C4AD8E6CAC3AB0B3D82669269FF9 /* UIViewController+PanModalPresenterProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+PanModalPresenterProtocol.swift"; path = "Skyline/Source/Elements/PanModel/Presenter/UIViewController+PanModalPresenterProtocol.swift"; sourceTree = "<group>"; };
+		5B2D45CA42AECD0E7FACFCB7A7BBA6B2 /* SkyBaseButtonConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyBaseButtonConfiguration.swift; path = Skyline/Source/Elements/UIObjectConfigurations/SkyBaseButtonConfiguration.swift; sourceTree = "<group>"; };
+		5B2F289C33F68FE3AF77FCAC2410C0E0 /* LightPalette.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LightPalette.swift; path = Skyline/Source/Palette/LightPalette.swift; sourceTree = "<group>"; };
 		60010781464FD0A326AB905674B1C055 /* Pods-Izolyator-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Izolyator-dummy.m"; sourceTree = "<group>"; };
-		6A4B950EB3E87B480993177716DB4793 /* youtube-ios-player-helper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "youtube-ios-player-helper.release.xcconfig"; sourceTree = "<group>"; };
-		7250721FFCCD343A0F32532251AD4810 /* Assets.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = Assets.bundle; path = "youtube-ios-player-helper/Assets.bundle"; sourceTree = "<group>"; };
+		6D66CC072A05D1FB3BDD231B5491B89E /* SkyPinPad.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyPinPad.swift; path = Skyline/Source/Elements/PinPad/SkyPinPad.swift; sourceTree = "<group>"; };
+		6F3E77BAAB4BDFD67EAC377550BA1BC5 /* youtube-ios-player-helper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "youtube-ios-player-helper-umbrella.h"; sourceTree = "<group>"; };
+		7099162F60D96E3358F5CEB5E0686EA9 /* DarkPalette.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DarkPalette.swift; path = Skyline/Source/Palette/DarkPalette.swift; sourceTree = "<group>"; };
+		7D5C9B8C050FDD9B39628E4DFB8C9B08 /* SkyButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyButton.swift; path = Skyline/Source/Elements/Buttons/SkyButton.swift; sourceTree = "<group>"; };
+		7E7F3B6D22AF922346574EACBFA8EAB1 /* Skyline-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Skyline-umbrella.h"; sourceTree = "<group>"; };
+		81FD0B6AB6331E21F37893E86704BE4C /* SkyPinPadDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyPinPadDelegate.swift; path = Skyline/Source/Elements/PinPad/SkyPinPadDelegate.swift; sourceTree = "<group>"; };
+		83F7830C1D63DAB90A881FD7B5D612BD /* SkySwitchConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkySwitchConfiguration.swift; path = Skyline/Source/Elements/Switch/SkySwitchConfiguration.swift; sourceTree = "<group>"; };
 		84126BA3C53952EFB00E3E089178ED72 /* Pods-Izolyator-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Izolyator-Info.plist"; sourceTree = "<group>"; };
 		8498A1B2C60117E181CA67921DDAE0B6 /* youtube_ios_player_helper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = youtube_ios_player_helper.framework; path = "youtube-ios-player-helper.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		975124370D0942475689A48ACB443C2C /* youtube-ios-player-helper-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "youtube-ios-player-helper-Info.plist"; sourceTree = "<group>"; };
+		9771D66B1BE85BAA54810C657F9AB206 /* SkyStateDecorator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyStateDecorator.swift; path = Skyline/Source/Elements/Decorators/SkyStateDecorator.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9E6DF41FA532DF74FEB7779DCFED4D51 /* Color.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Color.swift; path = Skyline/Source/Palette/Color.swift; sourceTree = "<group>"; };
+		A03F4C58376AC60A69D0F4114E599ECF /* youtube-ios-player-helper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "youtube-ios-player-helper.debug.xcconfig"; sourceTree = "<group>"; };
+		ACF0EB69AC717E08B4D80385255B7728 /* youtube-ios-player-helper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "youtube-ios-player-helper-prefix.pch"; sourceTree = "<group>"; };
+		ACFB2861562A48DB016BFE317380F52C /* SkySeparatorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkySeparatorView.swift; path = Skyline/Source/Elements/Separator/SkySeparatorView.swift; sourceTree = "<group>"; };
+		B11A1C8E2FE1C4DF5F0559FA909CA886 /* SkyViewConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyViewConfiguration.swift; path = Skyline/Source/Elements/UIObjectConfigurations/SkyViewConfiguration.swift; sourceTree = "<group>"; };
+		B3EF46D7E13018FAEBA2BC634A2B8245 /* PanModalPresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PanModalPresentable.swift; path = Skyline/Source/Elements/PanModel/Presentable/PanModalPresentable.swift; sourceTree = "<group>"; };
+		B7815AD17DD28165E247911943BC1458 /* PanModalHeight.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PanModalHeight.swift; path = Skyline/Source/Elements/PanModel/Presentable/PanModalHeight.swift; sourceTree = "<group>"; };
+		BA135E17A93E480CA8F62960AB62BEAF /* PanModalPresentable+UIViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "PanModalPresentable+UIViewController.swift"; path = "Skyline/Source/Elements/PanModel/Presentable/PanModalPresentable+UIViewController.swift"; sourceTree = "<group>"; };
+		BFCC31D1F982FA1F2C667F82D70A92AC /* youtube-ios-player-helper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "youtube-ios-player-helper.modulemap"; sourceTree = "<group>"; };
+		C01D715FF0120BA04E64974B98E3FE4C /* Skyline.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Skyline.modulemap; sourceTree = "<group>"; };
+		C65719383141CF689504C6C59A15A426 /* PanModalPresentable+Defaults.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "PanModalPresentable+Defaults.swift"; path = "Skyline/Source/Elements/PanModel/Presentable/PanModalPresentable+Defaults.swift"; sourceTree = "<group>"; };
+		C6C8858F396CD1DBACA8AEEE71069FEF /* SkyPinPadConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyPinPadConfiguration.swift; path = Skyline/Source/Elements/PinPad/SkyPinPadConfiguration.swift; sourceTree = "<group>"; };
+		C792A399DC255C94EFDE0E2318F42003 /* SkyButtonType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyButtonType.swift; path = Skyline/Source/Elements/Buttons/SkyButtonType.swift; sourceTree = "<group>"; };
+		C96CF01B99329966DB0A17CF71806F09 /* SkyImagesPackView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkyImagesPackView.swift; path = Skyline/Source/Elements/ImagesPac/SkyImagesPackView.swift; sourceTree = "<group>"; };
 		CB46A758DDFED0F03EA09630D4190B52 /* Pods-Izolyator-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Izolyator-acknowledgements.plist"; sourceTree = "<group>"; };
-		D1D0B88B1CA58F120B0DD63B31D8F08D /* YTPlayerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YTPlayerView.h; path = Classes/YTPlayerView.h; sourceTree = "<group>"; };
+		D32A01C49BFE6D8D5558451629872DD6 /* Skyline.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Skyline.h; path = Skyline/Skyline.h; sourceTree = "<group>"; };
+		D7AAA7E966AA7C8152D1F743148956BC /* youtube-ios-player-helper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "youtube-ios-player-helper.release.xcconfig"; sourceTree = "<group>"; };
 		DF77C09102E3B790028A62F5F0108883 /* Pods_Izolyator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Izolyator.framework; path = "Pods-Izolyator.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EACC01C0D31634219D4F5FB894392444 /* youtube-ios-player-helper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "youtube-ios-player-helper.modulemap"; sourceTree = "<group>"; };
-		F1DC84EB8856FDEA9DD1F830AC0B520D /* youtube-ios-player-helper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "youtube-ios-player-helper.debug.xcconfig"; sourceTree = "<group>"; };
+		E2998950C0D686C2FBDAF44FD4268B75 /* YTPlayerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YTPlayerView.h; path = Classes/YTPlayerView.h; sourceTree = "<group>"; };
+		E2CB8247289A3CEDE6D041F95482F272 /* UIColor+hex.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIColor+hex.swift"; path = "Skyline/Source/Palette/UIColor+hex.swift"; sourceTree = "<group>"; };
+		E555C892FEC37D88082049B22812C4A1 /* youtube-ios-player-helper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "youtube-ios-player-helper-dummy.m"; sourceTree = "<group>"; };
+		E60562D7DF6C400FD9395BCBC65F59F2 /* ButtonDescriptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ButtonDescriptor.swift; path = Skyline/Source/Elements/Buttons/Descriptor/ButtonDescriptor.swift; sourceTree = "<group>"; };
+		E7A7D6E6FB29E6669C8A54392D2EEC06 /* PanModalPresentable+LayoutHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "PanModalPresentable+LayoutHelpers.swift"; path = "Skyline/Source/Elements/PanModel/Presentable/PanModalPresentable+LayoutHelpers.swift"; sourceTree = "<group>"; };
+		EEF03128A3F3574B202BDAA4941FD923 /* SkySwitch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SkySwitch.swift; path = Skyline/Source/Elements/Switch/SkySwitch.swift; sourceTree = "<group>"; };
+		EF105E491890189EDAC2EB90036C65CB /* PanModalPresentationAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PanModalPresentationAnimator.swift; path = Skyline/Source/Elements/PanModel/Animator/PanModalPresentationAnimator.swift; sourceTree = "<group>"; };
 		F328FDE4D5AD04A3C493F34146C6F7F1 /* Pods-Izolyator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Izolyator.debug.xcconfig"; sourceTree = "<group>"; };
 		F877081BD1CFB1084A58CF308D60C37E /* Pods-Izolyator-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Izolyator-umbrella.h"; sourceTree = "<group>"; };
-		FBFE57F92A2BCA45F0B915636C2174B0 /* youtube-ios-player-helper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "youtube-ios-player-helper-umbrella.h"; sourceTree = "<group>"; };
+		FA1A344044CC2064B51D981C054AE2DA /* Skyline-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Skyline-Info.plist"; sourceTree = "<group>"; };
+		FD9B9F6C5FE84DE710B35E1B2AA7B69D /* Skyline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Skyline.release.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4237841E801394907897F8A13E07E2F3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C09C6278ED960CD06BCF0A8E53D860E6 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5595812EFC47AA249A0B8193A0B1F932 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -71,51 +155,55 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A3862877FBED5089A6BFB07654ECED41 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B03C2470B78970CC4CD9C45957CE274 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB34C97E9CC5B892E42E9A9F6DCC92C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E56C24634EFA7FD20A4798B3313CD7D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4360E8923BCCAA590FD4DE7549B35674 /* Support Files */ = {
+		14409BEBDEA4B5B3083ADB8F8CFDB1C4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EACC01C0D31634219D4F5FB894392444 /* youtube-ios-player-helper.modulemap */,
-				51F5144F9A0A4ADE00B187AF5D85E2BC /* youtube-ios-player-helper-dummy.m */,
-				3538ACB60FE4B3D20C7615A0F6EFC83F /* youtube-ios-player-helper-Info.plist */,
-				19FA673E25BCD2E4336574B408D60C21 /* youtube-ios-player-helper-prefix.pch */,
-				FBFE57F92A2BCA45F0B915636C2174B0 /* youtube-ios-player-helper-umbrella.h */,
-				F1DC84EB8856FDEA9DD1F830AC0B520D /* youtube-ios-player-helper.debug.xcconfig */,
-				6A4B950EB3E87B480993177716DB4793 /* youtube-ios-player-helper.release.xcconfig */,
+				081DFACCFBBF2C09F4A78E93A5246F64 /* Assets.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		458F4B3E8147C5D7657D5FE3B44A47B3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				976D2A148303AA96D62C361FED260718 /* Skyline */,
+				E5EAED54CC679694A50F249AED61E2C5 /* youtube-ios-player-helper */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6C6B4CBA4DDDEFF2EF6FB889FE856B1C /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BFCC31D1F982FA1F2C667F82D70A92AC /* youtube-ios-player-helper.modulemap */,
+				E555C892FEC37D88082049B22812C4A1 /* youtube-ios-player-helper-dummy.m */,
+				975124370D0942475689A48ACB443C2C /* youtube-ios-player-helper-Info.plist */,
+				ACF0EB69AC717E08B4D80385255B7728 /* youtube-ios-player-helper-prefix.pch */,
+				6F3E77BAAB4BDFD67EAC377550BA1BC5 /* youtube-ios-player-helper-umbrella.h */,
+				A03F4C58376AC60A69D0F4114E599ECF /* youtube-ios-player-helper.debug.xcconfig */,
+				D7AAA7E966AA7C8152D1F743148956BC /* youtube-ios-player-helper.release.xcconfig */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/youtube-ios-player-helper";
-			sourceTree = "<group>";
-		};
-		5D72432684DA5D27954CE6572F2F9319 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				DF77C09102E3B790028A62F5F0108883 /* Pods_Izolyator.framework */,
-				8498A1B2C60117E181CA67921DDAE0B6 /* youtube_ios_player_helper.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		6A928FDE4E2B19B2F70560D23FE57B58 /* youtube-ios-player-helper */ = {
-			isa = PBXGroup;
-			children = (
-				D1D0B88B1CA58F120B0DD63B31D8F08D /* YTPlayerView.h */,
-				3F8A952A9049E5998128388F9E5A4CC4 /* YTPlayerView.m */,
-				AF19A57942DDA4DEFB3D4249E2416ED2 /* Resources */,
-				4360E8923BCCAA590FD4DE7549B35674 /* Support Files */,
-			);
-			name = "youtube-ios-player-helper";
-			path = "youtube-ios-player-helper";
-			sourceTree = "<group>";
-		};
-		7E82C774E6F33AA2A504913032DF4E3D /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				6A928FDE4E2B19B2F70560D23FE57B58 /* youtube-ios-player-helper */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		84568DF7C2603DDB861E7943BB1EA46E /* Targets Support Files */ = {
@@ -126,12 +214,50 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		AF19A57942DDA4DEFB3D4249E2416ED2 /* Resources */ = {
+		976D2A148303AA96D62C361FED260718 /* Skyline */ = {
 			isa = PBXGroup;
 			children = (
-				7250721FFCCD343A0F32532251AD4810 /* Assets.bundle */,
+				E60562D7DF6C400FD9395BCBC65F59F2 /* ButtonDescriptor.swift */,
+				9E6DF41FA532DF74FEB7779DCFED4D51 /* Color.swift */,
+				7099162F60D96E3358F5CEB5E0686EA9 /* DarkPalette.swift */,
+				1C39F4104D99D7819F7393EDD2F8F586 /* DimmedView.swift */,
+				5B2F289C33F68FE3AF77FCAC2410C0E0 /* LightPalette.swift */,
+				1201D53D6DDBF8213C775CDFBD342422 /* Palette.swift */,
+				2F81E367875DBDB31933A2CFF52A7471 /* PanContainerView.swift */,
+				3C5F695C42F07546A0E972728CBD2508 /* PanModalAnimator.swift */,
+				B7815AD17DD28165E247911943BC1458 /* PanModalHeight.swift */,
+				B3EF46D7E13018FAEBA2BC634A2B8245 /* PanModalPresentable.swift */,
+				C65719383141CF689504C6C59A15A426 /* PanModalPresentable+Defaults.swift */,
+				E7A7D6E6FB29E6669C8A54392D2EEC06 /* PanModalPresentable+LayoutHelpers.swift */,
+				BA135E17A93E480CA8F62960AB62BEAF /* PanModalPresentable+UIViewController.swift */,
+				EF105E491890189EDAC2EB90036C65CB /* PanModalPresentationAnimator.swift */,
+				12A0BB185AE14C24BD4E6486AD6C1B2D /* PanModalPresentationController.swift */,
+				1D68C7852579717A3F7674F8948665D0 /* PanModalPresentationDelegate.swift */,
+				403FD5589472F4FEC9A80B284CD50ACA /* PanModalPresenter.swift */,
+				5B2D45CA42AECD0E7FACFCB7A7BBA6B2 /* SkyBaseButtonConfiguration.swift */,
+				7D5C9B8C050FDD9B39628E4DFB8C9B08 /* SkyButton.swift */,
+				083C0F20325D2C935D96320CD3D452BC /* SkyButtonConfiguration.swift */,
+				C792A399DC255C94EFDE0E2318F42003 /* SkyButtonType.swift */,
+				5472FAC33F8BCA524BEFB006455C3432 /* SkyConfiguration.swift */,
+				1265C1551A56F7D90FE7958DBD6AC478 /* SkyControlConfiguration.swift */,
+				C96CF01B99329966DB0A17CF71806F09 /* SkyImagesPackView.swift */,
+				5462A5E95EA372E1B11935D42271AF31 /* SkyImagesPackViewConfiguration.swift */,
+				D32A01C49BFE6D8D5558451629872DD6 /* Skyline.h */,
+				6D66CC072A05D1FB3BDD231B5491B89E /* SkyPinPad.swift */,
+				C6C8858F396CD1DBACA8AEEE71069FEF /* SkyPinPadConfiguration.swift */,
+				81FD0B6AB6331E21F37893E86704BE4C /* SkyPinPadDelegate.swift */,
+				ACFB2861562A48DB016BFE317380F52C /* SkySeparatorView.swift */,
+				9771D66B1BE85BAA54810C657F9AB206 /* SkyStateDecorator.swift */,
+				EEF03128A3F3574B202BDAA4941FD923 /* SkySwitch.swift */,
+				83F7830C1D63DAB90A881FD7B5D612BD /* SkySwitchConfiguration.swift */,
+				B11A1C8E2FE1C4DF5F0559FA909CA886 /* SkyViewConfiguration.swift */,
+				E2CB8247289A3CEDE6D041F95482F272 /* UIColor+hex.swift */,
+				57E0C4AD8E6CAC3AB0B3D82669269FF9 /* UIViewController+PanModalPresenterProtocol.swift */,
+				3446371EC231A6FA0A554B3D3CF20114 /* UIViewExtension.swift */,
+				C01D2FF94315B78A2AF4E2B2E2DF1878 /* Support Files */,
 			);
-			name = Resources;
+			name = Skyline;
+			path = Skyline;
 			sourceTree = "<group>";
 		};
 		B4CFC0268D3577A463B6BD1D87706453 /* Pods-Izolyator */ = {
@@ -151,6 +277,21 @@
 			path = "Target Support Files/Pods-Izolyator";
 			sourceTree = "<group>";
 		};
+		C01D2FF94315B78A2AF4E2B2E2DF1878 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C01D715FF0120BA04E64974B98E3FE4C /* Skyline.modulemap */,
+				3513D4FF466D8167A30A032AA320C30A /* Skyline-dummy.m */,
+				FA1A344044CC2064B51D981C054AE2DA /* Skyline-Info.plist */,
+				17869089C4FDBB6634A6DDC7D222DF03 /* Skyline-prefix.pch */,
+				7E7F3B6D22AF922346574EACBFA8EAB1 /* Skyline-umbrella.h */,
+				16645E12AE0FABB602CA3542B707DE57 /* Skyline.debug.xcconfig */,
+				FD9B9F6C5FE84DE710B35E1B2AA7B69D /* Skyline.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Skyline";
+			sourceTree = "<group>";
+		};
 		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,8 +305,8 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				7E82C774E6F33AA2A504913032DF4E3D /* Pods */,
-				5D72432684DA5D27954CE6572F2F9319 /* Products */,
+				458F4B3E8147C5D7657D5FE3B44A47B3 /* Pods */,
+				F0D2C5DE4A31DDCA1A435A9B6D14F1CA /* Products */,
 				84568DF7C2603DDB861E7943BB1EA46E /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -178,9 +319,48 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E5EAED54CC679694A50F249AED61E2C5 /* youtube-ios-player-helper */ = {
+			isa = PBXGroup;
+			children = (
+				E2998950C0D686C2FBDAF44FD4268B75 /* YTPlayerView.h */,
+				227EF1A59A12D308272BCEE4880F9C84 /* YTPlayerView.m */,
+				14409BEBDEA4B5B3083ADB8F8CFDB1C4 /* Resources */,
+				6C6B4CBA4DDDEFF2EF6FB889FE856B1C /* Support Files */,
+			);
+			name = "youtube-ios-player-helper";
+			path = "youtube-ios-player-helper";
+			sourceTree = "<group>";
+		};
+		F0D2C5DE4A31DDCA1A435A9B6D14F1CA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DF77C09102E3B790028A62F5F0108883 /* Pods_Izolyator.framework */,
+				1B8EC298B55EF1B832474522707E8C46 /* Skyline.framework */,
+				8498A1B2C60117E181CA67921DDAE0B6 /* youtube_ios_player_helper.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		917A19AAB8BF6B741FDD4E340081DBA6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E49D04DB1EDC7CE74592F9B3D41F1C7D /* Pods-Izolyator-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A2AAF91898D6D65B26DBB23C4F1D676D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				478367DDAA07AE1BACD9C9954941D349 /* Skyline-umbrella.h in Headers */,
+				4B3F8A534D925BE742258ED2FE098C80 /* Skyline.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A3D9B7803829D42680BA215A141625F6 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -190,30 +370,41 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C3B06A84FF3DD45566D10325FB1B19C3 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DB91E9C5CB6F398E8F1BCF55DBAE2BA7 /* Pods-Izolyator-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		892EC90C3F8F659B927A332DE6D6E1AC /* Pods-Izolyator */ = {
+		305A0C411BF982C09EC77C620C072FCA /* Skyline */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0DC25328DE7D2A278F093EA779704487 /* Build configuration list for PBXNativeTarget "Pods-Izolyator" */;
+			buildConfigurationList = 401CFED989C84885D4EBF71E7AE0B7F2 /* Build configuration list for PBXNativeTarget "Skyline" */;
 			buildPhases = (
-				C3B06A84FF3DD45566D10325FB1B19C3 /* Headers */,
-				FC9239F8406F7E53C91833165B111919 /* Sources */,
-				4237841E801394907897F8A13E07E2F3 /* Frameworks */,
-				70756F6F1F3D8E103F273E208F75BBDF /* Resources */,
+				A2AAF91898D6D65B26DBB23C4F1D676D /* Headers */,
+				446D2F554A311D1BF30C80CF2FA8AEDF /* Sources */,
+				DB34C97E9CC5B892E42E9A9F6DCC92C7 /* Frameworks */,
+				18E48599ED363005C6CBB3B12D24F083 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				56FF14B35C42AB2B3F2A349E37B7E443 /* PBXTargetDependency */,
+			);
+			name = Skyline;
+			productName = Skyline;
+			productReference = 1B8EC298B55EF1B832474522707E8C46 /* Skyline.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		892EC90C3F8F659B927A332DE6D6E1AC /* Pods-Izolyator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6E1711ACA7F51C4928D4CABB0662AD90 /* Build configuration list for PBXNativeTarget "Pods-Izolyator" */;
+			buildPhases = (
+				917A19AAB8BF6B741FDD4E340081DBA6 /* Headers */,
+				C242D60A2F0F7779BF15D7EFAB115048 /* Sources */,
+				A3862877FBED5089A6BFB07654ECED41 /* Frameworks */,
+				56FE69429AFDB8253E980081A5F53AF1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0915BB7982D0741486853E54204912CC /* PBXTargetDependency */,
+				C0355BFA2C1BEE658DFEAB70039738EB /* PBXTargetDependency */,
 			);
 			name = "Pods-Izolyator";
 			productName = "Pods-Izolyator";
@@ -248,7 +439,7 @@
 				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -256,29 +447,37 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 5D72432684DA5D27954CE6572F2F9319 /* Products */;
+			productRefGroup = F0D2C5DE4A31DDCA1A435A9B6D14F1CA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				892EC90C3F8F659B927A332DE6D6E1AC /* Pods-Izolyator */,
+				305A0C411BF982C09EC77C620C072FCA /* Skyline */,
 				D1A7AF186BE136DE56FD5699070589B8 /* youtube-ios-player-helper */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		18E48599ED363005C6CBB3B12D24F083 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56FE69429AFDB8253E980081A5F53AF1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5D870BFFEC56FA6BCB0BD3F7C619A53D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A8C22822FA929E89335F959F79BD29D2 /* Assets.bundle in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		70756F6F1F3D8E103F273E208F75BBDF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,27 +493,113 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FC9239F8406F7E53C91833165B111919 /* Sources */ = {
+		446D2F554A311D1BF30C80CF2FA8AEDF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B9CBB03E6AE47987B6237748F71FB60 /* Pods-Izolyator-dummy.m in Sources */,
+				3A7ADA420B19B6EA72A2461BE15EEAA6 /* ButtonDescriptor.swift in Sources */,
+				CC21D08C7908ED9463DA5EE41DEB6355 /* Color.swift in Sources */,
+				67E2168E90F1BFBF9D905EA8D634C855 /* DarkPalette.swift in Sources */,
+				2F34E9C2455AED9B3771CF665725AA40 /* DimmedView.swift in Sources */,
+				9956A64A26AE195C4C3570D55BA94AD8 /* LightPalette.swift in Sources */,
+				BF648D2B676036C2F6DEE5FCAD6709DE /* Palette.swift in Sources */,
+				A63FC6B70E1E27560CA91CF0C0B3E200 /* PanContainerView.swift in Sources */,
+				C964376FE601F510DFB623A3A41B8FC4 /* PanModalAnimator.swift in Sources */,
+				53C851E596C26B223ABF8DB629802764 /* PanModalHeight.swift in Sources */,
+				3DFA6FE7FA64536E67ED41E281FC4188 /* PanModalPresentable+Defaults.swift in Sources */,
+				35AD3EA1A219A9FB332FC3A9292320B9 /* PanModalPresentable+LayoutHelpers.swift in Sources */,
+				59B703A814DCC37978A43EFAA0788069 /* PanModalPresentable+UIViewController.swift in Sources */,
+				AAF05E1A27FD49689D93BD03A9200891 /* PanModalPresentable.swift in Sources */,
+				D88D37F9625A3BA573226DB412917D4A /* PanModalPresentationAnimator.swift in Sources */,
+				60A2E74C0997BF7BFAE0638E6F44B703 /* PanModalPresentationController.swift in Sources */,
+				1BC129934140091C1710ECF10A7A15CE /* PanModalPresentationDelegate.swift in Sources */,
+				BB2B7A13A96EA481FCE66DA4423FA264 /* PanModalPresenter.swift in Sources */,
+				F2A88FD8A4322B883EB0D7CE3FFC4C71 /* SkyBaseButtonConfiguration.swift in Sources */,
+				5899DD3C3ABC24DF127937443A405BB2 /* SkyButton.swift in Sources */,
+				2E9C16D06342FBD9D533455D80905FEA /* SkyButtonConfiguration.swift in Sources */,
+				6DA6AD0D2A8B62202EE48639D901424F /* SkyButtonType.swift in Sources */,
+				2445F2522DB316FEE88FFB509FE3B968 /* SkyConfiguration.swift in Sources */,
+				6366F5DE8810102A17A39662D38F223A /* SkyControlConfiguration.swift in Sources */,
+				8F2DA50644161A2B82B5964EEF7D48C6 /* SkyImagesPackView.swift in Sources */,
+				34C3D72117605B134CA5186D59EB2D00 /* SkyImagesPackViewConfiguration.swift in Sources */,
+				1F4EECB049EDBAC14B93872E0AED046D /* Skyline-dummy.m in Sources */,
+				97F8E9F90C9019402EED95A0B6607C2D /* SkyPinPad.swift in Sources */,
+				FDBC48EAF4BC97FA7E167C4EA6234B1B /* SkyPinPadConfiguration.swift in Sources */,
+				A54D603F8475FC73366613F171E915F8 /* SkyPinPadDelegate.swift in Sources */,
+				E5F1D9485DD3DE0E331881C0EB225514 /* SkySeparatorView.swift in Sources */,
+				BDD26FF697B77008E9B8F5D3B19ED267 /* SkyStateDecorator.swift in Sources */,
+				C4C0C4FCBF476A6D8FB96D2D6EA43D94 /* SkySwitch.swift in Sources */,
+				8648E9A9950B369BEDA18AD0375691FF /* SkySwitchConfiguration.swift in Sources */,
+				0D7E4EB3F3F595E9B2D74DA75F97A3DF /* SkyViewConfiguration.swift in Sources */,
+				AD1F132F4A3ABC8EE145388E1E677D17 /* UIColor+hex.swift in Sources */,
+				81BFE9ABAE81959B1506C7BC3E3E7F61 /* UIViewController+PanModalPresenterProtocol.swift in Sources */,
+				F12822A636F83EB49BF8A485A32FCC17 /* UIViewExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C242D60A2F0F7779BF15D7EFAB115048 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13B5CC1E961A6DCB5632A76F07BBF585 /* Pods-Izolyator-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		56FF14B35C42AB2B3F2A349E37B7E443 /* PBXTargetDependency */ = {
+		0915BB7982D0741486853E54204912CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Skyline;
+			target = 305A0C411BF982C09EC77C620C072FCA /* Skyline */;
+			targetProxy = 0FFB0EFE96D7DB83E9F275412AE614EA /* PBXContainerItemProxy */;
+		};
+		C0355BFA2C1BEE658DFEAB70039738EB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "youtube-ios-player-helper";
 			target = D1A7AF186BE136DE56FD5699070589B8 /* youtube-ios-player-helper */;
-			targetProxy = F1CB6FD55AFB91FF7F9B873FBD8624B9 /* PBXContainerItemProxy */;
+			targetProxy = DFE454E4090448F7805BF2E8A6D620E7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		610EC468E03C17DF52626581DCAF8231 /* Debug */ = {
+		59BB8461E980FF58E1E2AC0EE39B83EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16645E12AE0FABB602CA3542B707DE57 /* Skyline.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Skyline/Skyline-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Skyline/Skyline-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Skyline/Skyline.modulemap";
+				PRODUCT_MODULE_NAME = Skyline;
+				PRODUCT_NAME = Skyline;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		80E5E5D80FFF5267D61F40A0D63A7CDF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F328FDE4D5AD04A3C493F34146C6F7F1 /* Pods-Izolyator.debug.xcconfig */;
 			buildSettings = {
@@ -351,45 +636,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		79BBAF37F90136175EADC2FD2492502C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 152C4FF5BDFFD9416E33AFCFF68F48E5 /* Pods-Izolyator.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Izolyator/Pods-Izolyator-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Izolyator/Pods-Izolyator.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 		939F1A8F6BCEB7F9F64D9EEE50CAE014 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -455,9 +701,46 @@
 			};
 			name = Debug;
 		};
+		9E051E7C3AA4D7FDBB86100952884B16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD9B9F6C5FE84DE710B35E1B2AA7B69D /* Skyline.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Skyline/Skyline-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Skyline/Skyline-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Skyline/Skyline.modulemap";
+				PRODUCT_MODULE_NAME = Skyline;
+				PRODUCT_NAME = Skyline;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		E7BA62901D3C00033E85D2E6CB389868 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F1DC84EB8856FDEA9DD1F830AC0B520D /* youtube-ios-player-helper.debug.xcconfig */;
+			baseConfigurationReference = A03F4C58376AC60A69D0F4114E599ECF /* youtube-ios-player-helper.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -551,9 +834,48 @@
 			};
 			name = Release;
 		};
+		F15989BC3E4B9EF9FEE211646E247B16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 152C4FF5BDFFD9416E33AFCFF68F48E5 /* Pods-Izolyator.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Izolyator/Pods-Izolyator-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Izolyator/Pods-Izolyator.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		F9477447C515D9F142B9806AECE5438C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6A4B950EB3E87B480993177716DB4793 /* youtube-ios-player-helper.release.xcconfig */;
+			baseConfigurationReference = D7AAA7E966AA7C8152D1F743148956BC /* youtube-ios-player-helper.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
@@ -591,15 +913,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0DC25328DE7D2A278F093EA779704487 /* Build configuration list for PBXNativeTarget "Pods-Izolyator" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				610EC468E03C17DF52626581DCAF8231 /* Debug */,
-				79BBAF37F90136175EADC2FD2492502C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		20122DD765B62B4CDEF3E8EF198B58FD /* Build configuration list for PBXNativeTarget "youtube-ios-player-helper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -609,11 +922,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		401CFED989C84885D4EBF71E7AE0B7F2 /* Build configuration list for PBXNativeTarget "Skyline" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59BB8461E980FF58E1E2AC0EE39B83EC /* Debug */,
+				9E051E7C3AA4D7FDBB86100952884B16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				939F1A8F6BCEB7F9F64D9EEE50CAE014 /* Debug */,
 				ECB437504DF805BD96CAABF97400B526 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6E1711ACA7F51C4928D4CABB0662AD90 /* Build configuration list for PBXNativeTarget "Pods-Izolyator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80E5E5D80FFF5267D61F40A0D63A7CDF /* Debug */,
+				F15989BC3E4B9EF9FEE211646E247B16 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

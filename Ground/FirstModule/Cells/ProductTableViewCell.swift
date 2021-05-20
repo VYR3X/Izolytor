@@ -46,7 +46,7 @@ final class ProductTableViewCell: UITableViewCell {
 		setupConstraints()
 	}
 
-	func updateCollectionViewWith(source: [ProductServiceModel.MainScreenProductType], delegate: ProductTableViewCellDelegate) {
+	func updateCollectionViewWith(source: [ProductServiceModel.MainScreenProductModel], delegate: ProductTableViewCellDelegate) {
 		paginationCollectionView.delegate = delegate
 		paginationCollectionView.updateCollectionView(source: source)
 	}

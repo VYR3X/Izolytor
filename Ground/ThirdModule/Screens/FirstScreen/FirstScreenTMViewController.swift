@@ -24,14 +24,33 @@ final class FirstScreenTMViewController: UIViewController, FirstScreenTMViewCont
 
 	// MARK: - UI
 
-	private lazy var titleButton: UIButton = {
-		let button = UIButton()
-		button.translatesAutoresizingMaskIntoConstraints = false
-		button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
-		button.tintColor = .black
-		button.backgroundColor = .white
-		return button
+	private lazy var imageView: UIImageView = {
+		let imageView = UIImageView()
+		imageView.translatesAutoresizingMaskIntoConstraints = false
+		imageView.image = UIImage(named: "greetingsLogo")
+		return imageView
 	}()
+
+	private lazy var titleLabel: UILabel = {
+		let label = UILabel()
+		label.translatesAutoresizingMaskIntoConstraints = false
+		label.text = """
+Компания «Изолятор» разрабатывает, производит и осуществляет сервисную поддержку высоковольтных вводов переменного и постоянного тока на напряжение от 12 до 1200 кВ.\n\nПредприятие является единственным в России, способным разрабатывать, производить и испытывать вводы на сверхвысокие классы напряжения.
+"""
+		label.numberOfLines = 0
+		label.textColor = .black
+//		label.backgroundColor = .white
+		return label
+	}()
+
+//	private lazy var titleButton: UIButton = {
+//		let button = UIButton()
+//		button.translatesAutoresizingMaskIntoConstraints = false
+//		button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+//		button.tintColor = .black
+//		button.backgroundColor = .white
+//		return button
+//	}()
 
     init(listener: FirstScreenTMPresentableListener) {
         self.listener = listener
@@ -45,18 +64,23 @@ final class FirstScreenTMViewController: UIViewController, FirstScreenTMViewCont
 		// Configuration
 		// didLoad(_:)
 		listener.didLoad(self)
-		view.backgroundColor = .purple
+		view.backgroundColor = .white
 		setupConstraints()
     }
 
 	private func setupConstraints() {
-		view.addSubview(titleButton)
+		view.addSubviews(titleLabel, imageView)
 
 		NSLayoutConstraint.activate([
-			titleButton.heightAnchor.constraint(equalToConstant: 50),
-			titleButton.widthAnchor.constraint(equalToConstant: 50),
-			titleButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-			titleButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+
+			imageView.topAnchor.constraint(equalTo: view.safeTopAnchor, constant: 25),
+			imageView.heightAnchor.constraint(equalToConstant: 120),
+			imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+			imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
+
+			titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
+			titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
+			titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
 		])
 	}
 

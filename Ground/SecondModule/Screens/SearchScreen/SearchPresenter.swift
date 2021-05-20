@@ -32,6 +32,11 @@ extension SearchPresenter: SearchPresentableListener {
 	func didLoad(_ viewController: SearchViewControllable) {}
 
 	func didTapOnButton() {
+//		coordinator.routeToPDFViewController(resourceName: "product")
+//		coordinator.routeToSecondViewControllerInSM()
+	}
+
+	func didSelectBushingInSearchList() {
 		coordinator.routeToSecondViewControllerInSM()
 	}
 }

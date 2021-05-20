@@ -20,7 +20,7 @@ final class PaginationCollectionView: UIView {
 
 	private let cellWight = UIScreen.main.bounds.width
 
-	private var dataSource: [ProductServiceModel.MainScreenProductType] = []
+	private var dataSource: [ProductServiceModel.MainScreenProductModel] = []
 
 	private lazy var mainCollectionView: UICollectionView = {
 		let layout = PagingCollectionViewLayout()
@@ -66,7 +66,7 @@ final class PaginationCollectionView: UIView {
 		setupConstraints()
 	}
 
-	func updateCollectionView(source: [ProductServiceModel.MainScreenProductType]) {
+	func updateCollectionView(source: [ProductServiceModel.MainScreenProductModel]) {
 		dataSource = source
 		mainCollectionView.reloadData()
 	}
@@ -101,8 +101,8 @@ extension PaginationCollectionView: UICollectionViewDataSource {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
 
 		let imageView = UIImageView(frame: .init(x: 0, y: 0, width: cellWight, height: cellWight))
-		imageView.image = UIImage(named: "imageTest")
-//		imageView.contentMode = .scaleAspectFit
+		imageView.image = UIImage(named: "bushingImage")
+		imageView.contentMode = .scaleAspectFit
 
 		cell.addSubview(imageView)
 		cell.clipsToBounds = true

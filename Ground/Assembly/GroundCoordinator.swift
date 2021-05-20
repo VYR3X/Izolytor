@@ -31,6 +31,9 @@ protocol StartCoordinatorProtocol {
 	/// Переход на экран с AR сценой
 	func routeToARSceneViewController()
 
+	// Переход на экран с каталогом вводов
+	func routeToProductListContoller(presentNextView: Bool)
+
 	/// Переход на экран с pdf вью
 	func routeToPDFViewController(resourceName: String)
 
@@ -68,7 +71,7 @@ extension GroundCoordinator: StartCoordinatorProtocol {
 	}
 
 	func routeToSearchViewController() -> UIViewController {
-		let search = assembly.makeSearchViewController()
+		let search = assembly.makeSearchViewController(presentNextView: true)
 		secondNavigationController = SecondNavigationController(rootViewController: search)
 		return secondNavigationController!
 	}
@@ -87,6 +90,13 @@ extension GroundCoordinator: StartCoordinatorProtocol {
 		firstNavigationController?.pushViewController(viewController, animated: true)
 	}
 
+	func routeToProductListContoller(presentNextView: Bool) {
+		let viewController = assembly.makeSearchViewController(presentNextView: presentNextView)
+//		let viewController = assembly.makeSearchViewController()
+		firstNavigationController?.present(viewController, animated: true, completion: nil)
+	}
+
+
 	func routeToPDFViewController(resourceName: String) {
 		let viewController = assembly.makeProductDetailViewController(name: resourceName)
 		firstNavigationController?.pushViewController(viewController, animated: true)
@@ -103,7 +113,7 @@ extension GroundCoordinator: StartCoordinatorProtocol {
 	}
 
 	func routeToSecondViewControllerInSM() {
-		let viewController = assembly.makeSecondViewControllerSM()
+		let viewController = assembly.makeProductDetailViewController(name: "product")
 		secondNavigationController?.pushViewController(viewController, animated: true)
 	}
 
@@ -115,17 +125,17 @@ extension GroundCoordinator: StartCoordinatorProtocol {
 	func getTabBabItems() -> [UITabBarItem] {
 
 		let catalogTabBarItem = UITabBarItem(title: "Каталог",
-										 image: UIImage(named: "chevron_down"),
-										 selectedImage: UIImage(named: "chevron_down"))
+										 image: UIImage(named: "homeIcon"),
+										 selectedImage: UIImage(named: "homeIcon"))
 //		let catalogTabBarItem = UITabBarItem()
 //		catalogTabBarItem.title = "Каталог"
 //		catalogTabBarItem.image = UIImage(named: "chevron_down")
 		let searchTabBarItem = UITabBarItem()
 		searchTabBarItem.title = "Поиск"
-		searchTabBarItem.image = UIImage(named: "chevron_down")
+		searchTabBarItem.image = UIImage(named: "searchIcon")
 		let profileTabBarItem = UITabBarItem()
 		profileTabBarItem.title = "Профиль"
-		profileTabBarItem.image = UIImage(named: "chevron_down")
+		profileTabBarItem.image = UIImage(named: "profileIcon")
 		var items: [UITabBarItem] = []
 		items.append(catalogTabBarItem)
 		items.append(searchTabBarItem)

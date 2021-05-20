@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Skyline
 
 /// Интерфейс взаимодействия с вью-контроллером экрана IzolyatorMainViewController.
 protocol IzolyatorMainViewControllable: UIViewController {
@@ -17,7 +18,7 @@ protocol IzolyatorMainViewControllable: UIViewController {
 
 	/// Отображает текущий город.
 	/// - Parameter city: Название города.
-	func updateScreenWith(products: [ProductServiceModel.MainScreenProductType])
+	func updateScreenWith(products: [ProductServiceModel.MainScreenProductModel])
 
 	/// Отображает премьеры.
 	/// - Parameter premieres: Премьеры.
@@ -57,7 +58,7 @@ protocol IzolyatorMainPresentableListener {
 final class IzolyatorMainViewController: UIViewController {
 
 	/// Продукты 
-	var productsMain: [ProductServiceModel.MainScreenProductType] = []
+	var productsMain: [ProductServiceModel.MainScreenProductModel] = []
 
 	/// Индекс текущей ячейки
 	var currentIndex: Int = 0
@@ -199,7 +200,7 @@ extension IzolyatorMainViewController: UITableViewDelegate {
 		case Section.products.rawValue:
 			return Constants.productTableViewCellHeight // 350
 		case Section.info.rawValue:
-			return 360 //Constants.productTableViewCellHeight
+			return 450 //Constants.productTableViewCellHeight
 		default:
 			return 0
 		}
@@ -286,7 +287,7 @@ extension IzolyatorMainViewController: UITableViewDataSource {
 
 extension IzolyatorMainViewController: IzolyatorMainViewControllable {
 
-	func updateScreenWith(products: [ProductServiceModel.MainScreenProductType]) {
+	func updateScreenWith(products: [ProductServiceModel.MainScreenProductModel]) {
 		productsMain = products
 		containerTableView.reloadData()
 	}

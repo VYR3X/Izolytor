@@ -16,6 +16,8 @@ protocol SearchPresentableListener {
 	func didLoad(_ viewController: SearchViewControllable)
 
 	func didTapOnButton()
+
+	func didSelectBushingInSearchList()
 }
 
 // https://www.youtube.com/watch?v=4RyhnwIRjpA // пример с фильтрацией простого массива с эивотными
@@ -23,6 +25,8 @@ protocol SearchPresentableListener {
 
 /// Экран поиска
 final class SearchViewController: UIViewController, SearchViewControllable {
+
+	var presentNextView: Bool = true
 
 	private lazy var myTableView: UITableView = {
 		let tableView = UITableView(frame: .zero, style: .plain)
@@ -34,7 +38,8 @@ final class SearchViewController: UIViewController, SearchViewControllable {
 		tableView.showsVerticalScrollIndicator = false
 		tableView.register(ProductListTableViewCell.self,
 						   forCellReuseIdentifier: String(describing: ProductListTableViewCell.self))
-		tableView.allowsSelection = false //  убрал выделение
+		tableView.allowsSelection = presentNextView //  убрал выделение
+		tableView.backgroundColor = .white
 		return tableView
 	}()
 
@@ -68,6 +73,7 @@ final class SearchViewController: UIViewController, SearchViewControllable {
 		setupView()
 		self.navigationController?.view.backgroundColor = .white
 		hideKeyboardWhenTappedAround()
+//		view.backgroundColor = .white
 	}
 
 	private func setUpAnimals() {
@@ -79,53 +85,53 @@ final class SearchViewController: UIViewController, SearchViewControllable {
 						voltageName: "12kV",
 						bushingModels: [
 							FullBushingInfoModel(bushingName: "TCNSIV-90-12/1000 (0)",
-												 drawing: "686381.279"),
+												 marking: "686381.279"),
 							FullBushingInfoModel(bushingName: "TCNSIV-90-12/1000 (100)",
-												 drawing: "686381.279-01"),
+												 marking: "686381.279-01"),
 							FullBushingInfoModel(bushingName: "TCNSIV-90-12/1000 (200)",
-												 drawing: "686381.279-02"),
+												 marking: "686381.279-02"),
 							FullBushingInfoModel(bushingName: "TCNSIV-90-12/1000 (300)",
-												 drawing: "686381.279-03"),
+												 marking: "686381.279-03"),
 							FullBushingInfoModel(bushingName: "TCNSIV-90-12/1000 (400)",
-												 drawing: "686381.279-04"),
+												 marking: "686381.279-04"),
 							FullBushingInfoModel(bushingName: "TCNSIV-90-12/1000 (500)",
-												 drawing: "686381.279-05"),
+												 marking: "686381.279-05"),
 							FullBushingInfoModel(bushingName: "TCNSIV-90-12/1000 (600)",
-												 drawing: "686381.279-06")
+												 marking: "686381.279-06")
 						]
 					),
 					VoltageСlassModel(
 						voltageName: "24kV",
 						bushingModels: [
 							FullBushingInfoModel(bushingName: "TCNSIII-90-24/5000 (0)",
-												 drawing: "686381.274"),
+												 marking: "686381.274"),
 							FullBushingInfoModel(bushingName: "TCNSIII-90-24/5000 (100)",
-												 drawing: "686381.274-01"),
+												 marking: "686381.274-01"),
 							FullBushingInfoModel(bushingName: "TCNSIII-90-24/5000 (200)",
-												 drawing: "686381.274-02"),
+												 marking: "686381.274-02"),
 							FullBushingInfoModel(bushingName: "TCNSIII-90-24/5000 (300)",
-												 drawing: "686381.274-03"),
+												 marking: "686381.274-03"),
 							FullBushingInfoModel(bushingName: "TCNSIII-90-24/5000 (400)",
-												 drawing: "686381.274-04")
+												 marking: "686381.274-04")
 						]
 					),
 					VoltageСlassModel(
 						voltageName: "40,5kV",
 						bushingModels: [
 							FullBushingInfoModel(bushingName: "TCNPIII-60-40,5/3500",
-												 drawing: "686381.154"),
+												 marking: "686381.154"),
 							FullBushingInfoModel(bushingName: "TCNPIII-90-40,5/1000 (0)",
-												 drawing: "686381.275"),
+												 marking: "686381.275"),
 							FullBushingInfoModel(bushingName: "TCNPIII-90-40,5/1000 (200)",
-												 drawing: "686381.275-01"),
+												 marking: "686381.275-01"),
 							FullBushingInfoModel(bushingName: "TCNPIII-90-40,5/1000 (300)",
-												 drawing: "686381.275-02"),
+												 marking: "686381.275-02"),
 							FullBushingInfoModel(bushingName: "TCNPIII-90-40,5/1000 (400)",
-												 drawing: "686381.275-03"),
+												 marking: "686381.275-03"),
 							FullBushingInfoModel(bushingName: "TCNPIII-90-40,5/1000 (500)",
-												 drawing: "686381.275-04"),
+												 marking: "686381.275-04"),
 							FullBushingInfoModel(bushingName: "TCNPIII-90-40,5/1000 (600)",
-												 drawing: "686381.275-05")
+												 marking: "686381.275-05")
 						]
 					)
 				]
@@ -181,9 +187,14 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
 			return UITableViewCell()
 		}
 		cell.backgroundColor = .clear
-		cell.detailLabel.text = currentBushingArray[0].voltageClassModels[indexPath.section].bushingModels[indexPath.row].drawing
+		cell.detailLabel.text = currentBushingArray[0].voltageClassModels[indexPath.section].bushingModels[indexPath.row].marking
 		cell.typeLabel.text = currentBushingArray[0].voltageClassModels[indexPath.section].bushingModels[indexPath.row].bushingName
 		return cell
+	}
+
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
+		listener.didSelectBushingInSearchList()
 	}
 
 }
