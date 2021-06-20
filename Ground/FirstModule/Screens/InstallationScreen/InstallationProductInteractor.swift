@@ -6,10 +6,10 @@
 //  Copyright © 2021 Splash Fire. All rights reserved.
 //
 
-// Интерфейс взаимодействия с интерактором экрана IzolyatorMainViewController
-protocol YouTubeInteractable {}
+// Интерфейс взаимодействия с интерактором экрана InstallationProduct
+protocol InstallationProductInteractable {}
 
-final class YouTubeInteractor: YouTubeInteractable {
+final class InstallationProductInteractor: InstallationProductInteractable {
 
 	/// Сервис
 	private let service: FirstServiceProtocol

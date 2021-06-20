@@ -50,7 +50,7 @@ class NavigationBarCustom: UINavigationBar {
 		self.barTintColor = UIColor(patternImage: gradientImage)
 	}
 
-	// Градиет для navbar
+	// Градиент для navbar
 	private func imageWithGradient(size: CGSize) -> UIImage {
 		self.gradientLayer.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
 		UIGraphicsBeginImageContext(gradientLayer.bounds.size)

@@ -60,8 +60,8 @@ extension IzolyatorMainPresenter: IzolyatorMainPresentableListener {
 	}
 
 	/// надо переименовать
-	func didTapOnFullInfoButton() {
-		coordinator.routeToYouTubeViewController()
+	func didTapOnInstallationProductButton() {
+		coordinator.routeToInstallationProductViewController()
 	}
 
 	func didLoad(_ viewController: IzolyatorMainViewControllable) {

@@ -10,8 +10,7 @@ import UIKit
 
 /// Делегат ячейки с каруселью продуктов
 protocol ProductTableViewCellDelegate {
-	func didSelectAlbum(position: Int)
-
+	/// Определить текущий индекс ячейки в карусели продкутов на главном экране
 	func detectCurrentCellIndex(_ index: Int)
 }
 
@@ -52,14 +51,9 @@ final class ProductTableViewCell: UITableViewCell {
 	}
 
 	private func setupConstraints() {
-//		contentView.addSubviews(headerLabel, paginationCollectionView)
 		contentView.addSubviews(paginationCollectionView)
 
 		NSLayoutConstraint.activate([
-//			headerLabel.topAnchor.constraint(equalTo: topAnchor, constant: 15),
-//			headerLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
-
-//			paginationCollectionView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 15),
 			paginationCollectionView.topAnchor.constraint(equalTo: topAnchor),
 			paginationCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
 			paginationCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),

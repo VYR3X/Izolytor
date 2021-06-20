@@ -25,9 +25,6 @@ protocol StartCoordinatorProtocol {
 	/// Переход на второй экрна для модуля SM
 	func routeToSecondViewControllerInSM()
 
-	/// Переход на второй экрна для модуля TM
-	func routeToSecondViewControllerInTM()
-
 	/// Переход на экран с AR сценой
 	func routeToARSceneViewController()
 
@@ -37,8 +34,8 @@ protocol StartCoordinatorProtocol {
 	/// Переход на экран с pdf вью
 	func routeToPDFViewController(resourceName: String)
 
-	/// Переход на кран с отображение видео материалов 
-	func routeToYouTubeViewController()
+	/// Переход на кран "Монтаж ввода" с отображение видео материалов
+	func routeToInstallationProductViewController()
 
 	///  Обработчик нажатия назад в FM
 	func popViewControllerFM()
@@ -77,13 +74,10 @@ extension GroundCoordinator: StartCoordinatorProtocol {
 	}
 
 	func routeToLibraryViewController() -> UIViewController {
-		let library = assembly.makeLibraryViewController()
+		let library = assembly.makeProfileViewController()
 		thirdNavigationController = ThirdNavigationController(rootViewController: library)
 		return thirdNavigationController!
 	}
-
-	// три метода для перехода на вторый экраны в модулях FM, SM, TM, ...
-	// для каждого модуля есть свой управлюящий навигационный контроллер first, second, third, ...
 
 	func routeToARSceneViewController() {
 		let viewController = ARViewController() //assembly.makeSearchViewController()
@@ -92,18 +86,16 @@ extension GroundCoordinator: StartCoordinatorProtocol {
 
 	func routeToProductListContoller(presentNextView: Bool) {
 		let viewController = assembly.makeSearchViewController(presentNextView: presentNextView)
-//		let viewController = assembly.makeSearchViewController()
 		firstNavigationController?.present(viewController, animated: true, completion: nil)
 	}
-
 
 	func routeToPDFViewController(resourceName: String) {
 		let viewController = assembly.makeProductDetailViewController(name: resourceName)
 		firstNavigationController?.pushViewController(viewController, animated: true)
 	}
 
-	func routeToYouTubeViewController() {
-		let viewController = assembly.makeYouTubeViewController()
+	func routeToInstallationProductViewController() {
+		let viewController = assembly.makeInstallationProductViewController()
 		firstNavigationController?.pushViewController(viewController, animated: true)
 	}
 
@@ -117,30 +109,20 @@ extension GroundCoordinator: StartCoordinatorProtocol {
 		secondNavigationController?.pushViewController(viewController, animated: true)
 	}
 
-	func routeToSecondViewControllerInTM() {
-		let viewController = assembly.makeSecondViewControllerTM()
-		thirdNavigationController?.pushViewController(viewController, animated: true)
-	}
-
 	func getTabBabItems() -> [UITabBarItem] {
 
-		let catalogTabBarItem = UITabBarItem(title: "Каталог",
-										 image: UIImage(named: "homeIcon"),
-										 selectedImage: UIImage(named: "homeIcon"))
-//		let catalogTabBarItem = UITabBarItem()
-//		catalogTabBarItem.title = "Каталог"
-//		catalogTabBarItem.image = UIImage(named: "chevron_down")
+		let catalogTabBarItem = UITabBarItem(
+			title: "Каталог",
+			image: UIImage(named: "homeIcon"),
+			selectedImage: UIImage(named: "homeIcon")
+		)
 		let searchTabBarItem = UITabBarItem()
 		searchTabBarItem.title = "Поиск"
 		searchTabBarItem.image = UIImage(named: "searchIcon")
 		let profileTabBarItem = UITabBarItem()
 		profileTabBarItem.title = "Профиль"
 		profileTabBarItem.image = UIImage(named: "profileIcon")
-		var items: [UITabBarItem] = []
-		items.append(catalogTabBarItem)
-		items.append(searchTabBarItem)
-		items.append(profileTabBarItem)
-		return items
+		return [catalogTabBarItem, searchTabBarItem, profileTabBarItem]
 	}
 }
 

@@ -109,12 +109,6 @@ extension PaginationCollectionView: UICollectionViewDataSource {
 
 		return cell
 	}
-
-//	func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//		bottomPageControl.currentPage = indexPath.section
-//		delegate?.detectCurrentCellIndex(indexPath.section)
-//	}
-
 }
 
 // MARK: - UICollectionViewDelegate
@@ -122,7 +116,6 @@ extension PaginationCollectionView: UICollectionViewDataSource {
 extension PaginationCollectionView: UICollectionViewDelegate {
 
 	// https://stackoverflow.com/questions/40975302/how-to-add-pagecontrol-inside-uicollectionview-image-scrolling
-	// лучшее решение )
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		let offSet = scrollView.contentOffset.x
 		let width = scrollView.frame.width
@@ -133,19 +126,7 @@ extension PaginationCollectionView: UICollectionViewDelegate {
 		delegate?.detectCurrentCellIndex(index)
 	}
 
-	// https://stackoverflow.com/questions/40975302/how-to-add-pagecontrol-inside-uicollectionview-image-scrolling
-//	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//		let index = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
-//		bottomPageControl.currentPage = index
-//		delegate?.detectCurrentCellIndex(index)
-//	}
-
-//	func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-//		bottomPageControl.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
-//	}
-
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		print("Выбрали Высоковольтный ввод под номером: \(indexPath.row + 1)")
-		delegate?.didSelectAlbum(position: indexPath.row)
 	}
 }

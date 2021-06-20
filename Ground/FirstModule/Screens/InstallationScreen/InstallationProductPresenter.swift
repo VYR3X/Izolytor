@@ -6,30 +6,33 @@
 //  Copyright © 2021 Splash Fire. All rights reserved.
 //
 
-/// Интерфейс взаимодействия с презентером экрана IzolyatorMainViewController
-protocol YouTubePresentable {}
+import UIKit
 
+/// Интерфейс взаимодействия с презентером экрана IzolyatorMainViewController
+protocol InstallationProductPresentable {}
 
 /// Презентер главного экрана приложения
-final class YouTubePresenter: YouTubePresentable {
+final class InstallationProductPresenter: InstallationProductPresentable {
 
-	weak var viewController: YouTubeViewControllable?
+	weak var viewController: UIViewController?
 
-	private let interactor: YouTubeInteractable
+	private let interactor: InstallationProductInteractable
 	private let coordinator: StartCoordinatorProtocol
 
-	init(interactor: YouTubeInteractable,
+	init(interactor: InstallationProductInteractable,
 		 coordinator: StartCoordinatorProtocol) {
 		self.interactor = interactor
 		self.coordinator = coordinator
 	}
 }
 
-// MARK: - YouTubeViewControllerListener
+// MARK: - InstallationProductViewControllerListener
 
-extension YouTubePresenter: YouTubeViewControllerListener {
+extension InstallationProductPresenter: InstallationProductViewControllerListener {
 
-	func loadView() {}
+	func loadView() {
+		
+	}
 
 	func didLoad(_ viewController: ProductDetailViewControllable) {}
 

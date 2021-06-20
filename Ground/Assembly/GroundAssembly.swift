@@ -41,7 +41,6 @@ final class GroundAssembly {
 
 	/// Метод для сборки экрана "IzolyatorMain" для таббара
 	func makeIzolyatorMainViewController() -> UIViewController {
-//		var view = SplashViewController()
 		let service = services.makeFirstService()
 		let interactor = IzolyatorMainInteractor(service: service)
 		let presenter = IzolyatorMainPresenter(interactor: interactor, coordinator: startRouter!)
@@ -53,7 +52,7 @@ final class GroundAssembly {
 	/// Метод для сборки экрана "Search" для таббара
 	func makeSearchViewController(presentNextView: Bool) -> UIViewController {
 		let service = services.makeFirstService()
-		let interactor = FirstScreenSMInteractor(service: service)
+		let interactor = SearchInteractor(service: service)
 		let presenter = SearchPresenter(interactor: interactor, coordinator: startRouter!)
 		let view = SearchViewController(listener: presenter)
 		view.presentNextView = presentNextView
@@ -61,12 +60,12 @@ final class GroundAssembly {
 		return view
 	}
 
-	/// Метод для сборки экрана "Library" для таббара
-	func makeLibraryViewController() -> UIViewController {
+	/// Метод для сборки экрана "Profile" для таббара
+	func makeProfileViewController() -> UIViewController {
 		let service = services.makeFirstService()
-		let interactor = FirstScreenTMInteractor(service: service)
-		let presenter = FirstScreenTMPresenter(interactor: interactor, coordinator: startRouter!)
-		let view = FirstScreenTMViewController(listener: presenter)
+		let interactor = ProfileInteractor(service: service)
+		let presenter = ProfilePresenter(interactor: interactor, coordinator: startRouter!)
+		let view = ProfileViewController(listener: presenter)
 		presenter.viewController = view
 		return view
 	}
@@ -82,11 +81,11 @@ final class GroundAssembly {
 		return view
 	}
 
-	/// Метод для сборки экрана c отображением YouTube видео
-	func makeYouTubeViewController() -> UIViewController {
+	/// Метод для сборки экрана  "Монтаж ввода" с видео материалами, и сопроводительной документаций
+	func makeInstallationProductViewController() -> UIViewController {
 		let service = services.makeFirstService()
-		let interactor = YouTubeInteractor(service: service)
-		let presenter = YouTubePresenter(interactor: interactor, coordinator: startRouter!)
+		let interactor = InstallationProductInteractor(service: service)
+		let presenter = InstallationProductPresenter(interactor: interactor, coordinator: startRouter!)
 		let view = InstallationProductViewController(listener: presenter)
 		presenter.viewController = view
 		return view
@@ -99,16 +98,6 @@ final class GroundAssembly {
 		let interactor = SecondScreenSMInteractor(service: service)
 		let presenter = SecondScreenSMPresenter(interactor: interactor, coordinator: startRouter!)
 		let view = SecondScreenSMViewController(listener: presenter)
-		presenter.viewController = view
-		return view
-	}
-
-	/// второй экран для перехода в модуле TM
-	func makeSecondViewControllerTM()-> UIViewController {
-		let service = services.makeSecondService()
-		let interactor = SecondScreenTMInteractor(service: service)
-		let presenter = SecondScreenTMPresenter(interactor: interactor, coordinator: startRouter!)
-		let view = SecondScreenTMViewController(listener: presenter)
 		presenter.viewController = view
 		return view
 	}

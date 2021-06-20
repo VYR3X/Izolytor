@@ -7,12 +7,14 @@
 //
 
 import youtube_ios_player_helper
-
 import UIKit
 
 /// Делегат ячейки вью c "YouTube плеером"
 protocol YouTubeTableViewCellDelegate {
-	func loadVideo() // переделать на вызов через презентер с параметром названия ресурса
+	/// Загрузить видео
+	func loadVideo()
+	/// Вернуться назад
+	func didTapBackButton()
 }
 
 /// Ячейка содержащая вью c "YouTube плеером"
@@ -20,29 +22,6 @@ final class YouTubeTableViewCell: UITableViewCell {
 
 	/// Делегат ячейки youtube вью
 	var delegate: YouTubeTableViewCellDelegate?
-
-//	private lazy var backButton: UIButton = {
-//		let button = UIButton(type: UIButton.ButtonType.custom)
-//		let image = UIImage(named: "arrow_left")
-//		button.setImage(image, for: .normal)
-//		button.addTarget(self, action: #selector(tapOnLeftButton(sender:)), for: .touchUpInside)
-//		button.translatesAutoresizingMaskIntoConstraints = false
-//		button.makeSquare(side: 24)
-//		return button
-//	}()
-
-//	private let headerLabel: UILabel = {
-//		let label = UILabel()
-//		label.translatesAutoresizingMaskIntoConstraints = false
-//		label.sizeToFit()
-//		label.text = "Изолятор"
-//		label.font = UIFont.boldSystemFont(ofSize: 25)
-//		label.textColor = .black
-//		label.backgroundColor = .clear
-//		label.numberOfLines = 0
-//		label.textAlignment = .center
-//		return label
-//	}()
 
 	private let youtubeView: YTPlayerView = {
 		let view = YTPlayerView()
@@ -63,12 +42,6 @@ final class YouTubeTableViewCell: UITableViewCell {
 		contentView.addSubview(youtubeView)
 
 		NSLayoutConstraint.activate([
-//			backButton.topAnchor.constraint(equalTo: topAnchor, constant: 15),
-//			backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-//
-//			headerLabel.topAnchor.constraint(equalTo: topAnchor, constant: 15),
-//			headerLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-
 			youtubeView.topAnchor.constraint(equalTo: topAnchor),
 			youtubeView.bottomAnchor.constraint(equalTo: bottomAnchor),
 			youtubeView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),

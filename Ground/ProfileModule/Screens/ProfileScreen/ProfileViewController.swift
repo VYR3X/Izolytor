@@ -1,5 +1,5 @@
 //
-//  FirstScreenTMViewController.swift
+//  ProfileViewController.swift
 //  Ground
 //
 //  Created by 17790204 on 27.11.2020.
@@ -8,21 +8,23 @@
 
 import UIKit
 
-/// Интерфейс взаимодействия с вью-контроллером экрана FirstScreenTM.
-protocol FirstScreenTMViewControllable: UIViewController {}
+/// Интерфейс взаимодействия с вью-контроллером экрана ProfileViewControllable.
+protocol ProfileViewControllable: UIViewController {}
 
-protocol FirstScreenTMPresentableListener {
+protocol ProfilePresentableListener {
 
-	func didLoad(_ viewController: FirstScreenTMViewControllable)
-
-	func didTapOnButton()
+	func didLoad(_ viewController: ProfileViewControllable)
 }
 
-final class FirstScreenTMViewController: UIViewController, FirstScreenTMViewControllable {
+/// Вью контроллер экрана - Профиль
+final class ProfileViewController: UIViewController, ProfileViewControllable {
 
-    private let listener: FirstScreenTMPresentableListener
+	private struct Constants {
+		static let offset: CGFloat = 25
+		static let titleLabelTopOffset: CGFloat = 20
+	}
 
-	// MARK: - UI
+    private let listener: ProfilePresentableListener
 
 	private lazy var imageView: UIImageView = {
 		let imageView = UIImageView()
@@ -39,20 +41,10 @@ final class FirstScreenTMViewController: UIViewController, FirstScreenTMViewCont
 """
 		label.numberOfLines = 0
 		label.textColor = .black
-//		label.backgroundColor = .white
 		return label
 	}()
 
-//	private lazy var titleButton: UIButton = {
-//		let button = UIButton()
-//		button.translatesAutoresizingMaskIntoConstraints = false
-//		button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
-//		button.tintColor = .black
-//		button.backgroundColor = .white
-//		return button
-//	}()
-
-    init(listener: FirstScreenTMPresentableListener) {
+    init(listener: ProfilePresentableListener) {
         self.listener = listener
         super.init(nibName: nil, bundle: nil)
     }
@@ -61,8 +53,6 @@ final class FirstScreenTMViewController: UIViewController, FirstScreenTMViewCont
 
     override func viewDidLoad() {
         super.viewDidLoad()
-		// Configuration
-		// didLoad(_:)
 		listener.didLoad(self)
 		view.backgroundColor = .white
 		setupConstraints()
@@ -73,19 +63,14 @@ final class FirstScreenTMViewController: UIViewController, FirstScreenTMViewCont
 
 		NSLayoutConstraint.activate([
 
-			imageView.topAnchor.constraint(equalTo: view.safeTopAnchor, constant: 25),
+			imageView.topAnchor.constraint(equalTo: view.safeTopAnchor, constant: Constants.offset),
 			imageView.heightAnchor.constraint(equalToConstant: 120),
-			imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
-			imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
+			imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.offset),
+			imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.offset),
 
-			titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
-			titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 25),
-			titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -25),
+			titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: Constants.titleLabelTopOffset),
+			titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.offset),
+			titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.offset),
 		])
-	}
-
-	/// Метод для воспроизведение следующей композиции
-	@objc func didTapButton() {
-		listener.didTapOnButton()
 	}
 }

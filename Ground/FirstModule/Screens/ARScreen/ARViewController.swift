@@ -87,7 +87,7 @@ final class ARViewController: UIViewController {
 	private func setUpGesture() {
 		// По нажатию перемещаю
 		self.addTapGesture()
-		// Не понял как переместить
+		// Перемещение по касанию 
 //		self.addPanGesture()
 		// Увеличение работает
 		self.addPinchGesture()

@@ -73,7 +73,6 @@ final class SearchViewController: UIViewController, SearchViewControllable {
 		setupView()
 		self.navigationController?.view.backgroundColor = .white
 		hideKeyboardWhenTappedAround()
-//		view.backgroundColor = .white
 	}
 
 	private func setUpAnimals() {

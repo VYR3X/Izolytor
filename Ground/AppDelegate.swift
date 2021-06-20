@@ -13,19 +13,6 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
-		// Override point for customization after application launch.
-//		Thread.sleep(forTimeInterval: 10.0)
-
-//		splashPresenter?.present()
-//
-//		let delay: TimeInterval = 2
-//		DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-//			self.splashPresenter?.dismiss { [weak self] in
-//				self?.splashPresenter = nil
-//			}
-//		}
-
 		return true
 	}
 

@@ -1,17 +1,18 @@
 //
-//  FirstScreenSMInteractor.swift
+//  FirstScreenTMInteractor.swift
 //  Ground
 //
 //  Created by 17790204 on 27.11.2020.
 //  Copyright © 2020 Splash Fire. All rights reserved.
 //
 
-/// Интерфейс взаимодействия с интерактором экрана FirstScreenSM во флоу GG.
-protocol FirstScreenSMInteractable {}
+/// Интерфейс взаимодействия с интерактором экрана Profile
+protocol ProfileInteractable {}
 
-final class FirstScreenSMInteractor: FirstScreenSMInteractable {
+/// Интерактор экрана профиль
+final class ProfileInteractor: ProfileInteractable {
 
-	/// Сервис для работы c музыкальными композициями
+	/// Сервис для работы для получения данных о продуктах
 	private let service: FirstServiceProtocol
 
 	/// Конструктор интерактора экрана новых релизов музыкальных композиций

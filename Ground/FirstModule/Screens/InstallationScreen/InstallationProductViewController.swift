@@ -8,10 +8,8 @@
 
 import UIKit
 
-/// Интерфейс взаимодействия с вью-контроллером экрана ProductDetailViewController.
-protocol YouTubeViewControllable: UIViewController {}
-
-protocol YouTubeViewControllerListener {
+/// Листенер для экрана  "Монтаж ввода"
+protocol InstallationProductViewControllerListener {
 
 	func didLoad(_ viewController: ProductDetailViewControllable)
 
@@ -24,9 +22,8 @@ protocol YouTubeViewControllerListener {
 	func didTapOnManualCell()
 }
 
-
 /// Экран  "Монтаж ввода" с видео материалами, и сопроводительной документаций
-final class InstallationProductViewController: UIViewController, YouTubeViewControllable {
+final class InstallationProductViewController: UIViewController {
 
 	var sections = sectionsData
 
@@ -49,7 +46,7 @@ final class InstallationProductViewController: UIViewController, YouTubeViewCont
 		case arSection
 	}
 
-	private let listener: YouTubeViewControllerListener
+	private let listener: InstallationProductViewControllerListener
 
 	private lazy var containerTableView: UITableView = {
 		let tableView = UITableView(frame: .zero, style: .plain)
@@ -113,7 +110,7 @@ final class InstallationProductViewController: UIViewController, YouTubeViewCont
 //		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
 	}
 
-	init(listener: YouTubeViewControllerListener) {
+	init(listener: InstallationProductViewControllerListener) {
 		self.listener = listener
 		super.init(nibName: nil, bundle: nil)
 	}
@@ -251,7 +248,11 @@ extension InstallationProductViewController: UITableViewDataSource {
 			}
 
 //			let item: Item = sections[1].items[indexPath.row]
-			cell.bind(title: "Открыть список вводов", subTitle: "Перейдите в каталог", iconName: "addIcon")
+			cell.bind(
+				title: "Открыть список вводов",
+				subTitle: "Перейдите в каталог",
+				iconName: "addIcon"
+			)
 
 			return cell
 		case Section.manualSection.rawValue:
@@ -283,6 +284,8 @@ extension InstallationProductViewController: UITableViewDataSource {
 // MARK: - YouTubeTableViewCellDelegate
 
 extension InstallationProductViewController: YouTubeTableViewCellDelegate {
+
+	func didTapBackButton() {}
 
 	func loadVideo() {
 		listener.loadView()

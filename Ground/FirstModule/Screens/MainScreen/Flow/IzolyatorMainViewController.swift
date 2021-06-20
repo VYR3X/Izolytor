@@ -46,11 +46,14 @@ protocol IzolyatorMainViewControllable: UIViewController {
 /// Листенер главного экрана приложения
 protocol IzolyatorMainPresentableListener {
 
+	/// Загрузить данные для отображения на экране
 	func didLoad(_ viewController: IzolyatorMainViewControllable)
 
+	/// Переход на экран "AR" при нажатии на кнопку
 	func didTapOnARButton()
 
-	func didTapOnFullInfoButton()
+	/// Переход на экран "Монтаж" при нажатии на кнопку
+	func didTapOnInstallationProductButton()
 }
 
 
@@ -65,6 +68,7 @@ final class IzolyatorMainViewController: UIViewController {
 
 	private struct Constants {
 		static let productTableViewCellHeight: CGFloat = 350
+		static let productInfoTableViewCellHeight: CGFloat = 450
 		static let modelTableViewCellHeight: CGFloat = 45
 		static let collapse: CGFloat = 100
 		static let sectionsCount = 3
@@ -189,8 +193,6 @@ extension IzolyatorMainViewController: UITableViewDelegate {
 		return section == 0 || section == 2 ? .leastNormalMagnitude : 45.0
 	}
 
-	// https://stackoverflow.com/questions/30364067/space-between-sections-in-uitableview
-	// убрал ебучий отступ между секцией и ячейками
 	func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
 		return .leastNormalMagnitude
 	}
@@ -198,30 +200,13 @@ extension IzolyatorMainViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		switch indexPath.section {
 		case Section.products.rawValue:
-			return Constants.productTableViewCellHeight // 350
+			return Constants.productTableViewCellHeight
 		case Section.info.rawValue:
-			return 450 //Constants.productTableViewCellHeight
+			return Constants.productTableViewCellHeight
 		default:
 			return 0
 		}
 	}
-
-
-	/// Вью для секции ячеек
-//	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//		let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as? CollapsibleTableViewHeader ?? CollapsibleTableViewHeader(reuseIdentifier: "header")
-//		if productsMain.isEmpty {
-//			return header
-//		} else {
-//			header.typeLabel.text = productsMain[currentIndex].typeName //"ВВ Трансформаторный тип" //sections[section].name
-//			header.setCollapsed(productsMain[currentIndex].modelSectionCollapsed)
-//
-//			header.section = section
-//			header.delegate = self
-//
-//			return header
-//		}
-//	}
 }
 
 // MARK: - UITableViewDataSource
@@ -236,13 +221,6 @@ extension IzolyatorMainViewController: UITableViewDataSource {
 		switch section {
 		case Section.products.rawValue:
 			return 1
-//		case Section.models.rawValue:
-			//return sections[section].collapsed ? 0 : sections[section].items.count
-//			if productsMain.isEmpty {
-//				return 0
-//			} else {
-//				return  productsMain[currentIndex].modelSectionCollapsed ? 0 : productsMain[currentIndex].models.count
-//			}
 		case Section.info.rawValue:
 			return 1
 		default:
@@ -327,7 +305,7 @@ extension IzolyatorMainViewController: CollapsibleTableViewHeaderDelegate {
 extension IzolyatorMainViewController: MultipleViewDelegate {
 
 	func didTapLeftButton() {
-		listener.didTapOnFullInfoButton()
+		listener.didTapOnInstallationProductButton()
 	}
 
 	func openArScene() {
