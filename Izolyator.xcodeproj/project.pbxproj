@@ -70,6 +70,7 @@
 		01A24D1C25B3B4F600D876BE /* CollapsibleTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A24D1B25B3B4F600D876BE /* CollapsibleTableViewHeader.swift */; };
 		01A5691B267D307C008490C0 /* SecondService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A5691A267D307C008490C0 /* SecondService.swift */; };
 		01A56924267F70A5008490C0 /* CatalogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A56923267F70A5008490C0 /* CatalogModel.swift */; };
+		01A5694C267F910B008490C0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01A5694B267F910B008490C0 /* GoogleService-Info.plist */; };
 		01AC5D0A25BC6FB700D21B9A /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AC5D0925BC6FB700D21B9A /* UITableView.swift */; };
 		01AC5D0D25BC782D00D21B9A /* ManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AC5D0C25BC782D00D21B9A /* ManualViewController.swift */; };
 		01AC5D1025BC78C100D21B9A /* manual.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 01AC5D0F25BC78C100D21B9A /* manual.pdf */; };
@@ -148,6 +149,7 @@
 		01A24D1B25B3B4F600D876BE /* CollapsibleTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleTableViewHeader.swift; sourceTree = "<group>"; };
 		01A5691A267D307C008490C0 /* SecondService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondService.swift; sourceTree = "<group>"; };
 		01A56923267F70A5008490C0 /* CatalogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogModel.swift; sourceTree = "<group>"; };
+		01A5694B267F910B008490C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		01AC5D0925BC6FB700D21B9A /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		01AC5D0C25BC782D00D21B9A /* ManualViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualViewController.swift; sourceTree = "<group>"; };
 		01AC5D0F25BC78C100D21B9A /* manual.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = manual.pdf; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 		01141DEE25669E6500E8CDE2 /* Ground */ = {
 			isa = PBXGroup;
 			children = (
+				01A5694B267F910B008490C0 /* GoogleService-Info.plist */,
 				01141DEF25669E6500E8CDE2 /* AppDelegate.swift */,
 				01141DF125669E6500E8CDE2 /* SceneDelegate.swift */,
 				01141E062566A03400E8CDE2 /* DesignSystem */,
@@ -596,6 +599,7 @@
 				01D173B925B4947D00E51FBB /* product.pdf in Resources */,
 				015F798B25C72B340032BE7B /* art.scnassets in Resources */,
 				01141DFC25669E6600E8CDE2 /* Assets.xcassets in Resources */,
+				01A5694C267F910B008490C0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -864,7 +868,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = daf000;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Izolyator.mobileApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -883,7 +887,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = eeeeeeboynice;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Izolyator.mobileApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
